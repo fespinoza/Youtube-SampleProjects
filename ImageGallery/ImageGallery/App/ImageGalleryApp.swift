@@ -50,7 +50,7 @@ struct ImageGalleryApp: App {
     func readFolders() {
         let folders = folderUrls.compactMap { url in
             do {
-                return try Folder.build(from: url)
+                return try Folder.readData(for: url)
             } catch {
                 logger.error("\(error.localizedDescription)")
                 return Folder(name: url.lastPathComponent, url: url, contents: [])

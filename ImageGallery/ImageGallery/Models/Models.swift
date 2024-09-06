@@ -42,13 +42,17 @@ extension URL {
 }
 
 extension Folder {
-    static func build(from url: URL) throws -> Folder {
+    static func build(from url: URL, storeBookmarkData: Bool = true) throws -> Folder {
         if !url.startAccessingSecurityScopedResource() {
             logger.error("""
                 startAccessingSecurityScopedResource returned false. \
                 This directory might not need it, or this URL might not be a security scoped URL, \
                 or maybe something's wrong?
             """)
+        }
+
+        if storeBookmarkData {
+            try saveBookmarkData(for: url)
         }
 
         let rawContents = (
@@ -77,4 +81,43 @@ extension Folder {
             return nil
         }
     }
+
+    private static func saveBookmarkData(for url: URL) throws {
+        let bookmarkData = try url.bookmarkData(
+            options: .withSecurityScope,
+            includingResourceValuesForKeys: nil,
+            relativeTo: nil
+        )
+
+        UserDefaults.standard.set(bookmarkData, forKey: bookmarkDataKey(for: url))
+    }
+
+    private static func bookmarkDataKey(for url: URL) -> String {
+        "bookmark_\(url)"
+    }
+
+    static func readData(for url: URL) throws -> Folder {
+        guard let bookmarkData = UserDefaults.standard.data(forKey: bookmarkDataKey(for: url)) else {
+            throw FolderError.noBookmarkData(url: url)
+        }
+
+        var isStale = false
+        let bookmarkURL = try URL(
+            resolvingBookmarkData: bookmarkData,
+            options: .withSecurityScope,
+            relativeTo: nil,
+            bookmarkDataIsStale: &isStale
+        )
+
+        if isStale {
+            throw FolderError.bookmarkStale(url: url, bookmark: bookmarkURL)
+        } else {
+            return try Folder.build(from: bookmarkURL, storeBookmarkData: false)
+        }
+    }
+}
+
+enum FolderError: Error {
+    case noBookmarkData(url: URL)
+    case bookmarkStale(url: URL, bookmark: URL)
 }
