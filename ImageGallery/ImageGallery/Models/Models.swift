@@ -43,6 +43,14 @@ extension URL {
 
 extension Folder {
     static func build(from url: URL) throws -> Folder {
+        if !url.startAccessingSecurityScopedResource() {
+            logger.error("""
+                startAccessingSecurityScopedResource returned false. \
+                This directory might not need it, or this URL might not be a security scoped URL, \
+                or maybe something's wrong?
+            """)
+        }
+
         let rawContents = (
             try FileManager.default.contentsOfDirectory(
                 at: url,

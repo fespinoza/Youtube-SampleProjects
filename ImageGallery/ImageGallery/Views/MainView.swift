@@ -9,6 +9,12 @@ class MainViewModel {
         self.folders = folders
         self.selectedFolder = folders.first
     }
+
+    deinit {
+        folders.forEach { folder in
+            folder.url.stopAccessingSecurityScopedResource()
+        }
+    }
 }
 
 struct MainView: View {
