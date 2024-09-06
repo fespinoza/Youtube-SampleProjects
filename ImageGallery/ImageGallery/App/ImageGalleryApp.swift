@@ -18,7 +18,6 @@ struct ImageGalleryApp: App {
                     folderUrls = newValue.map(\.url)
                 }
         }
-        .commandsRemoved()
         .commands {
             CommandGroup(after: .newItem) {
                 Button("Import folder", action: { importFolder.toggle() })

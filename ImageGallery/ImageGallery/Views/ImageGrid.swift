@@ -8,18 +8,23 @@ struct ImageGrid: View {
     private let contentPadding: CGFloat = 16
 
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: itemSize), spacing: itemSpacing)]) {
-            ForEach(folder.contents) { imageFile in
-                VStack {
-                    AsyncImage(url: imageFile.url) { image in
-                        image
-                            .resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: itemSize, height: itemSize)
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: itemSize), spacing: itemSpacing)]) {
+                ForEach(folder.contents) { imageFile in
+                    VStack {
+                        AsyncImage(url: imageFile.url) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: itemSize, height: itemSize)
+                                .clipped()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: itemSize, height: itemSize)
 
-                    Text(imageFile.name)
+                        Text(imageFile.name)
+                    }
                 }
             }
         }
