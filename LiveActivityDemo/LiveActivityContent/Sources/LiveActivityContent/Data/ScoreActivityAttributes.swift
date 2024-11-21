@@ -8,7 +8,7 @@ import WidgetKit
     extension ScoreActivityAttributes: ActivityAttributes {}
 #endif
 
-public struct ScoreActivityAttributes: Codable {
+public struct ScoreActivityAttributes: Codable, Sendable {
     public let blueTeam: Team
     public let redTeam: Team
     public let matchStartTime: Date
@@ -19,7 +19,7 @@ public struct ScoreActivityAttributes: Codable {
         self.matchStartTime = matchStartTime
     }
 
-    public struct ContentState: Codable, Hashable {
+    public struct ContentState: Codable, Hashable, Sendable {
         public let matchState: MatchState
         public let blueTeamScore: Int
         public let redTeamScore: Int
@@ -31,14 +31,14 @@ public struct ScoreActivityAttributes: Codable {
         }
     }
 
-    public enum MatchState: Codable, Hashable {
+    public enum MatchState: Codable, Hashable, Sendable {
         case notYetStarted
         case inProgress(periodInfo: PeriodInfo)
         case paused
         case finished
     }
 
-    public struct PeriodInfo: Codable, Hashable {
+    public struct PeriodInfo: Codable, Hashable, Sendable {
         public let name: String
         public let currentTime: Date
         public let timeLeft: TimeInterval
@@ -52,7 +52,7 @@ public struct ScoreActivityAttributes: Codable {
         }
     }
 
-    public struct Team: Codable, Hashable {
+    public struct Team: Codable, Hashable, Sendable {
         public let name: String
 
         // WARNING: for this example, I'm using an `imageName` that will
