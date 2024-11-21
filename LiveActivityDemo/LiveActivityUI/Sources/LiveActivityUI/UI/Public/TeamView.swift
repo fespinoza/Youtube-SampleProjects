@@ -27,3 +27,12 @@ public struct TeamView: View {
         }
     }
 }
+
+#Preview {
+    VStack(spacing: 20) {
+        TeamView(name: "Arsenal", imageName: "arsenal")
+
+        TeamView(name: "Arsenal", imageName: "arsenal")
+            .environment(\.activityFamily, .small)
+    }
+}

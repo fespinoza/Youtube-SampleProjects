@@ -24,10 +24,6 @@ public struct MatchView: View {
             @unknown default:
                 medium
             }
-        }.onAppear {
-            print("----------------- MYWIDGET ------------------")
-            dump(attrs)
-            dump(state)
         }
     }
 
@@ -60,5 +56,22 @@ public struct MatchView: View {
         .padding()
         .foregroundStyle(.white) // semantic?
         .background(BackgroundGradient(matchState: state.matchState))
+    }
+}
+
+#Preview {
+    VStack {
+        MatchView(
+            attrs: .previewValue(),
+            state: .previewValue()
+        )
+        .frame(width: 364, height: 119)
+
+        MatchView(
+            attrs: .previewValue(),
+            state: .previewValue()
+        )
+        .frame(width: 184, height: 82)
+        .environment(\.activityFamily, .small)
     }
 }

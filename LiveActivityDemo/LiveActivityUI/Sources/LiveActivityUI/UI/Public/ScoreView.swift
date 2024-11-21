@@ -44,3 +44,12 @@ public struct ScoreView: View {
         }
     }
 }
+
+#Preview {
+    VStack(spacing: 20) {
+        ScoreView(blue: 2, red: 1)
+
+        ScoreView(blue: 2, red: 1)
+            .environment(\.activityFamily, .small)
+    }
+}
