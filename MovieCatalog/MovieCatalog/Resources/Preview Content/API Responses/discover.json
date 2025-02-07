@@ -1,0 +1,420 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/rn8Sg6C8aWKRWdqY4hIpmOaiuqS.jpg",
+      "id": 710295,
+      "title": "Wolf Man",
+      "original_title": "Wolf Man",
+      "overview": "With his marriage fraying, Blake persuades his wife Charlotte to take a break from the city and visit his remote childhood home in rural Oregon. As they arrive at the farmhouse in the dead of night, they're attacked by an unseen animal and barricade themselves inside the home as the creature prowls the perimeter. But as the night stretches on, Blake begins to behave strangely, transforming into something unrecognizable.",
+      "poster_path": "/vtdEHG1j07PqLlVyhKNZRHTPKGt.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "popularity": 554.59,
+      "release_date": "2025-01-15",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 165
+    },
+    {
+      "backdrop_path": "/hZSOdJFLECTBO8PpYkVI3rPsY2D.jpg",
+      "id": 1212142,
+      "title": "Kinda Pregnant",
+      "original_title": "Kinda Pregnant",
+      "overview": "When Lainy's plan to settle down and start a family falls apart, she puts on a fake baby bump, tells a lie — and accidentally falls for her dream guy.",
+      "poster_path": "/k2Lq3rCJ7P9gk5Df9of9kqr9IJM.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        35,
+        10749
+      ],
+      "popularity": 125.719,
+      "release_date": "2025-02-04",
+      "video": false,
+      "vote_average": 4.9,
+      "vote_count": 33
+    },
+    {
+      "backdrop_path": "/uKb22E0nlzr914bA9KyA5CVCOlV.jpg",
+      "id": 402431,
+      "title": "Wicked",
+      "original_title": "Wicked",
+      "overview": "In the land of Oz, ostracized and misunderstood green-skinned Elphaba is forced to share a room with the popular aristocrat Glinda at Shiz University, and the two's unlikely friendship is tested as they begin to fulfill their respective destinies as Glinda the Good and the Wicked Witch of the West.",
+      "poster_path": "/xDGbZ0JJ3mYaGKy4Nzd9Kph6M9L.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        18,
+        10749,
+        14
+      ],
+      "popularity": 438.915,
+      "release_date": "2024-11-20",
+      "video": false,
+      "vote_average": 6.9,
+      "vote_count": 1653
+    },
+    {
+      "backdrop_path": "/h7r6LZ32dgLwtwSW3CxoWIYD9pr.jpg",
+      "id": 426063,
+      "title": "Nosferatu",
+      "original_title": "Nosferatu",
+      "overview": "A gothic tale of obsession between a haunted young woman and the terrifying vampire infatuated with her, causing untold horror in its wake.",
+      "poster_path": "/5qGIxdEO841C0tdY8vOdLoRVrr0.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        27,
+        14
+      ],
+      "popularity": 763.015,
+      "release_date": "2024-12-25",
+      "video": false,
+      "vote_average": 6.657,
+      "vote_count": 1915
+    },
+    {
+      "backdrop_path": "/zDn58IGLtNxDrEnEkO7JM814HiF.jpg",
+      "id": 636279,
+      "title": "Bogotá: City of the Lost",
+      "original_title": "보고타: 마지막 기회의 땅",
+      "overview": "After moving to Bogotá for a chance at a better life, a young Korean man rises through the Colombian black market — risking peril for a shot at success.",
+      "poster_path": "/3rTNq7sgAoAKNK8axPYA6MoBO83.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "ko",
+      "genre_ids": [
+        53,
+        80,
+        18
+      ],
+      "popularity": 90.952,
+      "release_date": "2024-12-31",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 40
+    },
+    {
+      "backdrop_path": "/iXU87IdtNsYt7n6OigPJBDdbFf1.jpg",
+      "id": 774370,
+      "title": "Dog Man",
+      "original_title": "Dog Man",
+      "overview": "When a faithful police dog and his human police officer owner are injured together on the job, a harebrained but life-saving surgery fuses the two of them together and Dog Man is born. Dog Man is sworn to protect and serve—and fetch, sit and roll over. As Dog Man embraces his new identity and strives to impress his Chief, he must stop the pretty evil plots of feline supervillain Petey the Cat.",
+      "poster_path": "/89wNiexZdvLQ41OQWIsQy4O6jAQ.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        10751,
+        16,
+        35,
+        28
+      ],
+      "popularity": 195.049,
+      "release_date": "2025-01-24",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 27
+    },
+    {
+      "backdrop_path": "/zo8CIjJ2nfNOevqNajwMRO6Hwka.jpg",
+      "id": 1241982,
+      "title": "Moana 2",
+      "original_title": "Moana 2",
+      "overview": "After receiving an unexpected call from her wayfinding ancestors, Moana journeys alongside Maui and a new crew to the far seas of Oceania and into dangerous, long-lost waters for an adventure unlike anything she's ever faced.",
+      "poster_path": "/aLVkiINlIeCkcZIzb7XHzPYgO6L.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        16,
+        12,
+        10751,
+        35
+      ],
+      "popularity": 1427.587,
+      "release_date": "2024-11-21",
+      "video": false,
+      "vote_average": 7.21,
+      "vote_count": 1316
+    },
+    {
+      "backdrop_path": "/zOpe0eHsq0A2NvNyBbtT6sj53qV.jpg",
+      "id": 939243,
+      "title": "Sonic the Hedgehog 3",
+      "original_title": "Sonic the Hedgehog 3",
+      "overview": "Sonic, Knuckles, and Tails reunite against a powerful new adversary, Shadow, a mysterious villain with powers unlike anything they have faced before. With their abilities outmatched in every way, Team Sonic must seek out an unlikely alliance in hopes of stopping Shadow and protecting the planet.",
+      "poster_path": "/d8Ryb8AunYAuycVKDp5HpdWPKgC.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        878,
+        35,
+        10751
+      ],
+      "popularity": 3084.368,
+      "release_date": "2024-12-19",
+      "video": false,
+      "vote_average": 7.785,
+      "vote_count": 1564
+    },
+    {
+      "backdrop_path": "/hctfNoMpQGfn3VXdBYb9p0P5bT5.jpg",
+      "id": 1097549,
+      "title": "Babygirl",
+      "original_title": "Babygirl",
+      "overview": "A high-powered CEO puts her career and family on the line when she begins a torrid affair with her much younger intern.",
+      "poster_path": "/A8HbTd0FemZyFCh5qvJFpHGiwF8.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        18
+      ],
+      "popularity": 870.978,
+      "release_date": "2024-12-25",
+      "video": false,
+      "vote_average": 5.7,
+      "vote_count": 373
+    },
+    {
+      "backdrop_path": "/4WHRiFgbsAuSJ79fyr8pTXkj4G2.jpg",
+      "id": 661539,
+      "title": "A Complete Unknown",
+      "original_title": "A Complete Unknown",
+      "overview": "New York, early 1960s. Against the backdrop of a vibrant music scene and tumultuous cultural upheaval, an enigmatic 19-year-old from Minnesota arrives in the West Village with his guitar and revolutionary talent, destined to change the course of American music.",
+      "poster_path": "/5tQYnwYrvr7XhYY7JZYLo7MYIVN.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        18,
+        10402
+      ],
+      "popularity": 94.191,
+      "release_date": "2024-12-18",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 272
+    },
+    {
+      "backdrop_path": "/bZsATFS6wg6L45ele7Ve4ogGkUT.jpg",
+      "id": 60898,
+      "title": "Erotic Ghost Story",
+      "original_title": "聊齋艷譚",
+      "overview": "Three vixens have meditated for 1,000 years to able to shed their animal natures and become human. For the final month of their rigors, they have moved near a village where women pray to a god of fertility. One sister visits the god's temple and thinks lustful thoughts. As she leaves, a priest confronts her, warning of dire consequences and of demons that will try to stop the vixens' transformation. Soon, the youngest sister saves a poor scholar from bandits and becomes enamored of him. Each sister visits him, and before long, the youth has made love to all three. After they invite him to stay with them, the playfulness takes a scary turn. Where can they turn for help?",
+      "poster_path": "/fTUCwsxVoLFuodAtlL6aITP1B45.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "cn",
+      "genre_ids": [
+        14,
+        18,
+        27
+      ],
+      "popularity": 89.204,
+      "release_date": "1990-05-19",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 81
+    },
+    {
+      "backdrop_path": "/sc1abgWNXc29wSBaerrjGBih06l.jpg",
+      "id": 1084199,
+      "title": "Companion",
+      "original_title": "Companion",
+      "overview": "During a weekend getaway at a secluded lakeside estate, a group of friends finds themselves entangled in a web of secrets, deception, and advanced technology. As tensions rise and loyalties are tested, they uncover unsettling truths about themselves and the world around them.",
+      "poster_path": "/oCoTgC3UyWGfyQ9thE10ulWR7bn.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        878,
+        27,
+        35
+      ],
+      "popularity": 411.394,
+      "release_date": "2025-01-22",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 161
+    },
+    {
+      "backdrop_path": "/s1PW2xCJPehFP4J5YNkg8GecBU7.jpg",
+      "id": 1211472,
+      "title": "September 5",
+      "original_title": "September 5",
+      "overview": "During the 1972 Munich Olympics, an American sports broadcasting crew finds itself thrust into covering the hostage crisis involving Israeli athletes.",
+      "poster_path": "/3kcQOLwYKGPwyjiynFsvP8vHvRn.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        18,
+        53,
+        36
+      ],
+      "popularity": 149.58,
+      "release_date": "2024-11-07",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 43
+    },
+    {
+      "backdrop_path": "/xaNBpBkONtupAVJqQBIW5EZa7xi.jpg",
+      "id": 996821,
+      "title": "You're Cordially Invited",
+      "original_title": "You're Cordially Invited",
+      "overview": "When two weddings are accidentally booked on the same day at the same venue, each bridal party is challenged with preserving their family's special moment while making the most of the unanticipated tight quarters. In a hilarious battle of determination and grit, the father of the bride and sister of the other bride chaotically go head-to-head as they stop at nothing to uphold an unforgettable celebration for their loved ones.",
+      "poster_path": "/muXnwAdVdEEktto0NBNMyqK3uQH.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        35
+      ],
+      "popularity": 430.67,
+      "release_date": "2025-01-29",
+      "video": false,
+      "vote_average": 5.9,
+      "vote_count": 191
+    },
+    {
+      "backdrop_path": "/8dqZsevb5E8x29OFyr1neSp7bc9.jpg",
+      "id": 933260,
+      "title": "The Substance",
+      "original_title": "The Substance",
+      "overview": "A fading celebrity decides to use a black market drug, a cell-replicating substance that temporarily creates a younger, better version of herself.",
+      "poster_path": "/lqoMzCcZYEFK729d6qzt349fB4o.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        27,
+        878
+      ],
+      "popularity": 622.528,
+      "release_date": "2024-09-07",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 3679
+    },
+    {
+      "backdrop_path": "/unthV1mq9llhEinIMPcCUImFodt.jpg",
+      "id": 617126,
+      "title": "The Fantastic Four: First Steps",
+      "original_title": "The Fantastic Four: First Steps",
+      "overview": "Against the vibrant backdrop of a 1960s-inspired, retro-futuristic world, Marvel's First Family is forced to balance their roles as heroes with the strength of their family bond, while defending Earth from a ravenous space god called Galactus and his enigmatic Herald, Silver Surfer.",
+      "poster_path": "/qnqHQMfvBy916X3tTV5lQMkbGxH.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        878,
+        12
+      ],
+      "popularity": 132.537,
+      "release_date": "2025-07-23",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "backdrop_path": "/mKIxSo3p1QKlsdegcOwapcbiV74.jpg",
+      "id": 604685,
+      "title": "Den of Thieves 2: Pantera",
+      "original_title": "Den of Thieves 2: Pantera",
+      "overview": "Big Nick is back on the hunt in Europe and closing in on Donnie, who is embroiled in the treacherous and unpredictable world of diamond thieves and the infamous Panther mafia, as they plot a massive heist of the world's largest diamond exchange.",
+      "poster_path": "/zLHq7fQA3xpck5UIHcRYgip5pQD.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        80,
+        53
+      ],
+      "popularity": 365.56,
+      "release_date": "2025-01-08",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 186
+    },
+    {
+      "backdrop_path": "/4cp40IyTpFfsT2IKpl0YlUkMBIR.jpg",
+      "id": 1064213,
+      "title": "Anora",
+      "original_title": "Anora",
+      "overview": "A young sex worker from Brooklyn gets her chance at a Cinderella story when she meets and impulsively marries the son of an oligarch. Once the news reaches Russia, her fairytale is threatened as his parents set out to get the marriage annulled.",
+      "poster_path": "/7MrgIUeq0DD2iF7GR6wqJfYZNeC.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        18,
+        35,
+        10749
+      ],
+      "popularity": 434.252,
+      "release_date": "2024-10-14",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 951
+    },
+    {
+      "backdrop_path": "/llIXQAndg5kB6SWlp6ouUdO7Zxd.jpg",
+      "id": 1084736,
+      "title": "The Count of Monte Cristo",
+      "original_title": "Le Comte de Monte-Cristo",
+      "overview": "Edmond Dantes becomes the target of a sinister plot and is arrested on his wedding day for a crime he did not commit. After 14 years in the island prison of Château d’If, he manages a daring escape. Now rich beyond his dreams, he assumes the identity of the Count of Monte-Cristo and exacts his revenge on the three men who betrayed him.",
+      "poster_path": "/sAT1P3FGhtJ68anUyJScnMu8t1l.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "fr",
+      "genre_ids": [
+        28,
+        12,
+        18
+      ],
+      "popularity": 209.38,
+      "release_date": "2024-06-28",
+      "video": false,
+      "vote_average": 8.059,
+      "vote_count": 1366
+    },
+    {
+      "backdrop_path": "/rOMLLMGgDgGG6XeT3P8sUdUb8nl.jpg",
+      "id": 1126166,
+      "title": "Flight Risk",
+      "original_title": "Flight Risk",
+      "overview": "A U.S. Marshal escorts a government witness to trial after he's accused of getting involved with a mob boss, only to discover that the pilot who is transporting them is also a hitman sent to assassinate the informant. After they subdue him, they're forced to fly together after discovering that there are others attempting to eliminate them.",
+      "poster_path": "/4cR3hImKd78dSs652PAkSAyJ5Cx.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        53,
+        28,
+        80
+      ],
+      "popularity": 232.116,
+      "release_date": "2025-01-22",
+      "video": false,
+      "vote_average": 6.1,
+      "vote_count": 59
+    }
+  ],
+  "total_pages": 500,
+  "total_results": 10000
+}

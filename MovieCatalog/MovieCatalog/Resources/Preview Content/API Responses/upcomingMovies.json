@@ -1,0 +1,368 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [],
+      "id": 1432304,
+      "original_language": "es",
+      "original_title": "05/02/25",
+      "overview": "",
+      "popularity": 0.0,
+      "poster_path": "/p5gMVq1JMNLMpFvcSoCWK0kDdWt.jpg",
+      "release_date": "2025-02-10",
+      "title": "05/02/25",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        18,
+        53,
+        80
+      ],
+      "id": 1432264,
+      "original_language": "en",
+      "original_title": "Coach",
+      "overview": "A young man is pressed to help his older brother rob a rural farmhouse.",
+      "popularity": 0.0,
+      "poster_path": "/lOd9SKcCkvwIiI7I9lvAkU3xlB5.jpg",
+      "release_date": "2025-02-10",
+      "title": "Coach",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/k2DB52XJPIUNXxJhxZBQkAHrcNB.jpg",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "id": 1432226,
+      "original_language": "en",
+      "original_title": "Dodecahedron of Luck: The family fortune and how I almost lost it, but didn't",
+      "overview": "A young wealthy duchess wagers her family fortune, in an instant her life could change, but doesn't",
+      "popularity": 0.0,
+      "poster_path": "/1aA5ZcKF2QzuadI6TGQGbiD00IF.jpg",
+      "release_date": "2025-02-10",
+      "title": "Dodecahedron of Luck: The family fortune and how I almost lost it, but didn't",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        27,
+        99
+      ],
+      "id": 1432204,
+      "original_language": "en",
+      "original_title": "BLOODNIGHT STAINS",
+      "overview": "“And in that moment, 3:13am on a Monday, standing at the morgue of Hospital Sungai Buloh, 3rd July 2017, all I saw was red. The red velvet silk flowing down his forehead. The burgundy flow of his bruised and battered face. The whites of his bone peeking through red satin where once adorned his favourite ring. I saw it. His face. His body. His finger. I saw him. Inside and out. Unrecognisable. Fucked up. Dead.”",
+      "popularity": 0.0,
+      "poster_path": "/coz06w5lA6cjR637HibmAYnz3Vn.jpg",
+      "release_date": "2025-02-10",
+      "title": "BLOODNIGHT STAINS",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        16,
+        14,
+        12
+      ],
+      "id": 1432160,
+      "original_language": "pt",
+      "original_title": "Atalaia",
+      "overview": "",
+      "popularity": 0.0,
+      "poster_path": null,
+      "release_date": "2025-02-10",
+      "title": "Atalaia",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        99
+      ],
+      "id": 1432121,
+      "original_language": "es",
+      "original_title": "PalmaDeMallorca20250205: Mausoleu de Poetes",
+      "overview": "",
+      "popularity": 0.0,
+      "poster_path": "/pZdlwEDMZXxOjAZs2lj01JKK738.jpg",
+      "release_date": "2025-02-10",
+      "title": "PalmaDeMallorca20250205: Mausoleu de Poetes",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/5cYBmQjlrl0NNW291Z8qhIQO6VB.jpg",
+      "genre_ids": [
+        99
+      ],
+      "id": 1432009,
+      "original_language": "zh",
+      "original_title": "不破不立",
+      "overview": "",
+      "popularity": 0.0,
+      "poster_path": "/sCqkdPYtk4sPYubb176GGMlrkEX.jpg",
+      "release_date": "2025-02-10",
+      "title": "不破不立",
+      "video": false,
+      "vote_average": 8.0,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bzYqVhYvfCfnMRAgWK9yvHHBPx2.jpg",
+      "genre_ids": [
+        99
+      ],
+      "id": 1431983,
+      "original_language": "zh",
+      "original_title": "快递",
+      "overview": "",
+      "popularity": 0.6,
+      "poster_path": "/egAyJBqByqGhRZudD28BvTc81M6.jpg",
+      "release_date": "2025-02-10",
+      "title": "快递",
+      "video": false,
+      "vote_average": 8.0,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        99
+      ],
+      "id": 1431452,
+      "original_language": "en",
+      "original_title": "Birthright Afrika",
+      "overview": "Through the eyes of Joseph Nyamwange, a first-generation Kenyan American, this documentary weaves a heartfelt narrative of family, heritage, and resilience. Fueled by the enduring lessons of his late grandfather, Joe channels his father’s migration story into a life mission: empowering Black and Brown youth in Jersey City, NJ.",
+      "popularity": 0.84,
+      "poster_path": "/fIKEO9O0wnLevFuTNlS322rocPG.jpg",
+      "release_date": "2025-02-10",
+      "title": "Birthright Afrika",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [],
+      "id": 1431253,
+      "original_language": "it",
+      "original_title": "La bambina con la valigia",
+      "overview": "",
+      "popularity": 1.96,
+      "poster_path": null,
+      "release_date": "2025-02-10",
+      "title": "La bambina con la valigia",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [],
+      "id": 1431078,
+      "original_language": "en",
+      "original_title": "Guided",
+      "overview": "Guided comes from exploring African Orisha's and their connection to themes of grief and acceptance. Maya's journey is depicted through a physical representation of the deities as she comes to terms with her parents death. It's okay to navigate complex emotions and to connect spirituality with personal struggles, offering a reflection on life, death and acceptance.",
+      "popularity": 1.96,
+      "poster_path": null,
+      "release_date": "2025-02-10",
+      "title": "Guided",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xGGprmfkh1tEfNW7rhQDe6WwAe6.jpg",
+      "genre_ids": [
+        53
+      ],
+      "id": 1427850,
+      "original_language": "it",
+      "original_title": "Dove muore il silenzio",
+      "overview": "In an exclusive consortium isolated from the rest of the world, Gianmarco, a young man obsessed by a series of mysterious suicides, begins a personal investigation to uncover the truth. The more he digs, the more the boundaries between reality and paranoia become thinner, dragging him into a vortex of suspicion and obsession. When everything seems to lead him to a single, disturbing conclusion, he will discover that some truths are not meant to be revealed... and that it may be too late to turn back.",
+      "popularity": 14.76,
+      "poster_path": "/hCa2EA39GVSZva0nd6aNXmPRq7P.jpg",
+      "release_date": "2025-02-10",
+      "title": "Dove muore il silenzio",
+      "video": false,
+      "vote_average": 10.0,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/iQQ2Yl9AMse3KYKsYn6ry1vhXui.jpg",
+      "genre_ids": [
+        18,
+        10749
+      ],
+      "id": 1427802,
+      "original_language": "el",
+      "original_title": "11:11",
+      "overview": "One night, all the stars fell from the sky. Everyone got to make a wish. A sleepless guy, a woman on the bus, two confused lovers, a director, a lost musician and his band, they all search for their way after this event.",
+      "popularity": 14.76,
+      "poster_path": "/obhiYrf1ZXjYAINEfG3DhHHKTON.jpg",
+      "release_date": "2025-02-10",
+      "title": "11:11",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        99
+      ],
+      "id": 1425662,
+      "original_language": "es",
+      "original_title": "Real Madrid: Cómo no te voy a querer",
+      "overview": "",
+      "popularity": 23.619,
+      "poster_path": "/a5Sb9zyNbzokioB96IOWbih8OsX.jpg",
+      "release_date": "2025-02-10",
+      "title": "Real Madrid: Cómo no te voy a querer",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        27,
+        18,
+        9648
+      ],
+      "id": 1424167,
+      "original_language": "en",
+      "original_title": "Through the Void",
+      "overview": "A young couple visit a medium to conduct a séance after the death of their child.",
+      "popularity": 22.201,
+      "poster_path": "/7nRAosmxUCRUApuWBBxdia2nlgD.jpg",
+      "release_date": "2025-02-10",
+      "title": "Through the Void",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9HmaqFO1EMNN3clejGmuZZ25kfP.jpg",
+      "genre_ids": [
+        27,
+        18
+      ],
+      "id": 1423237,
+      "original_language": "en",
+      "original_title": "And Then She Kissed Me",
+      "overview": "A young couple live in a sitcom esque suburban paradise - for him at least.",
+      "popularity": 21.519,
+      "poster_path": "/qgmuXyu67uV7DGpFib1wceXabOI.jpg",
+      "release_date": "2025-02-10",
+      "title": "And Then She Kissed Me",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rTy8FuWzKiUfI4bW0mmQra8Sw1i.jpg",
+      "genre_ids": [
+        18,
+        99
+      ],
+      "id": 1422102,
+      "original_language": "id",
+      "original_title": "Passport To Myself : Where Can We Find Happiness?",
+      "overview": "Hamzah, who is on a 5-day vacation, wants to share the story of his first journey abroad to Malaysia and Thailand. He aims to capture this crucial moment by creating a films vlog about his experiences—the joys and struggles he encountered during his Malaysia-Thailand tour.",
+      "popularity": 22.858,
+      "poster_path": "/wAUvypQbPztbzBDB4P6Q1KmB9P6.jpg",
+      "release_date": "2025-02-10",
+      "title": "Passport To Myself : Where Can We Find Happiness?",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9xvaUIxTbzrdcMLU8kc6AqyO3ir.jpg",
+      "genre_ids": [
+        53
+      ],
+      "id": 1418770,
+      "original_language": "en",
+      "original_title": "The Unlock",
+      "overview": "Waking up chained to the ceiling in a warehouse somewhere in Lithuania Stephen, an ex-soldier, is faced by his interrogators. They tell him that he was involved in the kidnap of the Russian Foreign Minister by a far right group who will execute the Minister live on the internet in 90 minutes. They believe Stephen knows the whereabouts of the kidnapped Minister, but Stephen has amnesia and time is running out. His interrogators however have been given permission to use any means necessary to unlock his memories - and that means taking them all to some very dark places. The Unlock is the first of a kind. The actor playing the lead role Stephen has not seen a script and knows nothing about the story. Not even the genre of the film. He was isolated entirely from cast and crew until filming ended. Being completely in the dark every reaction is real",
+      "popularity": 33.477,
+      "poster_path": "/9UFwr9c8DHnIKBY17mRjtm4vd6I.jpg",
+      "release_date": "2025-02-10",
+      "title": "The Unlock",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8RZp5mI5ZerHd80hgOsuTfRRRX9.jpg",
+      "genre_ids": [],
+      "id": 1411457,
+      "original_language": "en",
+      "original_title": "Mario and Luigi's Wall-Tearing Job 3: Into The Shadows",
+      "overview": "After saving their newly found demolition business from Foreman Spike in MARIO AND LUIGI'S WALL-TEARING JOB 2 (2024), Mario and Luigi's have become the Mushroom Kingdom's top demolition services, and heroes known country-wide. Being alerted of a breakout on Prison Island off the Mushroom Coast, the brothers set off locked and loaded to go face to face with Shadow, a mysterious new adversary with powers unlike anything anyone has seen before.",
+      "popularity": 26.148,
+      "poster_path": "/3kyEoN3BVDaMvSa4olu8nBXQIaf.jpg",
+      "release_date": "2025-02-10",
+      "title": "Mario and Luigi's Wall-Tearing Job 3: Into The Shadows",
+      "video": false,
+      "vote_average": 7.0,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [],
+      "id": 1400527,
+      "original_language": "id",
+      "original_title": "Malky Chatteleo Films: The Missing Pieces",
+      "overview": "Lots of scenes that were missing from Malky Chatteleo's films will be shown here.",
+      "popularity": 0.696,
+      "poster_path": "/ikRgpO9lR54jOC8NekT9YAP751x.jpg",
+      "release_date": "2025-02-10",
+      "title": "Malky Chatteleo Films: The Missing Pieces",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    }
+  ],
+  "total_pages": 137,
+  "total_results": 2727
+}
