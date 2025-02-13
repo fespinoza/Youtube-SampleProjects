@@ -4,6 +4,7 @@ struct MovieDetailsView: View {
     let viewData: MovieDetailsViewData
 
     @Environment(\.colorScheme) private var colorScheme
+    @State private var showFullDescription: Bool = false
 
     var body: some View {
         ScrollView(.vertical) {
@@ -86,6 +87,18 @@ struct MovieDetailsView: View {
             .padding(.bottom, .spacingXL)
         }
         .ignoresSafeArea(.all, edges: .top)
+        .sheet(isPresented: $showFullDescription) {
+            NavigationStack {
+                MovieDescriptionScreen(
+                    title: viewData.title,
+                    description: viewData.description
+                )
+                .navigationBarTitleDisplayMode(.inline)
+                .addDismissButton()
+            }
+            .presentationDetents([.medium, .large])
+            .presentationBackground(.regularMaterial)
+        }
     }
 
     var readableGradient: some View {
@@ -116,6 +129,27 @@ struct MovieDetailsView: View {
 
             Text(viewData.description)
                 .lineLimit(3)
+                .contentShape(Rectangle())
+                .overlay(alignment: .bottomTrailing) {
+                    Text("MORE")
+                        .padding(.leading, .spacingXL)
+                        .padding(.trailing, .spacingXS)
+                        .padding(.top, .spacingXXS)
+                        .fontWeight(.bold)
+                        .background(
+                            LinearGradient(
+                                colors: [
+                                    .black.opacity(0.0),
+                                    .black.opacity(0.8),
+                                ],
+                                startPoint: .init(x: 0, y: 0),
+                                endPoint: .init(x: 0.5, y: 0)
+                            )
+                            .blur(radius: 4)
+                        )
+                }
+
+                .onTapGesture { showFullDescription = true }
         }
         .padding(.horizontal, .spacingM)
         .padding(.bottom, .spacingXL)
