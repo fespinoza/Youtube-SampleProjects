@@ -105,6 +105,7 @@ struct MovieDetailsView: View {
         LinearGradient(
             stops: [
                 .init(color: .clear, location: 0.6),
+                .init(color: .black.opacity(0.4), location: 0.7),
                 .init(color: .black, location: 1.0),
             ],
             startPoint: .init(x: 0, y: 0),
