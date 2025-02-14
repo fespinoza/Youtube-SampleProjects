@@ -14,6 +14,10 @@ struct MovieCardView: View {
             }
             .frame(width: movieCardSize.width, height: movieCardSize.height)
             .clipShape(.rect(cornerRadius: .cornerRadiusS))
+            .overlay(
+                RoundedRectangle(cornerRadius: 9)
+                    .stroke(.gray.opacity(0.5))
+            )
             .clipped()
             .shadow(radius: 2)
 
@@ -51,8 +55,8 @@ struct MovieCardView: View {
         VStack {
             HStack(alignment: .top) {
                 MovieCardView(viewData: .previewValue())
-//                MovieCardView(viewData: .previewValue(ranking: "#2"))
-//                MovieCardView(viewData: .previewValue(releaseDate: "July 4th"))
+                MovieCardView(viewData: .previewValue(style: .ranking(ranking: "#2")))
+                MovieCardView(viewData: .previewValue(style: .upcoming(releaseDate: "July 4th")))
             }
             HStack(alignment: .top) {
                 MovieCardView(viewData: .previewValue(
