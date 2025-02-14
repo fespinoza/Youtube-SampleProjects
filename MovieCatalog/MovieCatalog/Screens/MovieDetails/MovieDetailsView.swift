@@ -5,6 +5,8 @@ struct MovieDetailsView: View {
 
     @Environment(\.colorScheme) private var colorScheme
     @State private var showFullDescription: Bool = false
+    @State private var tappedImageIndex: Int = 0
+    @State private var showFullScreenGallery: Bool = false
 
     var body: some View {
         ScrollView(.vertical) {
@@ -54,13 +56,18 @@ struct MovieDetailsView: View {
                     ContentSection(title: "Gallery") {
                         ScrollView(.horizontal) {
                             HStack(spacing: .spacingM) {
-                                ForEach(viewData.galleryItems, id: \.self) { item in
+                                ForEach(Array(viewData.galleryItems.enumerated()), id: \.element.id) { index, item in
                                     CustomAsyncImage(state: item.image) { image in
                                         image
                                             .resizable()
                                     }
                                     .aspectRatio(item.aspectRatio, contentMode: .fill)
                                     .frame(width: 320)
+                                    .contentShape(Rectangle())
+                                    .onTapGesture {
+                                        tappedImageIndex = index
+                                        showFullScreenGallery = true
+                                    }
                                 }
                             }
                         }
@@ -98,6 +105,16 @@ struct MovieDetailsView: View {
             }
             .presentationDetents([.medium, .large])
             .presentationBackground(.regularMaterial)
+        }
+        .fullScreenCover(isPresented: $showFullScreenGallery) {
+            NavigationStack {
+                MovieImageGalleryScreen(
+                    images: viewData.galleryItems,
+                    selectedImage: tappedImageIndex
+                )
+                .addDismissButton()
+            }
+            .presentationBackground(.black)
         }
     }
 

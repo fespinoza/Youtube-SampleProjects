@@ -1,5 +1,11 @@
 import SwiftUI
 
+struct ImageContainerViewData: Identifiable, Hashable {
+    let id = UUID()
+    let image: ImageViewData
+    let aspectRatio: CGFloat
+}
+
 struct MovieDetailsViewData: Identifiable, Equatable {
     let id: MovieID
     let title: String
@@ -11,11 +17,6 @@ struct MovieDetailsViewData: Identifiable, Equatable {
     let poster: ImageViewData
     let actors: [ActorViewData]
     let galleryItems: [ImageContainerViewData]
-
-    struct ImageContainerViewData: Hashable {
-        let image: ImageViewData
-        let aspectRatio: CGFloat
-    }
 
     struct ActorViewData: Identifiable, Equatable {
         let id: ActorID
@@ -93,14 +94,10 @@ extension MovieDetailsViewData {
             .previewValue(),
         ],
         galleryItems: [ImageContainerViewData] = [
-            .init(
-                image: .image(Image(.Movie.EternalSunshine.medium)),
-                aspectRatio: 0.7
-            ),
-            .init(
-                image: .image(Image(.Movie.EternalSunshine.medium)),
-                aspectRatio: 0.7
-            ),
+            .previewValue(image: .image(Image(.Gallery.TheApprentice.image1))),
+            .previewValue(image: .image(Image(.Gallery.TheApprentice.image2))),
+            .previewValue(image: .image(Image(.Gallery.TheApprentice.image3))),
+            .previewValue(image: .image(Image(.Gallery.TheApprentice.image4))),
         ]
     ) -> Self {
         .init(
@@ -129,6 +126,18 @@ extension MovieDetailsViewData.ActorViewData {
             name: name,
             characterName: characterName,
             profilePicture: profilePicture
+        )
+    }
+}
+
+extension ImageContainerViewData {
+    static func previewValue(
+        image: ImageViewData = .image(Image(.Gallery.TheApprentice.image2)),
+        aspectRatio: CGFloat = 1.778
+    ) -> Self {
+        .init(
+            image: image,    
+            aspectRatio: aspectRatio   
         )
     }
 }
