@@ -12,6 +12,7 @@ struct MovieDetails: Decodable {
     let credits: Credits
     let overview: String?
     let posterPath: String?
+    let backdropPath: String?
     let images: ImageCollection
 }
 
@@ -33,8 +34,13 @@ extension MovieDetails {
         let cast: [CastMember]
     }
 
-    var imageURL: URL? {
+    var posterURL: URL? {
         guard let posterPath else { return nil }
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
+    }
+
+    var backdropURL: URL? {
+        guard let backdropPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath)")
     }
 }
