@@ -5,6 +5,21 @@ struct MovieImageGalleryScreen: View {
     @State var selectedImage: Int = 0
 
     var body: some View {
+        Group {
+            if images.count == 1 {
+                singleImage
+            } else {
+                multipleImages
+            }
+        }
+        .colorScheme(.dark)
+    }
+
+    var singleImage: some View {
+        ImageCell(container: images[0])
+    }
+
+    var multipleImages: some View {
         TabView(selection: $selectedImage) {
             ForEach(Array(images.enumerated()), id: \.element.id) { index, element in
                 ImageCell(container: element)
@@ -12,7 +27,6 @@ struct MovieImageGalleryScreen: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
-        .colorScheme(.dark)
     }
 
     struct ImageCell: View {
