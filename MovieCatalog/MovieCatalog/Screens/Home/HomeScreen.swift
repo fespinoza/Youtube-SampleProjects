@@ -9,13 +9,10 @@ struct HomeScreen: View {
     var body: some View {
         BasicStateView(
             state: $loadingState,
-            loadingContent: { ProgressView() },
             dataContent: { viewData in
                 HomeView(viewData: viewData)
             },
-            fetchData: {
-                try await homeData(genreStore)
-            }
+            fetchData: { try await homeData(genreStore) }
         )
         .navigationTitle("Movies")
     }

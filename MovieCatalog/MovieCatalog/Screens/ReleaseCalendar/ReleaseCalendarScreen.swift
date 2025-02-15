@@ -8,7 +8,6 @@ struct ReleaseCalendarScreen: View {
     var body: some View {
         BasicStateView(
             state: $loadingState,
-            loadingContent: { ProgressView() },
             dataContent: { viewData in
                 ReleaseCalendarView(months: viewData)
             },

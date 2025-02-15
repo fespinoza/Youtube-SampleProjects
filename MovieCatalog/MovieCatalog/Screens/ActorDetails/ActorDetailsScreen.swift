@@ -9,7 +9,6 @@ struct ActorDetailsScreen: View {
     var body: some View {
         BasicStateView(
             state: $loadingState,
-            loadingContent: { ProgressView() },
             dataContent: { viewData in
                 ActorDetailsView(viewData: viewData)
             },

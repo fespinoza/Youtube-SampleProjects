@@ -7,6 +7,7 @@ struct MovieDescriptionScreen: View {
     var body: some View {
         ScrollView(.vertical) {
             Text(description)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.spacingM)
         }
         .navigationTitle(title)

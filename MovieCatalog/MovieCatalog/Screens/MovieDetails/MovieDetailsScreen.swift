@@ -8,7 +8,6 @@ struct MovieDetailsScreen: View {
     var body: some View {
         BasicStateView(
             state: $loadingState,
-            loadingContent: { ProgressView() },
             dataContent: { viewData in
                 MovieDetailsView(viewData: viewData)
             },
