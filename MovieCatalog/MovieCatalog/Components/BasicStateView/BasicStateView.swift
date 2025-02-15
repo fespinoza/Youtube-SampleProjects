@@ -6,6 +6,18 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
     @ViewBuilder var dataContent: (ViewData) -> DataContent
     var fetchData: () async throws -> ViewData
 
+    init(
+        state: Binding<BasicLoadingState<ViewData>>,
+        loadingContent: @escaping () -> LoadingContent,
+        dataContent: @escaping (ViewData) -> DataContent,
+        fetchData: @escaping () async throws -> ViewData
+    ) {
+        self._state = state
+        self.loadingContent = loadingContent
+        self.dataContent = dataContent
+        self.fetchData = fetchData
+    }
+
     var body: some View {
         Group {
             switch state {
@@ -28,6 +40,7 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .task { await initialLoad() }
+        .refreshable { await performFetchData(showLoading: false) }
     }
 
     func initialLoad() async {
@@ -47,17 +60,27 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
     }
 }
 
+extension BasicStateView where LoadingContent == LoadingStateView {
+    init(
+        state: Binding<BasicLoadingState<ViewData>>,
+        dataContent: @escaping (ViewData) -> DataContent,
+        fetchData: @escaping () async throws -> ViewData
+    ) {
+        self._state = state
+        self.loadingContent = { LoadingStateView() }
+        self.dataContent = dataContent
+        self.fetchData = fetchData
+    }
+}
+
 private struct Demo: View {
     @State var state: BasicLoadingState<String> = .idle
-    @State var secondsDelay: Int = 2
+    @State var secondsDelay: Int = 3
 
     var body: some View {
         VStack {
             BasicStateView(
                 state: $state,
-                loadingContent: {
-                    ProgressView()
-                },
                 dataContent: { text in
                     Text(text)
                         .font(.title)
