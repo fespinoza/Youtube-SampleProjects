@@ -1,5 +1,5 @@
-import Tagged
 import Foundation
+import Tagged
 
 typealias GenreID = Tagged<Genre, Int>
 

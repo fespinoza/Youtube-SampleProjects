@@ -10,15 +10,15 @@ struct HomeViewData: Equatable {
 extension HomeViewData {
     static func build(from dto: HomeData, genreStore: GenreStore) -> Self {
         let featured: [FeatureMovieViewData] = dto.featuredMovies.map { movie in
-                .build(from: movie, genreStore: genreStore)
+            .build(from: movie, genreStore: genreStore)
         }
-        
+
         let newMovies = dto.newMovies.map(MovieCardViewData.basic(from:))
-        let topRatedMovies: [MovieCardViewData] = dto.topRatedMovies.enumerated().map { (index, movie) in
-                .ranking(from: movie, ranking: index + 1)
+        let topRatedMovies: [MovieCardViewData] = dto.topRatedMovies.enumerated().map { index, movie in
+            .ranking(from: movie, ranking: index + 1)
         }
         let upcomingMovies: [MovieCardViewData] = dto.upcomingMovies.map { .upcoming(from: $0) }
-        
+
         return .init(
             featuredMovies: featured,
             newMovies: newMovies,

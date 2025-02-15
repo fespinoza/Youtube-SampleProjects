@@ -43,7 +43,7 @@ extension BasicLoadingState: Equatable where Value: Equatable {
     ) -> Bool {
         switch (lhs, rhs) {
         case (.idle, .idle),
-            (.loading, .loading):
+             (.loading, .loading):
             return true
         case let (.dataLoaded(lhsValue), .dataLoaded(rhsValue)):
             return lhsValue == rhsValue

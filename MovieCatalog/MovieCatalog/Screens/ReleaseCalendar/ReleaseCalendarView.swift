@@ -15,7 +15,6 @@ struct ReleaseCalendarView: View {
                 } header: {
                     Text(month.sectionTitle)
                 }
-
             }
         }
         .listStyle(.grouped)

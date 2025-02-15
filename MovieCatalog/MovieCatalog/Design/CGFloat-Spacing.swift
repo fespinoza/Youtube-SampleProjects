@@ -19,7 +19,7 @@ extension CGFloat {
     static let spacingXL: CGFloat = 48
     /// Spacing: 64
     static let spacingXXL: CGFloat = 64
-    
+
     /// Corner Radius: 8
     static let cornerRadiusS: CGFloat = 8
 }

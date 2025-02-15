@@ -1,6 +1,6 @@
+import Foundation
 import SwiftUI
 import Tagged
-import Foundation
 
 struct MovieListScreen: View {
     let listType: MovieListType

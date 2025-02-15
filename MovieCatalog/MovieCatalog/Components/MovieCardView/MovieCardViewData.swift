@@ -92,7 +92,7 @@ extension MovieCardViewData {
 
     static func theApprentice() -> Self {
         .previewValue(
-            id: .init(1182047),
+            id: .init(1_182_047),
             title: "The Apprentice",
             image: .image(Image(.Movie.TheApprentice.small))
         )

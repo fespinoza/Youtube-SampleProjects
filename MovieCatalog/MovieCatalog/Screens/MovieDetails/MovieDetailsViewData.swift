@@ -49,12 +49,12 @@ extension MovieDetailsViewData {
                 .backdrops
                 .dropFirst()
                 .prefix(10)
-                .map({ backdrop in
+                .map { backdrop in
                     .init(
                         image: .remote(from: backdrop.imageURL),
                         aspectRatio: backdrop.aspectRatio
                     )
-                })
+                }
         )
     }
 }
@@ -114,6 +114,7 @@ extension MovieDetailsViewData {
         )
     }
 }
+
 extension MovieDetailsViewData.ActorViewData {
     static func previewValue(
         id: ActorID = .randomPreviewId(),
@@ -136,8 +137,8 @@ extension ImageContainerViewData {
         aspectRatio: CGFloat = 1.778
     ) -> Self {
         .init(
-            image: image,    
-            aspectRatio: aspectRatio   
+            image: image,
+            aspectRatio: aspectRatio
         )
     }
 }

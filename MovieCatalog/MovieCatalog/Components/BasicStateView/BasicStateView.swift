@@ -12,7 +12,7 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
         dataContent: @escaping (ViewData) -> DataContent,
         fetchData: @escaping () async throws -> ViewData
     ) {
-        self._state = state
+        _state = state
         self.loadingContent = loadingContent
         self.dataContent = dataContent
         self.fetchData = fetchData
@@ -22,7 +22,7 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
         Group {
             switch state {
             case .idle,
-                  .loading:
+                 .loading:
                 loadingContent()
                     .disabled(true)
 
@@ -44,7 +44,7 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
     }
 
     func initialLoad() async {
-        guard .idle == state else { return }
+        guard state == .idle else { return }
         await performFetchData()
     }
 
@@ -66,8 +66,8 @@ extension BasicStateView where LoadingContent == LoadingStateView {
         dataContent: @escaping (ViewData) -> DataContent,
         fetchData: @escaping () async throws -> ViewData
     ) {
-        self._state = state
-        self.loadingContent = { LoadingStateView() }
+        _state = state
+        loadingContent = { LoadingStateView() }
         self.dataContent = dataContent
         self.fetchData = fetchData
     }

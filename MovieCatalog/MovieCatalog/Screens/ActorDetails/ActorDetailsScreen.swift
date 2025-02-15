@@ -20,4 +20,3 @@ struct ActorDetailsScreen: View {
         try await actorDetails(actorID)
     }
 }
-

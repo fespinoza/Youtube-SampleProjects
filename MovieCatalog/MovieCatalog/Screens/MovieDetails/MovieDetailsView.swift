@@ -15,7 +15,7 @@ struct MovieDetailsView: View {
                     image
                         .resizable()
                 }
-                .aspectRatio(4.0/6.0, contentMode: .fill)
+                .aspectRatio(4.0 / 6.0, contentMode: .fill)
                 .frame(maxWidth: .infinity)
                 .overlay { readableGradient }
                 .overlay(alignment: .bottom) { content }
@@ -89,7 +89,6 @@ struct MovieDetailsView: View {
                         .contentMargins(.horizontal, .spacingM, for: .automatic)
                     }
                 }
-
             }
             .padding(.bottom, .spacingXL)
         }

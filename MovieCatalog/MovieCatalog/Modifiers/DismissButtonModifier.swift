@@ -12,8 +12,8 @@ struct DismissButtonModifier: ViewModifier {
     }
 }
 
-extension View {
-    public func addDismissButton() -> some View {
+public extension View {
+    func addDismissButton() -> some View {
         modifier(DismissButtonModifier())
     }
 }

@@ -35,7 +35,7 @@ struct FeaturedMoviesView: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
-        .aspectRatio(4.0/6.0, contentMode: .fit)
+        .aspectRatio(4.0 / 6.0, contentMode: .fit)
         .frame(minHeight: 600)
     }
 
@@ -105,7 +105,7 @@ struct FeaturedMoviesView: View {
         featuredMovies: [
             .theApprentice(),
             .eternalSunshine(),
-            .gladiatorTwo()
+            .gladiatorTwo(),
         ]
     )
 }
@@ -120,12 +120,12 @@ extension FeatureMovieViewData {
         description: String = "A young Donald Trump, eager to make his name as a hungry scion of a wealthy family in 1970s New York, comes under the spell of Roy Cohn, the cutthroat attorney who would help create the Donald Trump we know today. Cohn sees in Trump the perfect protégé—someone with raw ambition, a hunger for success, and a willingness to do whatever it takes to win."
     ) -> Self {
         .init(
-            id: id,    
-            title: title,    
-            image: image,    
-            genre: genre,    
-            releaseYear: releaseYear,    
-            description: description   
+            id: id,
+            title: title,
+            image: image,
+            genre: genre,
+            releaseYear: releaseYear,
+            description: description
         )
     }
 

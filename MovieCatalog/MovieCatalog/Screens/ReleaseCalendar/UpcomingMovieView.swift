@@ -13,7 +13,7 @@ struct UpcomingMovieView: View {
                     .fontDesign(.monospaced)
             }
             .fontWeight(.bold)
-            
+
             VStack(alignment: .leading) {
                 Text(movie.title)
                     .fontWeight(.bold)
@@ -21,7 +21,7 @@ struct UpcomingMovieView: View {
                     .font(.caption)
                     .foregroundStyle(Color.secondary)
             }
-            
+
             Spacer()
 
             CustomAsyncImage(state: movie.image) { image in

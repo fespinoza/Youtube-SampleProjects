@@ -61,7 +61,8 @@ struct MovieCardView: View {
             HStack(alignment: .top) {
                 MovieCardView(viewData: .previewValue(
                     title: "Eternal Sunshine of the Spotless Mind",
-                    image: .loading))
+                    image: .loading
+                ))
                 MovieCardView(
                     viewData: .kindaPregnant()
                 )

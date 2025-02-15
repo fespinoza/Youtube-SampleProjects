@@ -27,22 +27,11 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		9B5D4AFD2D5A950000CE6CD2 /* Exceptions for "MovieCatalog" folder in "Compile Sources" phase from "MovieCatalog" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 9B7E94342D56A2D9002783BA /* Sources */;
-			membershipExceptions = (
-				"Resources/Preview Content/API Responses/upcomingMovies.json",
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9B7E943A2D56A2D9002783BA /* MovieCatalog */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				9B5D4AFC2D5A950000CE6CD2 /* Exceptions for "MovieCatalog" folder in "MovieCatalog" target */,
-				9B5D4AFD2D5A950000CE6CD2 /* Exceptions for "MovieCatalog" folder in "Compile Sources" phase from "MovieCatalog" target */,
 			);
 			path = MovieCatalog;
 			sourceTree = "<group>";

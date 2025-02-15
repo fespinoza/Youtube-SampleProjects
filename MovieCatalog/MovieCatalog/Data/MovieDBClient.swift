@@ -78,7 +78,7 @@ struct MovieDBClient {
         let url = try url(
             for: "/person/\(actorID)",
             params: [
-                .init(name: "append_to_response", value: "movie_credits")
+                .init(name: "append_to_response", value: "movie_credits"),
             ]
         )
         return try await fetch(url)
@@ -113,7 +113,7 @@ struct MovieDBClient {
         request.httpMethod = "GET"
         request.timeoutInterval = 10
         request.allHTTPHeaderFields = ["accept": "application/json"]
-        
+
         let (data, _) = try await URLSession.shared.data(for: request)
         return try Config.decoder.decode(T.self, from: data)
     }

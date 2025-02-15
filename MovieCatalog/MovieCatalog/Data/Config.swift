@@ -1,6 +1,6 @@
 import Foundation
 
-struct Config {
+enum Config {
     static let apiKey: String = {
         guard let apiKey = Bundle.main.infoDictionary?["MOVIE_API_KEY"] as? String else {
             fatalError("Set an API_KEY value in BaseConfig.xcconfig or check the README")
@@ -14,5 +14,5 @@ struct Config {
         return decoder
     }()
 
-    static let baseURL: URL = URL(string: "https://api.themoviedb.org/3")!
+    static let baseURL: URL = .init(string: "https://api.themoviedb.org/3")!
 }

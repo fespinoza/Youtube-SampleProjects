@@ -39,6 +39,5 @@ struct LoadingStateView: View {
 
         LoadingStateView(showProgress: true)
             .border(Color.blue)
-
     }
 }

@@ -34,7 +34,7 @@ public struct CustomAsyncImage<Output: View>: View {
         Group {
             switch state {
             case .empty,
-                    .remote:
+                 .remote:
                 placeholder
             case .loading:
                 placeholder

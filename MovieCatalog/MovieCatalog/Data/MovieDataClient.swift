@@ -33,12 +33,12 @@ struct MovieDataClient {
                 try await client.popularMovies().map(MovieCardViewData.basic(from:))
 
             case .topRated:
-                try await client.topRatedMovies().enumerated().map { (index, movie) in
+                try await client.topRatedMovies().enumerated().map { index, movie in
                     .ranking(from: movie, ranking: index + 1)
                 }
+
             case .upcoming:
                 try await client.upcomingMovies().map(MovieCardViewData.upcoming(from:))
-
             }
         },
         releaseCalendar: { genreStore in

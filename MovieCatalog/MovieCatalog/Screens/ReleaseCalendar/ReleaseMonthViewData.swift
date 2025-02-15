@@ -26,9 +26,9 @@ extension ReleaseMonthViewData {
 extension ReleaseMonthViewData {
     static func buildCollection(from dto: [MovieSummary], genreStore: GenreStore) -> [Self] {
         var groups: [YearMonth: [MovieSummary]] = [:]
-        dto.forEach { summary in
+        for summary in dto {
             guard let releaseDate = summary.releaseDate.flatMap({ Utils.parseReleaseDate(from: $0) }) else {
-                return
+                continue
             }
 
             let dateComponents = Calendar.current.dateComponents([.year, .month], from: releaseDate)
@@ -36,7 +36,7 @@ extension ReleaseMonthViewData {
                 let month = dateComponents.month,
                 let year = dateComponents.year
             else {
-                return
+                continue
             }
 
             let key = YearMonth(year: year, month: month)
@@ -44,7 +44,7 @@ extension ReleaseMonthViewData {
             if groups[key] == nil {
                 groups[key] = []
             }
-            
+
             groups[key]?.append(summary)
         }
 
@@ -53,14 +53,14 @@ extension ReleaseMonthViewData {
                 leftPair.key < rightPair.key
             })
             .map { (key: YearMonth, value: [MovieSummary]) in
-            let date = DateComponents(calendar: .current, year: key.year, month: key.month).date ?? Date()
+                let date = DateComponents(calendar: .current, year: key.year, month: key.month).date ?? Date()
 
-            return ReleaseMonthViewData(
-                year: date.formatted(.dateTime.year()),
-                month: date.formatted(.dateTime.month()),
-                movies: value.compactMap { UpcomingMovieViewData(dto: $0, genreStore: genreStore) }
-            )
-        }
+                return ReleaseMonthViewData(
+                    year: date.formatted(.dateTime.year()),
+                    month: date.formatted(.dateTime.month()),
+                    movies: value.compactMap { UpcomingMovieViewData(dto: $0, genreStore: genreStore) }
+                )
+            }
 
         return flatGroups
     }
@@ -69,7 +69,7 @@ extension ReleaseMonthViewData {
         static func < (lhs: ReleaseMonthViewData.YearMonth, rhs: ReleaseMonthViewData.YearMonth) -> Bool {
             (lhs.year, lhs.month) < (rhs.year, rhs.month)
         }
-        
+
         let year: Int
         let month: Int
     }

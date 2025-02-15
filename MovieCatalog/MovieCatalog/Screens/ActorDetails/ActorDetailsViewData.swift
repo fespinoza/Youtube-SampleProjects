@@ -15,7 +15,7 @@ extension ActorDetailsViewData {
             name: dto.name,
             profilePicture: .remote(from: dto.profilePictureMedium),
             bio: dto.biography,
-            movies: dto.movieCredits.cast.prefix(10).map({ MovieCardViewData.basic(from: $0) })
+            movies: dto.movieCredits.cast.prefix(10).map { MovieCardViewData.basic(from: $0) }
         )
     }
 }

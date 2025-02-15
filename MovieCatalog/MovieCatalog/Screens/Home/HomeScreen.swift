@@ -23,7 +23,7 @@ struct HomeScreen: View {
         HomeScreen()
     }
     .environment(GenreStore.preview())
-    .environment(\.movieDataClient.homeData, { genreStore in
+    .environment(\.movieDataClient.homeData) { _ in
         HomeViewData.previewValue()
-    })
+    }
 }
