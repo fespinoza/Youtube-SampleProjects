@@ -2,7 +2,9 @@ import SwiftUI
 
 struct HomeScreen: View {
     @State var loadingState: BasicLoadingState<HomeViewData> = .idle
+
     @Environment(GenreStore.self) private var genreStore
+    @Environment(\.movieDataClient.homeData) private var homeData
 
     var body: some View {
         BasicStateView(
@@ -12,7 +14,7 @@ struct HomeScreen: View {
                 HomeView(viewData: viewData)
             },
             fetchData: {
-                try await MovieDBClient().fetchHomeData(genreStore: genreStore)
+                try await homeData(genreStore)
             }
         )
         .navigationTitle("Movies")
@@ -20,6 +22,11 @@ struct HomeScreen: View {
 }
 
 #Preview {
-    HomeScreen()
-        .environment(GenreStore.preview())
+    NavigationStack {
+        HomeScreen()
+    }
+    .environment(GenreStore.preview())
+    .environment(\.movieDataClient.homeData, { genreStore in
+        HomeViewData.previewValue()
+    })
 }

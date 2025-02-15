@@ -4,8 +4,6 @@ struct MovieDescriptionScreen: View {
     let title: String
     let description: String
 
-    @Environment(\.dismiss) var dismiss
-
     var body: some View {
         ScrollView(.vertical) {
             Text(description)

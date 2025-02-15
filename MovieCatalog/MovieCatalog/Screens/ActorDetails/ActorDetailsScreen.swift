@@ -4,6 +4,8 @@ struct ActorDetailsScreen: View {
     let actorID: ActorID
     @State var loadingState: BasicLoadingState<ActorDetailsViewData> = .idle
 
+    @Environment(\.movieDataClient.actorDetails) var actorDetails
+
     var body: some View {
         BasicStateView(
             state: $loadingState,
@@ -11,10 +13,12 @@ struct ActorDetailsScreen: View {
             dataContent: { viewData in
                 ActorDetailsView(viewData: viewData)
             },
-            fetchData: {
-                let dto = try await MovieDBClient().actorDetails(for: actorID)
-                return ActorDetailsViewData(dto: dto)
-            }
+            fetchData: fetchActorDetails
         )
     }
+
+    func fetchActorDetails() async throws -> ActorDetailsViewData {
+        try await actorDetails(actorID)
+    }
 }
+

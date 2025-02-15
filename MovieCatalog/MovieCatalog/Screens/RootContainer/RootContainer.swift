@@ -14,7 +14,7 @@ struct RootContainer: View {
                         ActorDetailsScreen(actorID: actorID)
                     }
                     .navigationDestination(for: MovieListType.self) { listType in
-                        MovieListScreen(listType: listType.viewData)
+                        MovieListScreen(listType: listType)
                     }
             }
             .tabItem {
@@ -37,7 +37,7 @@ struct RootContainer: View {
                         ActorDetailsScreen(actorID: actorID)
                     }
                     .navigationDestination(for: MovieListType.self) { listType in
-                        MovieListScreen(listType: listType.viewData)
+                        MovieListScreen(listType: listType)
                     }
             }
             .tabItem {

@@ -3,6 +3,7 @@ import SwiftUI
 struct MovieDetailsScreen: View {
     let movieID: MovieID
     @State var loadingState: BasicLoadingState<MovieDetailsViewData> = .idle
+    @Environment(\.movieDataClient.movieDetails) private var movieDetails
 
     var body: some View {
         BasicStateView(
@@ -11,14 +12,12 @@ struct MovieDetailsScreen: View {
             dataContent: { viewData in
                 MovieDetailsView(viewData: viewData)
             },
-            fetchData: {
-                let dto = try await MovieDBClient().movieDetails(for: movieID)
-                return MovieDetailsViewData(dto: dto)
-            }
+            fetchData: { try await movieDetails(movieID) }
         )
     }
 }
 
 #Preview {
     MovieDetailsScreen(movieID: .randomPreviewId())
+        .environment(\.movieDataClient, .previewClient())
 }

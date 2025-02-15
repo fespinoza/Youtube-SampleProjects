@@ -1,29 +1,21 @@
 import Foundation
 
 struct MovieDBClient {
-    func fetchHomeData(genreStore: GenreStore) async throws -> HomeViewData {
+    func homeData() async throws -> HomeData {
         async let popular = popularMovies()
         async let topRated = topRatedMovies()
         async let upcoming = upcomingMovies()
 
         var resolvedPopular = try await popular
 
-        let featured: [FeatureMovieViewData] = resolvedPopular.prefix(5).map { movie in
-            .build(from: movie, genreStore: genreStore)
-        }
-
+        let featured = Array(resolvedPopular.prefix(5))
         resolvedPopular.removeFirst(5)
-        let newMovies: [MovieCardViewData] = resolvedPopular.map(MovieCardViewData.basic(from:))
-        let topRatedMovies: [MovieCardViewData] = try await topRated.enumerated().map { (index, movie) in
-            .ranking(from: movie, ranking: index + 1)
-        }
-        let upcomingMovies: [MovieCardViewData] = try await upcoming.map { .upcoming(from: $0) }
 
-        return .init(
+        return try await .init(
             featuredMovies: featured,
-            newMovies: newMovies,
-            topRatedMovies: topRatedMovies,
-            upcomingMovies: upcomingMovies
+            newMovies: popular,
+            topRatedMovies: topRated,
+            upcomingMovies: upcoming
         )
     }
 
