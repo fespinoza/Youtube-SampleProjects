@@ -1,15 +1,7 @@
 import SwiftUI
 
-public struct ImageClientKey: EnvironmentKey {
-    public static var defaultValue: ImageClient = DefaultImageClient()
-}
-
 public extension EnvironmentValues {
-    /// Color to use for skeleton/loading views in the current environment
-    var imageClient: ImageClient {
-        get { self[ImageClientKey.self] }
-        set { self[ImageClientKey.self] = newValue }
-    }
+    @Entry var imageClient: ImageClient = DefaultImageClient()
 }
 
 /// Requirements for an `ImageClient` to be used in `CustomAsyncImage`.
