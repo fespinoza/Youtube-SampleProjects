@@ -39,7 +39,7 @@ extension UpcomingMovieViewData {
             id: dto.id,
             title: dto.title,
             genres: genreStore.formattedGenres(for: dto.genreIds),
-            image: .remote(from: dto.posterURL),
+            image: .remote(from: dto.posterURL, defaultImage: Image(.missingPoster)),
             dayOfTheWeek: date.formatted(.dateTime.weekday(.abbreviated)),
             day: date.formatted(.dateTime.day(.twoDigits))
         )

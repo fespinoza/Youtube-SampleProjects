@@ -26,11 +26,13 @@ struct MovieCardViewData: Identifiable, Equatable {
 }
 
 extension MovieCardViewData {
+    static let defaultImage: Image = Image(.missingPoster)
+
     static func basic(from summary: MovieSummary) -> Self {
         .init(
             id: summary.id,
             title: summary.title,
-            image: .remote(from: summary.posterURL),
+            image: .remote(from: summary.posterURL, defaultImage: defaultImage),
             style: .basic
         )
     }
@@ -39,7 +41,7 @@ extension MovieCardViewData {
         .init(
             id: summary.id,
             title: summary.title,
-            image: .remote(from: summary.posterURL),
+            image: .remote(from: summary.posterURL, defaultImage: defaultImage),
             style: (summary.releaseDate.flatMap { .upcoming(releaseDate: Utils.formattedUpcomingReleaseDate(from: $0)) }) ?? .basic
         )
     }
@@ -48,7 +50,7 @@ extension MovieCardViewData {
         .init(
             id: summary.id,
             title: summary.title,
-            image: .remote(from: summary.posterURL),
+            image: .remote(from: summary.posterURL, defaultImage: defaultImage),
             style: .ranking(ranking: "#\(ranking)")
         )
     }

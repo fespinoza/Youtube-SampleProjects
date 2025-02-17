@@ -14,7 +14,7 @@ extension FeatureMovieViewData {
         self.init(
             id: dto.id,
             title: dto.title,
-            image: .remote(from: dto.posterURL),
+            image: .remote(from: dto.posterURL, defaultImage: Image(.missingPoster)),
             genre: genreStore.firstGenre(for: dto.genreIds),
             releaseYear: Utils.formattedReleaseYear(from: dto.releaseDate),
             description: dto.overview ?? "" // TODO: this should be non-optional

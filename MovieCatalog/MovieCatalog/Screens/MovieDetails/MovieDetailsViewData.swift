@@ -42,7 +42,7 @@ extension MovieDetailsViewData {
             runtime: Utils.formatRuntime(minutes: dto.runtime),
             releaseYear: Utils.formattedReleaseYear(from: dto.releaseDate),
             releaseDate: Utils.formattedReleaseDate(from: dto.releaseDate),
-            poster: .remote(from: dto.posterURL),
+            poster: .remote(from: dto.posterURL, defaultImage: Image(.missingPoster)),
             actors: actors,
             galleryItems: dto
                 .images

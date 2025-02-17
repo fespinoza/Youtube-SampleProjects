@@ -67,4 +67,12 @@ extension ImageViewData {
             .empty
         }
     }
+
+    static func remote(from url: URL?, defaultImage: Image) -> ImageViewData {
+        if let url = url {
+            .remote(url: url)
+        } else {
+            .image(defaultImage)
+        }
+    }
 }
