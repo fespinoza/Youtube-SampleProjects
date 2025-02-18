@@ -13,11 +13,18 @@ struct MovieViewData {
     let releaseDate: String
     let genres: String
 
-    let galleryItems: [Image]
+    let galleryItems: [GalleryItem]
 
     let actors: [Actor]
 
-    struct Actor {
+    struct GalleryItem: Identifiable {
+        let id = UUID()
+        let image: Image
+        let aspectRatio: CGFloat
+    }
+
+    struct Actor: Identifiable {
+        let id = UUID()
         let profileImage: Image
         let name: String
         let character: String
@@ -96,20 +103,9 @@ struct MovieDetailsView: View {
 
                     ScrollView(.horizontal) {
                         HStack(spacing: .spacingM) {
-                            viewData.galleryItems[0]
-                                .resizable()
-                                .aspectRatio(1.7, contentMode: .fill)
-                                .frame(width: 320)
-
-                            viewData.galleryItems[1]
-                                .resizable()
-                                .aspectRatio(1.7, contentMode: .fill)
-                                .frame(width: 320)
-
-                            viewData.galleryItems[2]
-                                .resizable()
-                                .aspectRatio(1.7, contentMode: .fill)
-                                .frame(width: 320)
+                            ForEach(viewData.galleryItems) { item in
+                                galleryItem(item)
+                            }
                         }
                         .scrollTargetLayout()
                     }
@@ -125,43 +121,40 @@ struct MovieDetailsView: View {
 
                     ScrollView(.horizontal) {
                         HStack(alignment: .top, spacing: .spacingSM) {
-                            VStack {
-                                viewData.actors[0].profileImage
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 80, height: 80)
-                                    .clipShape(.rect(cornerRadius: .cornerRadiusS))
-                                    .clipped()
-
-                                Text(viewData.actors[0].name)
-                                Text(viewData.actors[0].character)
-                                    .foregroundStyle(Color.secondary)
+                            ForEach(viewData.actors) { actor in
+                                actorItem(actor)
                             }
-                            .font(.caption)
-                            .tint(.primary)
-                            .frame(width: 100)
-
-                            VStack {
-                                viewData.actors[1].profileImage
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 80, height: 80)
-                                    .clipShape(.rect(cornerRadius: .cornerRadiusS))
-                                    .clipped()
-
-                                Text(viewData.actors[1].name)
-                                Text(viewData.actors[1].character)
-                                    .foregroundStyle(Color.secondary)
-                            }
-                            .font(.caption)
-                            .tint(.primary)
-                            .frame(width: 100)
                         }
                     }
                     .contentMargins(.horizontal, .spacingM, for: .automatic)
                 }
             }
         }
+    }
+
+    func galleryItem(_ item: MovieViewData.GalleryItem) -> some View {
+        item.image
+            .resizable()
+            .aspectRatio(item.aspectRatio, contentMode: .fill)
+            .frame(width: 320)
+    }
+
+    func actorItem(_ item: MovieViewData.Actor) -> some View {
+        VStack {
+            item.profileImage
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 80, height: 80)
+                .clipShape(.rect(cornerRadius: .cornerRadiusS))
+                .clipped()
+
+            Text(item.name)
+            Text(item.character)
+                .foregroundStyle(Color.secondary)
+        }
+        .font(.caption)
+        .tint(.primary)
+        .frame(width: 100)
     }
 }
 
@@ -175,10 +168,17 @@ extension MovieViewData {
         title: String = "Iron Man",
         releaseYear: String = "2008",
         duration: String = "2h 6m",
-        summary: String = "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+        summary: String = """
+        After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a \
+        unique weaponized suit of armor to fight evil.
+        """,
         releaseDate: String = "October 30th, 2024",
         genres: String = "Action, Science Fiction, Adventure",
-        galleryItems: [Image] = [Image(.Gallery.IronMan.image1), Image(.Gallery.IronMan.image2), Image(.Gallery.IronMan.image3)],
+        galleryItems: [MovieViewData.GalleryItem] = [
+            .previewValue(image: Image(.Gallery.IronMan.image1)),
+            .previewValue(image: Image(.Gallery.IronMan.image2)),
+            .previewValue(image: Image(.Gallery.IronMan.image3)),
+        ],
         actors: [MovieViewData.Actor] = [.previewValue(), .previewValue()]
     ) -> Self {
         .init(
@@ -204,6 +204,18 @@ extension MovieViewData.Actor {
             profileImage: profileImage,    
             name: name,    
             character: character   
+        )
+    }
+}
+
+extension MovieViewData.GalleryItem {
+    static func previewValue(
+        image: Image = Image(.Gallery.IronMan.image1),
+        aspectRatio: CGFloat = 1.7
+    ) -> Self {
+        .init(
+            image: image,    
+            aspectRatio: aspectRatio   
         )
     }
 }
