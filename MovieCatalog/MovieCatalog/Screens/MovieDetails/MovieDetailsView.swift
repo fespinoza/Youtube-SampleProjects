@@ -25,10 +25,12 @@ struct MovieViewData {
 }
 
 struct MovieDetailsView: View {
+    let viewData: MovieViewData
+
     var body: some View {
         ScrollView {
             VStack(spacing: .spacingL) {
-                Image(.Movie.IronMan.medium)
+                viewData.poster
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 600)
@@ -45,17 +47,17 @@ struct MovieDetailsView: View {
                     }
                     .overlay(alignment: .bottom) {
                         VStack(spacing: .spacingS) {
-                            Text("Iron Man")
+                            Text(viewData.title)
                                 .font(.title.bold())
                             
                             HStack {
-                                Text("2008")
-                                Text("2h 6m")
+                                Text(viewData.releaseYear)
+                                Text(viewData.duration)
                             }
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             
-                            Text("After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.")
+                            Text(viewData.summary)
                                 .padding(.horizontal, .spacingM)
                             
                         }
@@ -71,14 +73,14 @@ struct MovieDetailsView: View {
                     Grid(verticalSpacing: .spacingSM) {
                         GridRow {
                             Text("Release Date")
-                            Text("May 30th, 2008")
+                            Text(viewData.releaseDate)
                         }
                         .gridColumnAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
                         GridRow {
                             Text("Genres")
-                            Text("Action, Science Fiction, Adventure")
+                            Text(viewData.genres)
                         }
                         .gridColumnAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -94,17 +96,17 @@ struct MovieDetailsView: View {
 
                     ScrollView(.horizontal) {
                         HStack(spacing: .spacingM) {
-                            Image(.Gallery.IronMan.image1)
+                            viewData.galleryItems[0]
                                 .resizable()
                                 .aspectRatio(1.7, contentMode: .fill)
                                 .frame(width: 320)
 
-                            Image(.Gallery.IronMan.image2)
+                            viewData.galleryItems[1]
                                 .resizable()
                                 .aspectRatio(1.7, contentMode: .fill)
                                 .frame(width: 320)
 
-                            Image(.Gallery.IronMan.image3)
+                            viewData.galleryItems[2]
                                 .resizable()
                                 .aspectRatio(1.7, contentMode: .fill)
                                 .frame(width: 320)
@@ -124,15 +126,15 @@ struct MovieDetailsView: View {
                     ScrollView(.horizontal) {
                         HStack(alignment: .top, spacing: .spacingSM) {
                             VStack {
-                                Image(.Actor.PedroPascal.medium)
+                                viewData.actors[0].profileImage
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 80, height: 80)
                                     .clipShape(.rect(cornerRadius: .cornerRadiusS))
                                     .clipped()
 
-                                Text("Robert Downey Jr.")
-                                Text("Tony Stark")
+                                Text(viewData.actors[0].name)
+                                Text(viewData.actors[0].character)
                                     .foregroundStyle(Color.secondary)
                             }
                             .font(.caption)
@@ -140,15 +142,15 @@ struct MovieDetailsView: View {
                             .frame(width: 100)
 
                             VStack {
-                                Image(.Actor.PedroPascal.medium)
+                                viewData.actors[1].profileImage
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 80, height: 80)
                                     .clipShape(.rect(cornerRadius: .cornerRadiusS))
                                     .clipped()
 
-                                Text("Robert Downey Jr.")
-                                Text("Tony Stark")
+                                Text(viewData.actors[1].name)
+                                Text(viewData.actors[1].character)
                                     .foregroundStyle(Color.secondary)
                             }
                             .font(.caption)
@@ -164,7 +166,7 @@ struct MovieDetailsView: View {
 }
 
 #Preview {
-    MovieDetailsView()
+    MovieDetailsView(viewData: .previewValue())
 }
 
 extension MovieViewData {
