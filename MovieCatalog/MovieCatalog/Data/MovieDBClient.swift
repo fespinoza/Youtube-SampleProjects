@@ -57,17 +57,6 @@ struct MovieDBClient {
         return container.results
     }
 
-    func movieDetails(for movieID: MovieID) async throws -> MovieDetails {
-        let url = try url(
-            for: "/movie/\(movieID)",
-            params: [
-                .init(name: "include_image_language", value: "en"),
-                .init(name: "append_to_response", value: "images,credits"),
-            ]
-        )
-        return try await fetch(url)
-    }
-
     func genres() async throws -> [Genre] {
         let url = try url(for: "/genre/movie/list")
         let container: GenreContainer = try await fetch(url)

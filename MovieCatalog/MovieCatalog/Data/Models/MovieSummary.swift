@@ -1,4 +1,7 @@
 import Foundation
+import Tagged
+
+typealias MovieID = Tagged<MovieSummary, Int>
 
 struct MovieSummary: Decodable, Identifiable {
     let backdropPath: String?

@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+
 struct MovieImageGalleryScreen: View {
     let images: [ImageContainerViewData]
     @State var selectedImage: Int = 0

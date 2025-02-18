@@ -7,9 +7,6 @@ struct RootContainer: View {
         TabView {
             NavigationStack {
                 HomeScreen()
-                    .navigationDestination(for: MovieID.self) { movieID in
-                        MovieDetailsScreen(movieID: movieID)
-                    }
                     .navigationDestination(for: ActorID.self) { actorID in
                         ActorDetailsScreen(actorID: actorID)
                     }
@@ -30,9 +27,6 @@ struct RootContainer: View {
 
             NavigationStack {
                 ReleaseCalendarScreen()
-                    .navigationDestination(for: MovieID.self) { movieID in
-                        MovieDetailsScreen(movieID: movieID)
-                    }
                     .navigationDestination(for: ActorID.self) { actorID in
                         ActorDetailsScreen(actorID: actorID)
                     }

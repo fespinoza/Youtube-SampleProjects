@@ -4,7 +4,6 @@ struct MovieDataClient {
     var homeData: (GenreStore) async throws -> HomeViewData
     var popularMovies: () async throws -> [MovieCardViewData]
     var actorDetails: (ActorID) async throws -> ActorDetailsViewData
-    var movieDetails: (MovieID) async throws -> MovieDetailsViewData
     var movieList: (MovieListType) async throws -> [MovieCardViewData]
     var releaseCalendar: (GenreStore) async throws -> [ReleaseMonthViewData]
 
@@ -20,10 +19,6 @@ struct MovieDataClient {
         actorDetails: { actorID in
             let dto = try await MovieDBClient().actorDetails(for: actorID)
             return .init(dto: dto)
-        },
-        movieDetails: { movieID in
-            let dto = try await MovieDBClient().movieDetails(for: movieID)
-            return MovieDetailsViewData(dto: dto)
         },
         movieList: { listType in
             let client = MovieDBClient()
@@ -52,7 +47,6 @@ struct MovieDataClient {
             homeData: { _ in .previewValue() },
             popularMovies: { [.eternalSunshine(), .gladiatorTwo(), .theApprentice()] },
             actorDetails: { _ in .previewValue() },
-            movieDetails: { _ in .previewValue() },
             movieList: { _ in [.eternalSunshine(), .gladiatorTwo(), .theApprentice()] },
             releaseCalendar: { _ in [.previewValue()] }
         )
