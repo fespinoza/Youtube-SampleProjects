@@ -1,5 +1,29 @@
 import SwiftUI
 
+struct MovieViewData {
+    let poster: Image
+
+    let title: String
+
+    let releaseYear: String
+    let duration: String
+
+    let summary: String
+
+    let releaseDate: String
+    let genres: String
+
+    let galleryItems: [Image]
+
+    let actors: [Actor]
+
+    struct Actor {
+        let profileImage: Image
+        let name: String
+        let character: String
+    }
+}
+
 struct MovieDetailsView: View {
     var body: some View {
         ScrollView {
@@ -25,7 +49,6 @@ struct MovieDetailsView: View {
                                 .font(.title.bold())
                             
                             HStack {
-                                Text("Action")
                                 Text("2008")
                                 Text("2h 6m")
                             }
@@ -142,4 +165,43 @@ struct MovieDetailsView: View {
 
 #Preview {
     MovieDetailsView()
+}
+
+extension MovieViewData {
+    static func previewValue(
+        poster: Image = Image(.Movie.IronMan.medium),
+        title: String = "Iron Man",
+        releaseYear: String = "2008",
+        duration: String = "2h 6m",
+        summary: String = "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+        releaseDate: String = "October 30th, 2024",
+        genres: String = "Action, Science Fiction, Adventure",
+        galleryItems: [Image] = [Image(.Gallery.IronMan.image1), Image(.Gallery.IronMan.image2), Image(.Gallery.IronMan.image3)],
+        actors: [MovieViewData.Actor] = [.previewValue(), .previewValue()]
+    ) -> Self {
+        .init(
+            poster: poster,    
+            title: title,    
+            releaseYear: releaseYear,    
+            duration: duration,    
+            summary: summary,    
+            releaseDate: releaseDate,    
+            genres: genres,
+            galleryItems: galleryItems,
+            actors: actors
+        )
+    }
+}
+extension MovieViewData.Actor {
+    static func previewValue(
+        profileImage: Image = Image(.Actor.PedroPascal.medium),
+        name: String = "Robert Downey Jr.",
+        character: String = "Iron Man"
+    ) -> Self {
+        .init(
+            profileImage: profileImage,    
+            name: name,    
+            character: character   
+        )
+    }
 }
