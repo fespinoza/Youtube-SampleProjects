@@ -13,9 +13,23 @@ struct MovieDetailsViewTests {
         expectSnapshot(of: view, on: variant)
     }
 
-    @Test("Movie that doens't have a gallery", arguments: SnapshotVariant.defaultVariants())
+    @Test("Movie that doens't have a gallery", arguments: SnapshotVariant.fixedHeightVariants())
     func movieDetailsNoGallery(_ variant: SnapshotVariant) async throws {
         let view = NavigationStack { MovieDetailsView(viewData: .previewValue(galleryItems: [])) }
+
+        expectSnapshot(of: view, on: variant)
+    }
+
+    @Test("Movie that doens't have a actors", arguments: SnapshotVariant.fixedHeightVariants())
+    func movieDetailsNoActors(_ variant: SnapshotVariant) async throws {
+        let view = NavigationStack { MovieDetailsView(viewData: .previewValue(actors: [])) }
+
+        expectSnapshot(of: view, on: variant)
+    }
+
+    @Test("Movie that a poster image", arguments: SnapshotVariant.minimalVariants())
+    func movieDetailsMissingPoster(_ variant: SnapshotVariant) async throws {
+        let view = NavigationStack { MovieDetailsView(viewData: .previewValue(poster: nil)) }
 
         expectSnapshot(of: view, on: variant)
     }
