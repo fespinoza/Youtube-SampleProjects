@@ -27,7 +27,7 @@ struct MovieDetailsViewTests {
         expectSnapshot(of: view, on: variant)
     }
 
-    @Test("Movie that a poster image", arguments: SnapshotVariant.minimalVariants())
+    @Test("Movie missing a poster image", arguments: SnapshotVariant.minimalVariants())
     func movieDetailsMissingPoster(_ variant: SnapshotVariant) async throws {
         let view = NavigationStack { MovieDetailsView(viewData: .previewValue(poster: nil)) }
 
