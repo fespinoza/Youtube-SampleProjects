@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MovieViewData {
-    let poster: Image
+    let poster: ImageViewData
 
     let title: String
 
@@ -13,19 +13,13 @@ struct MovieViewData {
     let releaseDate: String
     let genres: String
 
-    let galleryItems: [GalleryItem]
+    let galleryItems: [ImageContainerViewData]
 
     let actors: [Actor]
 
-    struct GalleryItem: Identifiable {
-        let id = UUID()
-        let image: Image
-        let aspectRatio: CGFloat
-    }
-
     struct Actor: Identifiable {
         let id = UUID()
-        let profileImage: Image
+        let profileImage: ImageViewData
         let name: String
         let character: String
     }
@@ -37,40 +31,42 @@ struct MovieDetailsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: .spacingL) {
-                viewData.poster
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 600)
-                    .clipped()
-                    .overlay {
-                        LinearGradient(
-                            colors: [
-                                .clear,
-                                .black,
-                            ],
-                            startPoint: .init(x: 0, y: 0.55),
-                            endPoint: .init(x: 0, y: 1.0)
-                        )
-                    }
-                    .overlay(alignment: .bottom) {
-                        VStack(spacing: .spacingS) {
-                            Text(viewData.title)
-                                .font(.title.bold())
-                            
-                            HStack {
-                                Text(viewData.releaseYear)
-                                Text(viewData.duration)
-                            }
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            
-                            Text(viewData.summary)
-                                .padding(.horizontal, .spacingM)
-                            
+                CustomAsyncImage(state: viewData.poster) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                }
+                .frame(height: 600)
+                .clipped()
+                .overlay {
+                    LinearGradient(
+                        colors: [
+                            .clear,
+                            .black,
+                        ],
+                        startPoint: .init(x: 0, y: 0.55),
+                        endPoint: .init(x: 0, y: 1.0)
+                    )
+                }
+                .overlay(alignment: .bottom) {
+                    VStack(spacing: .spacingS) {
+                        Text(viewData.title)
+                            .font(.title.bold())
+
+                        HStack {
+                            Text(viewData.releaseYear)
+                            Text(viewData.duration)
                         }
-                        .padding(.bottom, .spacingS)
-                        .colorScheme(.dark)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+
+                        Text(viewData.summary)
+                            .padding(.horizontal, .spacingM)
+
                     }
+                    .padding(.bottom, .spacingS)
+                    .colorScheme(.dark)
+                }
                 
                 VStack(alignment: .leading) {
                     Text("Details")
@@ -132,21 +128,25 @@ struct MovieDetailsView: View {
         }
     }
 
-    func galleryItem(_ item: MovieViewData.GalleryItem) -> some View {
-        item.image
-            .resizable()
-            .aspectRatio(item.aspectRatio, contentMode: .fill)
-            .frame(width: 320)
+    func galleryItem(_ item: ImageContainerViewData) -> some View {
+        CustomAsyncImage(state: item.image) { image in
+            image
+                .resizable()
+        }
+        .aspectRatio(item.aspectRatio, contentMode: .fill)
+        .frame(width: 320)
     }
 
     func actorItem(_ item: MovieViewData.Actor) -> some View {
         VStack {
-            item.profileImage
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 80, height: 80)
-                .clipShape(.rect(cornerRadius: .cornerRadiusS))
-                .clipped()
+            CustomAsyncImage(state: item.profileImage) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }
+            .frame(width: 80, height: 80)
+            .clipShape(.rect(cornerRadius: .cornerRadiusS))
+            .clipped()
 
             Text(item.name)
             Text(item.character)
@@ -164,7 +164,7 @@ struct MovieDetailsView: View {
 
 extension MovieViewData {
     static func previewValue(
-        poster: Image = Image(.Movie.IronMan.medium),
+        poster: ImageViewData = .image(Image(.Movie.IronMan.medium)),
         title: String = "Iron Man",
         releaseYear: String = "2008",
         duration: String = "2h 6m",
@@ -174,10 +174,10 @@ extension MovieViewData {
         """,
         releaseDate: String = "October 30th, 2024",
         genres: String = "Action, Science Fiction, Adventure",
-        galleryItems: [MovieViewData.GalleryItem] = [
-            .previewValue(image: Image(.Gallery.IronMan.image1)),
-            .previewValue(image: Image(.Gallery.IronMan.image2)),
-            .previewValue(image: Image(.Gallery.IronMan.image3)),
+        galleryItems: [ImageContainerViewData] = [
+            .previewValue(image: .image(Image(.Gallery.IronMan.image1))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image2))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image3))),
         ],
         actors: [MovieViewData.Actor] = [.previewValue(), .previewValue()]
     ) -> Self {
@@ -194,9 +194,10 @@ extension MovieViewData {
         )
     }
 }
+
 extension MovieViewData.Actor {
     static func previewValue(
-        profileImage: Image = Image(.Actor.PedroPascal.medium),
+        profileImage: ImageViewData = .image(Image(.Actor.PedroPascal.medium)),
         name: String = "Robert Downey Jr.",
         character: String = "Iron Man"
     ) -> Self {
@@ -204,18 +205,6 @@ extension MovieViewData.Actor {
             profileImage: profileImage,    
             name: name,    
             character: character   
-        )
-    }
-}
-
-extension MovieViewData.GalleryItem {
-    static func previewValue(
-        image: Image = Image(.Gallery.IronMan.image1),
-        aspectRatio: CGFloat = 1.7
-    ) -> Self {
-        .init(
-            image: image,    
-            aspectRatio: aspectRatio   
         )
     }
 }
