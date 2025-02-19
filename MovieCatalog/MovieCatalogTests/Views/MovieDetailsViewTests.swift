@@ -33,4 +33,18 @@ struct MovieDetailsViewTests {
 
         expectSnapshot(of: view, on: variant)
     }
+
+    @Test("Movie with all data - large size")
+    func movieDetailsAccessbility() {
+        let view = NavigationStack { MovieDetailsView(viewData: .previewValue()) }
+
+        expectSnapshot(
+            of: view,
+            on: .init(
+                device: .fixedSize(.init(width: 402, height: 1600)),
+                appearance: .darkMode,
+                dynamicTypeSize: .accessibility2
+            )
+        )
+    }
 }
