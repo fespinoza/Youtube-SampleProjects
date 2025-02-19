@@ -86,7 +86,7 @@ extension MovieDetailsViewData {
         runtime: String = "2h 2m",
         releaseYear: String = "2024",
         releaseDate: String = "October 9th, 2024",
-        poster: ImageViewData = .image(Image(.Movie.TheApprentice.medium)),
+        poster: ImageViewData? = .image(Image(.Movie.TheApprentice.medium)),
         actors: [MovieDetailsViewData.ActorViewData] = [
             .previewValue(),
             .previewValue(),
@@ -108,7 +108,7 @@ extension MovieDetailsViewData {
             runtime: runtime,
             releaseYear: releaseYear,
             releaseDate: releaseDate,
-            poster: poster,
+            poster: poster ?? .image(Image(.missingPoster)),
             actors: actors,
             galleryItems: galleryItems
         )
