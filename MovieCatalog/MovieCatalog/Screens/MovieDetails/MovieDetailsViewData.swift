@@ -73,20 +73,16 @@ extension MovieDetailsViewData.ActorViewData {
 extension MovieDetailsViewData {
     static func previewValue(
         id: MovieID = .randomPreviewId(),
-        title: String = "The Apprentice",
-        genres: [String] = ["History", "Drama"],
+        title: String = "Iron Man",
+        genres: [String] = ["Action", "Science Fiction", "Adventure"],
         description: String = """
-        A young Donald Trump, eager to make his name as a hungry scion \
-        of a wealthy family in 1970s New York, comes under the spell of \
-        Roy Cohn, the cutthroat attorney who would help create the Donald \
-        Trump we know today. Cohn sees in Trump the perfect protégé—someone \
-        with raw ambition, a hunger for success, and a willingness to do \
-        whatever it takes to win.
+        After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized \
+        suit of armor to fight evil.
         """,
-        runtime: String = "2h 2m",
-        releaseYear: String = "2024",
-        releaseDate: String = "October 9th, 2024",
-        poster: ImageViewData? = .image(Image(.Movie.TheApprentice.medium)),
+        runtime: String = "2h 6m",
+        releaseYear: String = "2008",
+        releaseDate: String = "May 30th, 2028",
+        poster: ImageViewData? = .image(Image(.Movie.IronMan.medium)),
         actors: [MovieDetailsViewData.ActorViewData] = [
             .previewValue(),
             .previewValue(),
@@ -94,10 +90,10 @@ extension MovieDetailsViewData {
             .previewValue(),
         ],
         galleryItems: [ImageContainerViewData] = [
-            .previewValue(image: .image(Image(.Gallery.TheApprentice.image1))),
-            .previewValue(image: .image(Image(.Gallery.TheApprentice.image2))),
-            .previewValue(image: .image(Image(.Gallery.TheApprentice.image3))),
-            .previewValue(image: .image(Image(.Gallery.TheApprentice.image4))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image1))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image2))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image3))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image4))),
         ]
     ) -> Self {
         .init(
