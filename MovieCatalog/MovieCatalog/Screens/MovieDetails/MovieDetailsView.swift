@@ -192,5 +192,7 @@ struct MovieDetailsView: View {
 }
 
 #Preview {
-    MovieDetailsView(viewData: .previewValue())
+    NavigationStack {
+        MovieDetailsView(viewData: .previewValue())
+    }
 }
