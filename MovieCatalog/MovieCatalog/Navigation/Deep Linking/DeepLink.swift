@@ -1,10 +1,8 @@
 import Foundation
 
 struct DeepLink {
-    static let scheme: String = "moviecat"
-
     static func destination(from url: URL) -> Destination? {
-        guard url.scheme == DeepLink.scheme else { return nil }
+        guard url.scheme == Config.deepLinkScheme else { return nil }
 
         for parser in registeredParsers {
             if let destination = parser.parse(url) {

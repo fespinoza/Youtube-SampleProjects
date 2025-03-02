@@ -15,4 +15,8 @@ enum Config {
     }()
 
     static let baseURL: URL = .init(string: "https://api.themoviedb.org/3")!
+
+    static let bundleID = "com.fespinozacast.youtube.MovieCatalog"
+
+    static let deepLinkScheme: String = "moviecat"
 }

@@ -22,7 +22,7 @@ final class Router {
     /// Current presented full screen
     var presentingFullScreen: FullScreenDestination?
 
-    let logger = Logger(subsystem: "com.fespinozacast.youtube.MovieCatalog", category: "Navigation")
+    let logger = Logger(subsystem: Config.bundleID, category: "Navigation")
 
     /// Reference to the parent router to form a hierarchy
     /// Router levels increase for the children
