@@ -8,9 +8,10 @@ struct ReleaseCalendarView: View {
             ForEach(months) { month in
                 Section {
                     ForEach(month.movies) { movie in
-                        NavigationLink(value: movie.id) {
+                        NavigationButton(push: .movieDetails(id: movie.id)) {
                             UpcomingMovieView(movie: movie)
                         }
+                        .tint(.primary)
                     }
                 } header: {
                     Text(month.sectionTitle)

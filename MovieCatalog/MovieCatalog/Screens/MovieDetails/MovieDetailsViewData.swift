@@ -6,6 +6,22 @@ struct ImageContainerViewData: Identifiable, Hashable {
     let aspectRatio: CGFloat
 }
 
+extension ImageContainerViewData {
+    static func galleryItems(for dto: MovieDetails) -> [ImageContainerViewData] {
+        dto
+            .images
+            .backdrops
+            .dropFirst()
+            .prefix(10)
+            .map { backdrop in
+                    .init(
+                        image: .remote(from: backdrop.imageURL),
+                        aspectRatio: backdrop.aspectRatio
+                    )
+            }
+    }
+}
+
 struct MovieDetailsViewData: Identifiable, Equatable {
     let id: MovieID
     let title: String
@@ -44,17 +60,7 @@ extension MovieDetailsViewData {
             releaseDate: Utils.formattedReleaseDate(from: dto.releaseDate),
             poster: .remote(from: dto.posterURL, defaultImage: Image(.missingPoster)),
             actors: actors,
-            galleryItems: dto
-                .images
-                .backdrops
-                .dropFirst()
-                .prefix(10)
-                .map { backdrop in
-                    .init(
-                        image: .remote(from: backdrop.imageURL),
-                        aspectRatio: backdrop.aspectRatio
-                    )
-                }
+            galleryItems: ImageContainerViewData.galleryItems(for: dto)
         )
     }
 }

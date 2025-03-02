@@ -14,7 +14,7 @@ struct MovieListView: View {
                 spacing: 24
             ) {
                 ForEach(movies) { movie in
-                    NavigationLink(value: movie.id) {
+                    NavigationButton(push: .movieDetails(id: movie.id)) {
                         MovieCardView(viewData: movie)
                     }
                 }
