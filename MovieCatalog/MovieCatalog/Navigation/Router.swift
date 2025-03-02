@@ -30,7 +30,7 @@ final class Router {
 
     /// A way to track which router is visible/active
     /// Used for deep link resolution
-    private var isActive: Bool = false
+    private(set) var isActive: Bool = false
 
     init(level: Int, identifierTab: TabDestination?) {
         self.level = level
