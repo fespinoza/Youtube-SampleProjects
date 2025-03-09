@@ -1,0 +1,5 @@
+// Remove the example suffix and get an API_KEY from http://developer.themoviedb.org
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+API_KEY=<SECRET_HERE>
