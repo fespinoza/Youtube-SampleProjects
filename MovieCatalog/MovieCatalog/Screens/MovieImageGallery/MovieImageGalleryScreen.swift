@@ -75,11 +75,11 @@ struct MovieImageGalleryScreen: View {
 #Preview {
     MovieImageGalleryScreen(
         images: [
-            .previewValue(image: .image(Image(.Gallery.TheApprentice.image1))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image1))),
             .previewValue(image: .loading),
-            .previewValue(image: .image(Image(.Gallery.TheApprentice.image2))),
-            .previewValue(image: .image(Image(.Gallery.TheApprentice.image3))),
-            .previewValue(image: .image(Image(.Gallery.TheApprentice.image4))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image2))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image3))),
+            .previewValue(image: .image(Image(.Gallery.IronMan.image4))),
         ],
         selectedImage: 3
     )

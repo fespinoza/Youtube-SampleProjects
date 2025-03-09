@@ -97,13 +97,13 @@ struct FeaturedMoviesView: View {
 }
 
 #Preview {
-    FeaturedMoviesView.CardView(viewData: .theApprentice())
+    FeaturedMoviesView.CardView(viewData: .ironMan())
 }
 
 #Preview {
     FeaturedMoviesView(
         featuredMovies: [
-            .theApprentice(),
+            .ironMan(),
             .eternalSunshine(),
             .gladiatorTwo(),
         ]
@@ -113,11 +113,14 @@ struct FeaturedMoviesView: View {
 extension FeatureMovieViewData {
     static func previewValue(
         id: MovieID = .randomPreviewId(),
-        title: String = "The Apprentice",
-        image: ImageViewData = .image(Image(.Movie.TheApprentice.medium)),
-        genre: String = "Drama",
-        releaseYear: String = "2024",
-        description: String = "A young Donald Trump, eager to make his name as a hungry scion of a wealthy family in 1970s New York, comes under the spell of Roy Cohn, the cutthroat attorney who would help create the Donald Trump we know today. Cohn sees in Trump the perfect protégé—someone with raw ambition, a hunger for success, and a willingness to do whatever it takes to win."
+        title: String = "Iron Man",
+        image: ImageViewData = .image(Image(.Movie.IronMan.medium)),
+        genre: String = "Science Fiction",
+        releaseYear: String = "2008",
+        description: String = """
+        After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized \
+        suit of armor to fight evil.
+        """
     ) -> Self {
         .init(
             id: id,
@@ -129,16 +132,19 @@ extension FeatureMovieViewData {
         )
     }
 
-    static func theApprentice(
-        image: ImageViewData = .image(Image(.Movie.TheApprentice.medium))
+    static func ironMan(
+        image: ImageViewData = .image(Image(.Movie.IronMan.medium))
     ) -> Self {
         .init(
             id: .randomPreviewId(),
-            title: "The Apprentice",
+            title: "Iron Man",
             image: image,
-            genre: "Drama",
-            releaseYear: "2024",
-            description: "A young Donald Trump, eager to make his name as a hungry scion of a wealthy family in 1970s New York, comes under the spell of Roy Cohn, the cutthroat attorney who would help create the Donald Trump we know today. Cohn sees in Trump the perfect protégé—someone with raw ambition, a hunger for success, and a willingness to do whatever it takes to win."
+            genre: "Science Fiction",
+            releaseYear: "2008",
+            description: """
+            After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized \
+            suit of armor to fight evil.
+            """
         )
     }
 

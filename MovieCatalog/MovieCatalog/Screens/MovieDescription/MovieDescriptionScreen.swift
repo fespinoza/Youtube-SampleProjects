@@ -17,12 +17,10 @@ struct MovieDescriptionScreen: View {
 #Preview {
     NavigationStack {
         MovieDescriptionScreen(
-            title: "The Apprentice",
+            title: "Iron Man",
             description: """
-            A young Donald Trump, eager to make his name as a hungry scion of a wealthy family in \
-            1970s New York, comes under the spell of Roy Cohn, the cutthroat attorney who would help \
-            create the Donald Trump we know today. Cohn sees in Trump the perfect protégé—someone \
-            with raw ambition, a hunger for success, and a willingness to do whatever it takes to win.
+            After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized \
+            suit of armor to fight evil.
             """
         )
     }

@@ -31,7 +31,7 @@ extension HomeViewData {
 extension HomeViewData {
     static func previewValue(
         featuredMovies: [FeatureMovieViewData] = [
-            .theApprentice(),
+            .ironMan(),
             .gladiatorTwo(),
             .eternalSunshine(),
         ],
@@ -39,7 +39,7 @@ extension HomeViewData {
             .eternalSunshine(),
             .gladiatorTwo(),
             .kindaPregnant(),
-            .theApprentice(),
+            .ironMan(),
         ],
         topMovies: [MovieCardViewData] = [
             .previewValue(style: .ranking(ranking: "#1")),

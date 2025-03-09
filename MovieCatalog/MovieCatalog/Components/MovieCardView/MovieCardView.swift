@@ -69,7 +69,7 @@ struct MovieCardView: View {
                 MovieCardView(viewData: .eternalSunshine())
             }
             HStack(alignment: .top) {
-                MovieCardView(viewData: .theApprentice())
+                MovieCardView(viewData: .ironMan())
                 MovieCardView(viewData: .previewValue(image: .error))
                 MovieCardView(viewData: .previewValue(image: .image(Image(.missingPoster))))
             }

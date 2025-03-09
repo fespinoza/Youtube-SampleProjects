@@ -50,10 +50,10 @@ struct MovieDataClient {
     static func previewClient() -> MovieDataClient {
         .init(
             homeData: { _ in .previewValue() },
-            popularMovies: { [.eternalSunshine(), .gladiatorTwo(), .theApprentice()] },
+            popularMovies: { [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },
             actorDetails: { _ in .previewValue() },
             movieDetails: { _ in .previewValue() },
-            movieList: { _ in [.eternalSunshine(), .gladiatorTwo(), .theApprentice()] },
+            movieList: { _ in [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },
             releaseCalendar: { _ in [.previewValue()] }
         )
     }

@@ -114,8 +114,8 @@ extension MovieDetailsViewData {
 extension MovieDetailsViewData.ActorViewData {
     static func previewValue(
         id: ActorID = .randomPreviewId(),
-        name: String = "Sebastian Stan",
-        characterName: String = "Donald Trump",
+        name: String = "Robert Downey Jr.",
+        characterName: String = "Tony Stark",
         profilePicture: ImageViewData = .image(Image(.Actor.BradPitt.small))
     ) -> Self {
         .init(
@@ -129,7 +129,7 @@ extension MovieDetailsViewData.ActorViewData {
 
 extension ImageContainerViewData {
     static func previewValue(
-        image: ImageViewData = .image(Image(.Gallery.TheApprentice.image2)),
+        image: ImageViewData = .image(Image(.Gallery.IronMan.image2)),
         aspectRatio: CGFloat = 1.778
     ) -> Self {
         .init(

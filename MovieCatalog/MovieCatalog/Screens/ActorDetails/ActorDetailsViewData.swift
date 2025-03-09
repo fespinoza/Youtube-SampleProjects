@@ -38,7 +38,7 @@ extension ActorDetailsViewData {
             .gladiatorTwo(),
             .eternalSunshine(),
             .kindaPregnant(),
-            .theApprentice(),
+            .ironMan(),
         ]
     ) -> Self {
         .init(
