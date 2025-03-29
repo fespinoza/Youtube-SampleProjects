@@ -1,27 +1,51 @@
 import SwiftUI
 
 struct MovieDescriptionScreen: View {
-    let title: String
-    let description: String
+    let movieID: MovieID
+
+    init(movieID: MovieID) {
+        self.movieID = movieID
+        self._state = .init(initialValue: .idle)
+    }
+
+    init(movieID: MovieID, title: String, description: String) {
+        self.movieID = movieID
+        self._state = .init(
+            initialValue: .dataLoaded(
+                .init(title: title, description: description)
+            )
+        )
+    }
+
+    @State private var state: BasicLoadingState<ViewData>
+    @Environment(\.movieDataClient.movieDescription) private var movieDescription
 
     var body: some View {
-        ScrollView(.vertical) {
-            Text(description)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.spacingM)
-        }
-        .navigationTitle(title)
+        BasicStateView(
+            state: $state,
+            dataContent: { viewData in
+                MovieDescriptionView(
+                    title: viewData.title,
+                    description: viewData.description
+                )
+            },
+            fetchData: { try await .init(tuple: movieDescription(movieID)) }
+        )
     }
 }
 
-#Preview {
-    NavigationStack {
-        MovieDescriptionScreen(
-            title: "Iron Man",
-            description: """
-            After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized \
-            suit of armor to fight evil.
-            """
-        )
+extension MovieDescriptionScreen {
+    struct ViewData: Equatable {
+        let title: String
+        let description: String
+
+        init(title: String, description: String) {
+            self.title = title
+            self.description = description
+        }
+
+        init(tuple: (title: String, description: String)) {
+            self = .init(title: tuple.title, description: tuple.description)
+        }
     }
 }

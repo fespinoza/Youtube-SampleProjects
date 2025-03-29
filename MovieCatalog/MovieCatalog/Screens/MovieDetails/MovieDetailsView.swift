@@ -4,9 +4,6 @@ struct MovieDetailsView: View {
     let viewData: MovieDetailsViewData
 
     @Environment(\.colorScheme) private var colorScheme
-    @State private var showFullDescription: Bool = false
-    @State private var tappedImageIndex: Int = 0
-    @State private var showFullScreenGallery: Bool = false
 
     var body: some View {
         ScrollView(.vertical) {
@@ -57,16 +54,20 @@ struct MovieDetailsView: View {
                         ScrollView(.horizontal) {
                             HStack(spacing: .spacingM) {
                                 ForEach(Array(viewData.galleryItems.enumerated()), id: \.element.id) { index, item in
-                                    CustomAsyncImage(state: item.image) { image in
-                                        image
-                                            .resizable()
-                                    }
-                                    .aspectRatio(item.aspectRatio, contentMode: .fill)
-                                    .frame(width: 320)
-                                    .contentShape(Rectangle())
-                                    .onTapGesture {
-                                        tappedImageIndex = index
-                                        showFullScreenGallery = true
+                                    NavigationButton(
+                                        fullScreen: .movieGalleryValue(
+                                            id: viewData.id,
+                                            images: viewData.galleryItems,
+                                            selectedImageIndex: index
+                                        )
+                                    ) {
+                                        CustomAsyncImage(state: item.image) { image in
+                                            image
+                                                .resizable()
+                                        }
+                                        .aspectRatio(item.aspectRatio, contentMode: .fill)
+                                        .frame(width: 320)
+                                        .contentShape(Rectangle())
                                     }
                                 }
                             }
@@ -80,7 +81,7 @@ struct MovieDetailsView: View {
                         ScrollView(.horizontal) {
                             HStack(alignment: .top, spacing: .spacingSM) {
                                 ForEach(viewData.actors) { actor in
-                                    NavigationLink(value: actor.id) {
+                                    NavigationButton(push: .actorDetails(id: actor.id)) {
                                         ActorCardView(viewData: actor)
                                     }
                                 }
@@ -93,28 +94,6 @@ struct MovieDetailsView: View {
             .padding(.bottom, .spacingXL)
         }
         .ignoresSafeArea(.all, edges: .top)
-        .sheet(isPresented: $showFullDescription) {
-            NavigationStack {
-                MovieDescriptionScreen(
-                    title: viewData.title,
-                    description: viewData.description
-                )
-                .navigationBarTitleDisplayMode(.inline)
-                .addDismissButton()
-            }
-            .presentationDetents([.medium, .large])
-            .presentationBackground(.regularMaterial)
-        }
-        .fullScreenCover(isPresented: $showFullScreenGallery) {
-            NavigationStack {
-                MovieImageGalleryScreen(
-                    images: viewData.galleryItems,
-                    selectedImage: tappedImageIndex
-                )
-                .addDismissButton()
-            }
-            .presentationBackground(.black)
-        }
     }
 
     var readableGradient: some View {
@@ -144,29 +123,36 @@ struct MovieDetailsView: View {
                 .foregroundStyle(.secondary)
             }
 
-            Text(viewData.description)
-                .lineLimit(3)
-                .contentShape(Rectangle())
-                .overlay(alignment: .bottomTrailing) {
-                    Text("MORE")
-                        .padding(.leading, .spacingXL)
-                        .padding(.trailing, .spacingXS)
-                        .padding(.top, .spacingXXS)
-                        .fontWeight(.bold)
-                        .background(
-                            LinearGradient(
-                                colors: [
-                                    .black.opacity(0.0),
-                                    .black.opacity(0.8),
-                                ],
-                                startPoint: .init(x: 0, y: 0),
-                                endPoint: .init(x: 0.5, y: 0)
+            NavigationButton(
+                sheet: .movieDescriptionValue(
+                    id: viewData.id,
+                    title: viewData.title,
+                    description: viewData.description
+                )
+            ) {
+                Text(viewData.description)
+                    .lineLimit(3)
+                    .contentShape(Rectangle())
+                    .overlay(alignment: .bottomTrailing) {
+                        Text("MORE")
+                            .padding(.leading, .spacingXL)
+                            .padding(.trailing, .spacingXS)
+                            .padding(.top, .spacingXXS)
+                            .fontWeight(.bold)
+                            .background(
+                                LinearGradient(
+                                    colors: [
+                                        .black.opacity(0.0),
+                                        .black.opacity(0.8),
+                                    ],
+                                    startPoint: .init(x: 0, y: 0),
+                                    endPoint: .init(x: 0.5, y: 0)
+                                )
+                                .blur(radius: 4)
                             )
-                            .blur(radius: 4)
-                        )
-                }
-
-                .onTapGesture { showFullDescription = true }
+                    }
+                    .tint(.primary)
+            }
         }
         .padding(.horizontal, .spacingM)
         .padding(.bottom, .spacingXL)

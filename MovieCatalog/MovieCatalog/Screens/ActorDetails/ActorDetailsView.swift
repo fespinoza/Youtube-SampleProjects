@@ -17,7 +17,7 @@ struct ActorDetailsView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(alignment: .top, spacing: .spacingML) {
                             ForEach(viewData.movies) { movie in
-                                NavigationLink(value: movie.id) {
+                                NavigationButton(push: .movieDetails(id: movie.id)) {
                                     MovieCardView(viewData: movie)
                                 }
                             }

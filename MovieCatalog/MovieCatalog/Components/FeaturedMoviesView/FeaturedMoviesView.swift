@@ -28,7 +28,7 @@ struct FeaturedMoviesView: View {
     var body: some View {
         TabView {
             ForEach(featuredMovies) { movie in
-                NavigationLink(value: movie.id) {
+                NavigationButton(push: .movieDetails(id: movie.id)) {
                     CardView(viewData: movie)
                         .frame(maxWidth: .infinity)
                 }

@@ -5,6 +5,8 @@ struct MovieDataClient {
     var popularMovies: () async throws -> [MovieCardViewData]
     var actorDetails: (ActorID) async throws -> ActorDetailsViewData
     var movieDetails: (MovieID) async throws -> MovieDetailsViewData
+    var movieDescription: (MovieID) async throws -> (title: String, description: String)
+    var movieGallery: (MovieID) async throws -> [ImageContainerViewData]
     var movieList: (MovieListType) async throws -> [MovieCardViewData]
     var releaseCalendar: (GenreStore) async throws -> [ReleaseMonthViewData]
 
@@ -24,6 +26,17 @@ struct MovieDataClient {
         movieDetails: { movieID in
             let dto = try await MovieDBClient().movieDetails(for: movieID)
             return MovieDetailsViewData(dto: dto)
+        },
+        movieDescription: { movieID in
+            let dto = try await MovieDBClient().movieDetails(for: movieID)
+            return (
+                title: dto.title,
+                description: dto.overview ?? ""
+            )
+        },
+        movieGallery: { movieID in
+            let dto = try await MovieDBClient().movieDetails(for: movieID)
+           return ImageContainerViewData.galleryItems(for: dto)
         },
         movieList: { listType in
             let client = MovieDBClient()
@@ -53,6 +66,13 @@ struct MovieDataClient {
             popularMovies: { [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },
             actorDetails: { _ in .previewValue() },
             movieDetails: { _ in .previewValue() },
+            movieDescription: { _ in
+                let movie = MovieDetailsViewData.previewValue()
+                return (title: movie.title, description: movie.description)
+            },
+            movieGallery: { _ in
+                MovieDetailsViewData.previewValue().galleryItems
+            },
             movieList: { _ in [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },
             releaseCalendar: { _ in [.previewValue()] }
         )

@@ -1,87 +1,31 @@
 import SwiftUI
 
 struct MovieImageGalleryScreen: View {
-    let images: [ImageContainerViewData]
-    @State var selectedImage: Int = 0
+    let movieID: MovieID
+
+    @State private var state: BasicLoadingState<[ImageContainerViewData]>
+    @State private var selectedImage: Int
+    @Environment(\.movieDataClient.movieGallery) private var movieGallery
+
+    init(movieID: MovieID) {
+        self.movieID = movieID
+        self._state = .init(initialValue: .idle)
+        self._selectedImage = .init(initialValue: 0)
+    }
+
+    init(movieID: MovieID, images: [ImageContainerViewData], selectedImage: Int) {
+        self.movieID = movieID
+        self._state = .init(initialValue: .dataLoaded(images))
+        self._selectedImage = .init(initialValue: selectedImage)
+    }
 
     var body: some View {
-        Group {
-            if images.count == 1 {
-                singleImage
-            } else {
-                multipleImages
-            }
-        }
-        .colorScheme(.dark)
+        BasicStateView(
+            state: $state,
+            dataContent: { galleryItems in
+                MovieImageGalleryView(images: galleryItems, selectedImage: $selectedImage)
+            },
+            fetchData: { try await movieGallery(movieID) }
+        )
     }
-
-    var singleImage: some View {
-        ImageCell(container: images[0])
-    }
-
-    var multipleImages: some View {
-        TabView(selection: $selectedImage) {
-            ForEach(Array(images.enumerated()), id: \.element.id) { index, element in
-                ImageCell(container: element)
-                    .tag(index)
-            }
-        }
-        .tabViewStyle(.page(indexDisplayMode: .always))
-    }
-
-    struct ImageCell: View {
-        let container: ImageContainerViewData
-
-        @State private var zoom: CGFloat = 1
-        @Environment(\.verticalSizeClass) private var verticalSizeClass
-
-        var body: some View {
-            GeometryReader { proxy in
-                ScrollView([.vertical, .horizontal]) {
-                    if verticalSizeClass == .regular {
-                        image
-                            .frame(width: proxy.size.width * zoom)
-                            .clipShape(Rectangle())
-                    } else {
-                        image
-                            .frame(height: proxy.size.height * zoom)
-                            .clipShape(Rectangle())
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .onAppear(perform: resetZoom)
-        }
-
-        var image: some View {
-            CustomAsyncImage(state: container.image) { image in
-                image
-                    .resizable()
-                    .onTapGesture(count: 2, perform: toggleZoom)
-            }
-            .aspectRatio(container.aspectRatio, contentMode: .fit)
-        }
-
-        func resetZoom() {
-            zoom = 1.0
-        }
-
-        func toggleZoom() {
-            zoom = zoom == 1.0 ? 2.0 : 1.0
-        }
-    }
-}
-
-#Preview {
-    MovieImageGalleryScreen(
-        images: [
-            .previewValue(image: .image(Image(.Gallery.IronMan.image1))),
-            .previewValue(image: .loading),
-            .previewValue(image: .image(Image(.Gallery.IronMan.image2))),
-            .previewValue(image: .image(Image(.Gallery.IronMan.image3))),
-            .previewValue(image: .image(Image(.Gallery.IronMan.image4))),
-        ],
-        selectedImage: 3
-    )
-    .background(Color.black)
 }

@@ -59,11 +59,11 @@ struct MovieHorizontalGallery: View {
     let movies: [MovieCardViewData]
 
     var body: some View {
-        ContentSection(title: title, destination: destination) {
+        ContentSection(title: title, destination: .movieList(destination)) {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: .spacingML) {
                     ForEach(movies) { movie in
-                        NavigationLink(value: movie.id) {
+                        NavigationButton(push: .movieDetails(id: movie.id)) {
                             MovieCardView(viewData: movie)
                         }
                     }

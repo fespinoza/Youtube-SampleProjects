@@ -2,54 +2,33 @@ import SwiftUI
 
 struct RootContainer: View {
     @State var genreStore: GenreStore = .init()
+    @State var router: Router = .init(level: 0, identifierTab: nil)
 
     var body: some View {
-        TabView {
-            NavigationStack {
-                HomeScreen()
-                    .navigationDestination(for: MovieID.self) { movieID in
-                        MovieDetailsScreen(movieID: movieID)
-                    }
-                    .navigationDestination(for: ActorID.self) { actorID in
-                        ActorDetailsScreen(actorID: actorID)
-                    }
-                    .navigationDestination(for: MovieListType.self) { listType in
-                        MovieListScreen(listType: listType)
-                    }
-            }
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-            }
-
-            TodoScreen(title: "Search")
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
+        TabView(selection: $router.selectedTab) {
+            Tab("Home", systemImage: "house", value: TabDestination.home) {
+                NavigationContainer(parentRouter: router, tab: .home) {
+                    HomeScreen()
                 }
-
-            NavigationStack {
-                ReleaseCalendarScreen()
-                    .navigationDestination(for: MovieID.self) { movieID in
-                        MovieDetailsScreen(movieID: movieID)
-                    }
-                    .navigationDestination(for: ActorID.self) { actorID in
-                        ActorDetailsScreen(actorID: actorID)
-                    }
-                    .navigationDestination(for: MovieListType.self) { listType in
-                        MovieListScreen(listType: listType)
-                    }
-            }
-            .tabItem {
-                Image(systemName: "calendar")
-                Text("Release Calendar")
             }
 
-            TodoScreen(title: "Favorites")
-                .tabItem {
-                    Image(systemName: "star")
-                    Text("Favorites")
+            Tab("Search", systemImage: "magnifyingglass", value: TabDestination.search) {
+                NavigationContainer(parentRouter: router, tab: .search) {
+                    TodoScreen(title: "Search")
                 }
+            }
+
+            Tab("Release Calendar", systemImage: "calendar", value: TabDestination.releaseCalendar) {
+                NavigationContainer(parentRouter: router, tab: .releaseCalendar) {
+                    ReleaseCalendarScreen()
+                }
+            }
+
+            Tab("Favorites", systemImage: "star", value: TabDestination.favorites) {
+                NavigationContainer(parentRouter: router, tab: .favorites) {
+                    TodoScreen(title: "Favorites")
+                }
+            }
         }
         .environment(genreStore)
     }
