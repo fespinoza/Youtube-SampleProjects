@@ -29,13 +29,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		9B5927A42D63D1BE0013A133 /* Exceptions for "Packages" folder in "MovieCatalog" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				SnapshotTestingKit,
-			);
-			target = 9B7E94372D56A2D9002783BA /* MovieCatalog */;
-		};
 		9B5D4AFC2D5A950000CE6CD2 /* Exceptions for "MovieCatalog" folder in "MovieCatalog" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -49,9 +42,6 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9B5927A32D63D1BE0013A133 /* Packages */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				9B5927A42D63D1BE0013A133 /* Exceptions for "Packages" folder in "MovieCatalog" target */,
-			);
 			path = Packages;
 			sourceTree = "<group>";
 		};
