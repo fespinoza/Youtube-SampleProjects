@@ -1,13 +1,22 @@
 import Foundation
 import Tagged
 
-typealias GenreID = Tagged<Genre, Int>
+public typealias GenreID = Tagged<Genre, Int>
 
-struct Genre: Decodable, Identifiable {
-    let id: GenreID
-    let name: String
+public struct Genre: Decodable, Identifiable {
+    public let id: GenreID
+    public let name: String
+
+    public init(id: GenreID, name: String) {
+        self.id = id
+        self.name = name
+    }
 }
 
-struct GenreContainer: Decodable {
-    let genres: [Genre]
+public struct GenreContainer: Decodable {
+    public let genres: [Genre]
+
+    public init(genres: [Genre]) {
+        self.genres = genres
+    }
 }

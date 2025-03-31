@@ -1,16 +1,35 @@
 import Foundation
+import Tagged
 
-struct MovieSummary: Decodable, Identifiable {
-    let backdropPath: String?
-    let id: MovieID
-    let overview: String?
-    let posterPath: String?
-    let title: String
-    let releaseDate: String?
-    let genreIds: [GenreID]
+public struct MovieSummary: Decodable, Identifiable {
+    public let backdropPath: String?
+    public let id: MovieID
+    public let overview: String?
+    public let posterPath: String?
+    public let title: String
+    public let releaseDate: String?
+    public let genreIds: [GenreID]
+
+    public init(
+        backdropPath: String?,
+        id: MovieID,
+        overview: String?,
+        posterPath: String?,
+        title: String,
+        releaseDate: String?,
+        genreIds: [GenreID]
+    ) {
+        self.backdropPath = backdropPath
+        self.id = id
+        self.overview = overview
+        self.posterPath = posterPath
+        self.title = title
+        self.releaseDate = releaseDate
+        self.genreIds = genreIds
+    }
 }
 
-extension MovieSummary {
+public extension MovieSummary {
     var posterURL: URL? {
         guard let posterPath else { return nil }
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")

@@ -1,19 +1,31 @@
 import Foundation
 import Tagged
 
-typealias ActorID = Tagged<CastMember, Int>
+public typealias ActorID = Tagged<CastMember, Int>
 
-struct ActorDetails: Decodable {
-    let id: ActorID
-    let name: String
-    let profilePath: String?
-    let biography: String
-    let movieCredits: MovieCredits
+public struct ActorDetails: Decodable {
+    public let id: ActorID
+    public let name: String
+    public let profilePath: String?
+    public let biography: String
+    public let movieCredits: MovieCredits
+
+    public init(id: ActorID, name: String, profilePath: String?, biography: String, movieCredits: MovieCredits) {
+        self.id = id
+        self.name = name
+        self.profilePath = profilePath
+        self.biography = biography
+        self.movieCredits = movieCredits
+    }
 }
 
-extension ActorDetails {
+public extension ActorDetails {
     struct MovieCredits: Decodable {
-        let cast: [MovieSummary]
+        public let cast: [MovieSummary]
+
+        public init(cast: [MovieSummary]) {
+            self.cast = cast
+        }
     }
 
     var profilePictureSmall: URL? {

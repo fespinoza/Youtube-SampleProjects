@@ -1,37 +1,69 @@
 import Foundation
 import Tagged
 
-typealias MovieID = Tagged<MovieDetails, Int>
+public typealias MovieID = Tagged<MovieDetails, Int>
 
-struct MovieDetails: Decodable {
-    let id: MovieID
-    let genres: [Genre]
-    let runtime: Int
-    let releaseDate: String
-    let title: String
-    let credits: Credits
-    let overview: String?
-    let posterPath: String?
-    let backdropPath: String?
-    let images: ImageCollection
+public struct MovieDetails: Decodable {
+    public let id: MovieID
+    public let genres: [Genre]
+    public let runtime: Int
+    public let releaseDate: String
+    public let title: String
+    public let credits: Credits
+    public let overview: String?
+    public let posterPath: String?
+    public let backdropPath: String?
+    public let images: ImageCollection
+
+    public init(
+        id: MovieID,
+        genres: [Genre],
+        runtime: Int,
+        releaseDate: String,
+        title: String,
+        credits: Credits,
+        overview: String?,
+        posterPath: String?,
+        backdropPath: String?,
+        images: ImageCollection
+    ) {
+        self.id = id
+        self.genres = genres
+        self.runtime = runtime
+        self.releaseDate = releaseDate
+        self.title = title
+        self.credits = credits
+        self.overview = overview
+        self.posterPath = posterPath
+        self.backdropPath = backdropPath
+        self.images = images
+    }
 }
 
-extension MovieDetails {
+public extension MovieDetails {
     struct ImageCollection: Decodable {
-        let backdrops: [Backdrop]
+        public let backdrops: [Backdrop]
 
-        struct Backdrop: Decodable {
-            let aspectRatio: Double
-            let filePath: String
+        public init(backdrops: [Backdrop]) {
+            self.backdrops = backdrops
+        }
 
-            var imageURL: URL? {
+        public struct Backdrop: Decodable {
+            public let aspectRatio: Double
+            public let filePath: String
+
+            public var imageURL: URL? {
                 URL(string: "https://image.tmdb.org/t/p/w500\(filePath)")
             }
         }
     }
 
     struct Credits: Decodable {
-        let cast: [CastMember]
+        public let cast: [CastMember]
+
+        public init(cast: [CastMember]) {
+            self.cast = cast
+        }
     }
 
     var posterURL: URL? {

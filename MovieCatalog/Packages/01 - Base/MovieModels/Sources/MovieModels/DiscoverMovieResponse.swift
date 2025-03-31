@@ -1,6 +1,11 @@
 import Foundation
 
-struct DiscoverMovieResponse: Decodable {
-    let page: Int
-    let results: [MovieSummary]
+public struct DiscoverMovieResponse: Decodable {
+    public let page: Int
+    public let results: [MovieSummary]
+
+    public init(page: Int, results: [MovieSummary]) {
+        self.page = page
+        self.results = results
+    }
 }
