@@ -1,4 +1,5 @@
 import Foundation
+import MovieModels
 
 enum Destination: Hashable {
     case tab(_ destination: TabDestination)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B51ECE62D9B1AD600619EFF /* MovieModels in Frameworks */ = {isa = PBXBuildFile; productRef = 9B51ECE52D9B1AD600619EFF /* MovieModels */; };
 		9B7E944A2D56A2E5002783BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B7E94492D56A2E1002783BA /* README.md */; };
 		9B7E945F2D56B19B002783BA /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 9B7E945E2D56B19B002783BA /* Tagged */; };
 		9BDAC7412D63D4850044A76C /* SnapshotTestingKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BDAC7402D63D4850044A76C /* SnapshotTestingKit */; };
@@ -66,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B7E945F2D56B19B002783BA /* Tagged in Frameworks */,
+				9B51ECE62D9B1AD600619EFF /* MovieModels in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +132,7 @@
 			name = MovieCatalog;
 			packageProductDependencies = (
 				9B7E945E2D56B19B002783BA /* Tagged */,
+				9B51ECE52D9B1AD600619EFF /* MovieModels */,
 			);
 			productName = MovieCatalog;
 			productReference = 9B7E94382D56A2D9002783BA /* MovieCatalog.app */;
@@ -510,6 +513,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9B51ECE52D9B1AD600619EFF /* MovieModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MovieModels;
+		};
 		9B7E945E2D56B19B002783BA /* Tagged */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9B7E945D2D56B19B002783BA /* XCRemoteSwiftPackageReference "swift-tagged" */;

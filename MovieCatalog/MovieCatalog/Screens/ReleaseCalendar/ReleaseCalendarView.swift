@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieModels
 
 struct ReleaseCalendarView: View {
     let months: [ReleaseMonthViewData]

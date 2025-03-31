@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieModels
 
 struct ImageContainerViewData: Identifiable, Hashable {
     let id = UUID()

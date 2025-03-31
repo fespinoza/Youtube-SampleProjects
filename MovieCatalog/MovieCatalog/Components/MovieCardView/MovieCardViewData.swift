@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieModels
 
 struct MovieCardViewData: Identifiable, Equatable {
     let id: MovieID
