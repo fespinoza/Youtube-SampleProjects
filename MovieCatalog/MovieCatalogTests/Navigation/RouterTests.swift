@@ -1,5 +1,6 @@
 import Testing
 import Foundation
+import MovieModels
 @testable import MovieCatalog
 
 @Suite("Router Tests")
