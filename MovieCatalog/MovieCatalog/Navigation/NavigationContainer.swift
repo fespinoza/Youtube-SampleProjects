@@ -1,4 +1,5 @@
 import SwiftUI
+import Navigation
 
 /// ``NavigationStack`` container that works with the ``Router``
 /// to resolve the routes based on the ``Router``'s state
@@ -28,7 +29,7 @@ struct NavigationContainer<Content: View>: View {
     }
 
     func openDeepLinkIfFound(for url: URL) {
-        if let destination = DeepLink.destination(from: url) {
+        if let destination = DeepLink(scheme: Config.deepLinkScheme).destination(from: url) {
             router.deepLinkOpen(to: destination)
         } else {
             router.logger.warning("No destination matches \(url)")

@@ -1,4 +1,6 @@
 import SwiftUI
+import Navigation
+import MovieComponents
 
 struct ContentSection<Content: View>: View {
     var title: String

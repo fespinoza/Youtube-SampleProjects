@@ -1,4 +1,6 @@
 import SwiftUI
+import Navigation
+import MovieComponents
 
 struct ActorDetailsView: View {
     let viewData: ActorDetailsViewData

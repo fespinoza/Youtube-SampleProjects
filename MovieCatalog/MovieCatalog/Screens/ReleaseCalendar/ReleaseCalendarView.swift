@@ -1,5 +1,6 @@
 import SwiftUI
 import MovieModels
+import Navigation
 
 struct ReleaseCalendarView: View {
     let months: [ReleaseMonthViewData]

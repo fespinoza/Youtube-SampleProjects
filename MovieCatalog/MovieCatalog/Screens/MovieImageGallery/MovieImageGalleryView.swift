@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieComponents
 
 struct MovieImageGalleryView: View {
     let images: [ImageContainerViewData]

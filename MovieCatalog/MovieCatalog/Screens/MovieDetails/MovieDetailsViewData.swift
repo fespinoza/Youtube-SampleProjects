@@ -1,27 +1,6 @@
 import SwiftUI
 import MovieModels
-
-struct ImageContainerViewData: Identifiable, Hashable {
-    let id = UUID()
-    let image: ImageViewData
-    let aspectRatio: CGFloat
-}
-
-extension ImageContainerViewData {
-    static func galleryItems(for dto: MovieDetails) -> [ImageContainerViewData] {
-        dto
-            .images
-            .backdrops
-            .dropFirst()
-            .prefix(10)
-            .map { backdrop in
-                    .init(
-                        image: .remote(from: backdrop.imageURL),
-                        aspectRatio: backdrop.aspectRatio
-                    )
-            }
-    }
-}
+import MovieComponents
 
 struct MovieDetailsViewData: Identifiable, Equatable {
     let id: MovieID
@@ -130,18 +109,6 @@ extension MovieDetailsViewData.ActorViewData {
             name: name,
             characterName: characterName,
             profilePicture: profilePicture
-        )
-    }
-}
-
-extension ImageContainerViewData {
-    static func previewValue(
-        image: ImageViewData = .image(Image(.Gallery.IronMan.image2)),
-        aspectRatio: CGFloat = 1.778
-    ) -> Self {
-        .init(
-            image: image,
-            aspectRatio: aspectRatio
         )
     }
 }
