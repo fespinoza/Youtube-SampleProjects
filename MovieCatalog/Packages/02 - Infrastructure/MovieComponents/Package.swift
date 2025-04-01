@@ -13,8 +13,9 @@ let package = Package(
     dependencies: [
         .package(path: "../01 - Base/Logging"),
         .package(path: "../01 - Base/MovieModels"),
+        .package(path: "../02 - Infrastructure/Navigation"),
     ],
     targets: [
-        .target(name: "MovieComponents", dependencies: ["Logging", "MovieModels"]),
+        .target(name: "MovieComponents", dependencies: ["Logging", "MovieModels", "Navigation"]),
     ]
 )

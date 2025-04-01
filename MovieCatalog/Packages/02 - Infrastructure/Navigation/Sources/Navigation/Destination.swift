@@ -1,6 +1,5 @@
 import Foundation
 import MovieModels
-import MovieComponents
 
 public enum Destination: Sendable, Hashable {
     case tab(_ destination: TabDestination)
@@ -71,7 +70,7 @@ public enum FullScreenDestination: Hashable, Sendable {
     // The second one is intended for in-app navigation, as the data is already available
     // when we will show the movie gallery
     case movieGallery(id: MovieID)
-    case movieGalleryValue(id: MovieID, images: [ImageContainerViewData], selectedImageIndex: Int)
+    case movieGalleryValue(id: MovieID, images: [MovieDetails.ImageCollection.Backdrop], selectedImageIndex: Int)
 }
 
 extension FullScreenDestination: CustomStringConvertible {

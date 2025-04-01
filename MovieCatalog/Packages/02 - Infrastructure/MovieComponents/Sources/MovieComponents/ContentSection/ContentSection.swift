@@ -1,13 +1,12 @@
 import SwiftUI
 import Navigation
-import MovieComponents
 
-struct ContentSection<Content: View>: View {
+public struct ContentSection<Content: View>: View {
     var title: String
     var destination: PushDestination?
     @ViewBuilder var content: () -> Content
 
-    init(
+    public init(
         title: String,
         destination: PushDestination? = nil,
         content: @escaping () -> Content
@@ -17,7 +16,7 @@ struct ContentSection<Content: View>: View {
         self.content = content
     }
 
-    var body: some View {
+    public var body: some View {
         VStack(spacing: .spacingSM) {
             header
 

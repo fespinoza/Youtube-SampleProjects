@@ -60,7 +60,7 @@ struct MovieDetailsView: View {
                                     NavigationButton(
                                         fullScreen: .movieGalleryValue(
                                             id: viewData.id,
-                                            images: viewData.galleryItems,
+                                            images: viewData.galleryItemsDto,
                                             selectedImageIndex: index
                                         )
                                     ) {

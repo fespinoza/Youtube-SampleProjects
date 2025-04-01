@@ -1,5 +1,6 @@
 import SwiftUI
 import OSLog
+import Logging
 
 /// A way to specify navigation
 @Observable

@@ -13,18 +13,21 @@ public struct ImageContainerViewData: Identifiable, Hashable, Sendable {
 }
 
 extension ImageContainerViewData {
-    public static func galleryItems(for dto: MovieDetails) -> [ImageContainerViewData] {
-        dto
-            .images
-            .backdrops
-            .dropFirst()
+    public init(dto: MovieDetails.ImageCollection.Backdrop) {
+        self.init(
+            image: .remote(from: dto.imageURL),
+            aspectRatio: dto.aspectRatio
+        )
+    }
+
+    public static func galleryItems(for dto: [MovieDetails.ImageCollection.Backdrop]) -> [ImageContainerViewData] {
+        dto.dropFirst()
             .prefix(10)
-            .map { backdrop in
-                    .init(
-                        image: .remote(from: backdrop.imageURL),
-                        aspectRatio: backdrop.aspectRatio
-                    )
-            }
+            .map(ImageContainerViewData.init(dto:))
+    }
+
+    public static func galleryItems(for dto: MovieDetails) -> [ImageContainerViewData] {
+        galleryItems(for: dto.images.backdrops)
     }
 }
 

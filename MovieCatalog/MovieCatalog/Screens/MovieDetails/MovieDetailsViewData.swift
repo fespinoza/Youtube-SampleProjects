@@ -1,6 +1,7 @@
 import SwiftUI
 import MovieModels
 import MovieComponents
+import Navigation
 
 struct MovieDetailsViewData: Identifiable, Equatable {
     let id: MovieID
@@ -13,6 +14,8 @@ struct MovieDetailsViewData: Identifiable, Equatable {
     let poster: ImageViewData
     let actors: [ActorViewData]
     let galleryItems: [ImageContainerViewData]
+    // for routing purposes
+    let galleryItemsDto: [MovieDetails.ImageCollection.Backdrop]
 
     struct ActorViewData: Identifiable, Equatable {
         let id: ActorID
@@ -40,7 +43,8 @@ extension MovieDetailsViewData {
             releaseDate: Utils.formattedReleaseDate(from: dto.releaseDate),
             poster: .remote(from: dto.posterURL, defaultImage: Image(.missingPoster)),
             actors: actors,
-            galleryItems: ImageContainerViewData.galleryItems(for: dto)
+            galleryItems: ImageContainerViewData.galleryItems(for: dto),
+            galleryItemsDto: dto.images.backdrops
         )
     }
 }
@@ -92,7 +96,8 @@ extension MovieDetailsViewData {
             releaseDate: releaseDate,
             poster: poster ?? .image(Image(.missingPoster)),
             actors: actors,
-            galleryItems: galleryItems
+            galleryItems: galleryItems,
+            galleryItemsDto: []
         )
     }
 }

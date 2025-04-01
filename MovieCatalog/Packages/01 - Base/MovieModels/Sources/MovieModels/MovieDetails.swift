@@ -48,7 +48,7 @@ public extension MovieDetails {
             self.backdrops = backdrops
         }
 
-        public struct Backdrop: Decodable {
+        public struct Backdrop: Decodable, Sendable, Hashable {
             public let aspectRatio: Double
             public let filePath: String
 

@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "Navigation",
-    platforms: [.iOS(.v18)],
+    platforms: [.iOS(.v17)],
     products: [
         .library(
             name: "Navigation",
@@ -14,12 +14,11 @@ let package = Package(
     dependencies: [
         .package(path: "../01 - Base/MovieModels"),
         .package(path: "../01 - Base/Logging"),
-        .package(path: "../02 - Infrastructure/MovieComponents"),
     ],
     targets: [
         .target(
             name: "Navigation",
-            dependencies: ["Logging", "MovieModels", "MovieComponents"]
+            dependencies: ["Logging", "MovieModels"]
         ),
         .testTarget(
             name: "NavigationTests",
