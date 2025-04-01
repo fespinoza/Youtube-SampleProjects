@@ -1,5 +1,6 @@
 import SwiftUI
 import Navigation
+import Config
 
 /// ``NavigationStack`` container that works with the ``Router``
 /// to resolve the routes based on the ``Router``'s state

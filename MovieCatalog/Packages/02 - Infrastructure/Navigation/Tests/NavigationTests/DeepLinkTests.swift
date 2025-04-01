@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import MovieCatalog
+@testable import Navigation
 
 @Suite("DeepLink parsing tests")
 struct DeepLinkTests {

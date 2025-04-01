@@ -1,7 +1,7 @@
 import Testing
 import Foundation
 import MovieModels
-@testable import MovieCatalog
+@testable import Navigation
 
 @Suite("Router Tests")
 struct RouterTests {

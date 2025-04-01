@@ -10,6 +10,8 @@
 		9B51ECE62D9B1AD600619EFF /* MovieModels in Frameworks */ = {isa = PBXBuildFile; productRef = 9B51ECE52D9B1AD600619EFF /* MovieModels */; };
 		9B7E944A2D56A2E5002783BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B7E94492D56A2E1002783BA /* README.md */; };
 		9B7E945F2D56B19B002783BA /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 9B7E945E2D56B19B002783BA /* Tagged */; };
+		9B8624BA2D9C8865007B11E6 /* Config in Frameworks */ = {isa = PBXBuildFile; productRef = 9B8624B92D9C8865007B11E6 /* Config */; };
+		9B8624BC2D9C8868007B11E6 /* MovieDBNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 9B8624BB2D9C8868007B11E6 /* MovieDBNetworking */; };
 		9BA99A932D9B211F000BD406 /* MovieComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 9BA99A922D9B211F000BD406 /* MovieComponents */; };
 		9BA99A952D9B2122000BD406 /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = 9BA99A942D9B2122000BD406 /* Navigation */; };
 		9BA99A972D9B2126000BD406 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 9BA99A962D9B2126000BD406 /* Logging */; };
@@ -36,7 +38,9 @@
 		9B51ECF62D9B1EF600619EFF /* Exceptions for "Packages" folder in "MovieCatalog" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"01 - Base/Config",
 				"01 - Base/Logging",
+				"02 - Infrastructure/MovieDBNetworking",
 			);
 			target = 9B7E94372D56A2D9002783BA /* MovieCatalog */;
 		};
@@ -81,8 +85,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B8624BC2D9C8868007B11E6 /* MovieDBNetworking in Frameworks */,
 				9B7E945F2D56B19B002783BA /* Tagged in Frameworks */,
 				9B51ECE62D9B1AD600619EFF /* MovieModels in Frameworks */,
+				9B8624BA2D9C8865007B11E6 /* Config in Frameworks */,
 				9BA99A952D9B2122000BD406 /* Navigation in Frameworks */,
 				9BA99A932D9B211F000BD406 /* MovieComponents in Frameworks */,
 				9BA99A972D9B2126000BD406 /* Logging in Frameworks */,
@@ -154,6 +160,8 @@
 				9BA99A922D9B211F000BD406 /* MovieComponents */,
 				9BA99A942D9B2122000BD406 /* Navigation */,
 				9BA99A962D9B2126000BD406 /* Logging */,
+				9B8624B92D9C8865007B11E6 /* Config */,
+				9B8624BB2D9C8868007B11E6 /* MovieDBNetworking */,
 			);
 			productName = MovieCatalog;
 			productReference = 9B7E94382D56A2D9002783BA /* MovieCatalog.app */;
@@ -540,6 +548,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B7E945D2D56B19B002783BA /* XCRemoteSwiftPackageReference "swift-tagged" */;
 			productName = Tagged;
+		};
+		9B8624B92D9C8865007B11E6 /* Config */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Config;
+		};
+		9B8624BB2D9C8868007B11E6 /* MovieDBNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MovieDBNetworking;
 		};
 		9BA99A922D9B211F000BD406 /* MovieComponents */ = {
 			isa = XCSwiftPackageProductDependency;
