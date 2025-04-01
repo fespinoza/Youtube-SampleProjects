@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "153717E1-C32F-44EC-8E4A-3FF3E9557E67",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/02 - Infrastructure\/Navigation",
+        "identifier" : "NavigationTests",
+        "name" : "NavigationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:MovieCatalog.xcodeproj",
+        "identifier" : "9BDAC7352D63D47E0044A76C",
+        "name" : "MovieCatalogTests"
+      }
+    }
+  ],
+  "version" : 1
+}

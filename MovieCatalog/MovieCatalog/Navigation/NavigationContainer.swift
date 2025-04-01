@@ -30,7 +30,7 @@ struct NavigationContainer<Content: View>: View {
     }
 
     func openDeepLinkIfFound(for url: URL) {
-        if let destination = DeepLink(scheme: Config.deepLinkScheme).destination(from: url) {
+        if let destination = DeepLink.destination(from: url) {
             router.deepLinkOpen(to: destination)
         } else {
             router.logger.warning("No destination matches \(url)")

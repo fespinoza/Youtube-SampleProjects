@@ -1,14 +1,9 @@
 import Foundation
+import Config
 
 public struct DeepLink {
-    public let scheme: String
-
-    public init(scheme: String) {
-        self.scheme = scheme
-    }
-
-    public func destination(from url: URL) -> Destination? {
-        guard url.scheme == scheme else { return nil }
+    public static func destination(from url: URL) -> Destination? {
+        guard url.scheme == Config.deepLinkScheme else { return nil }
 
         for parser in registeredParsers {
             if let destination = parser.parse(url) {
@@ -19,7 +14,7 @@ public struct DeepLink {
         return nil
     }
 
-    let registeredParsers: [DeepLinkParser] = [
+    static let registeredParsers: [DeepLinkParser] = [
         .equal(to: ["home"], destination: .tab(.home)),
         .equal(to: ["search"], destination: .tab(.search)),
         .equal(to: ["release-calendar"], destination: .tab(.releaseCalendar)),

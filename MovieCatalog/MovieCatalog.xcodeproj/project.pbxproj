@@ -57,6 +57,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		9B23CC822D9C8B9C006FD982 /* Test Plans */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Test Plans";
+			sourceTree = "<group>";
+		};
 		9B5927A32D63D1BE0013A133 /* Packages */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -113,6 +118,7 @@
 				9B5927A32D63D1BE0013A133 /* Packages */,
 				9B7E943A2D56A2D9002783BA /* MovieCatalog */,
 				9BDAC7372D63D47E0044A76C /* MovieCatalogTests */,
+				9B23CC822D9C8B9C006FD982 /* Test Plans */,
 				9BDAC73F2D63D4850044A76C /* Frameworks */,
 				9B7E94392D56A2D9002783BA /* Products */,
 			);
@@ -150,6 +156,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				9B23CC822D9C8B9C006FD982 /* Test Plans */,
 				9B5927A32D63D1BE0013A133 /* Packages */,
 				9B7E943A2D56A2D9002783BA /* MovieCatalog */,
 			);

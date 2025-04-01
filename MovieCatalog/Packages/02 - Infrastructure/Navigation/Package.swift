@@ -14,11 +14,12 @@ let package = Package(
     dependencies: [
         .package(path: "../01 - Base/MovieModels"),
         .package(path: "../01 - Base/Logging"),
+        .package(path: "../01 - Base/Config"),
     ],
     targets: [
         .target(
             name: "Navigation",
-            dependencies: ["Logging", "MovieModels"]
+            dependencies: ["Logging", "MovieModels", "Config"]
         ),
         .testTarget(
             name: "NavigationTests",
