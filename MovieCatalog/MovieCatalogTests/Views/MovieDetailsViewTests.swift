@@ -1,6 +1,7 @@
 import Testing
 import SwiftUI
 import SnapshotTestingKit
+import Navigation
 @testable import MovieCatalog
 
 @MainActor
