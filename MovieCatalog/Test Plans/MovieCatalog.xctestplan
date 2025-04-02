@@ -14,16 +14,23 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:Packages\/02 - Infrastructure\/Navigation",
+        "containerPath" : "container:MovieCatalog.xcodeproj",
+        "identifier" : "9BDAC7352D63D47E0044A76C",
+        "name" : "MovieCatalogTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/02-Infrastructure\/Navigation",
         "identifier" : "NavigationTests",
         "name" : "NavigationTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:MovieCatalog.xcodeproj",
-        "identifier" : "9BDAC7352D63D47E0044A76C",
-        "name" : "MovieCatalogTests"
+        "containerPath" : "container:Packages\/03-Features\/MovieDetails",
+        "identifier" : "MovieDetailsTests",
+        "name" : "MovieDetailsTests"
       }
     }
   ],

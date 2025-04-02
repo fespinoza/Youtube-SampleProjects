@@ -2,12 +2,12 @@ import SwiftUI
 import MovieModels
 import MovieComponents
 import MovieDBNetworking
+import MovieDetails
 
 struct MovieDataClient {
     var homeData: (GenreStore) async throws -> HomeViewData
     var popularMovies: () async throws -> [MovieCardViewData]
     var actorDetails: (ActorID) async throws -> ActorDetailsViewData
-    var movieDetails: (MovieID) async throws -> MovieDetailsViewData
     var movieDescription: (MovieID) async throws -> (title: String, description: String)
     var movieGallery: (MovieID) async throws -> [ImageContainerViewData]
     var movieList: (MovieListType) async throws -> [MovieCardViewData]
@@ -25,10 +25,6 @@ struct MovieDataClient {
         actorDetails: { actorID in
             let dto = try await MovieDBClient().actorDetails(for: actorID)
             return .init(dto: dto)
-        },
-        movieDetails: { movieID in
-            let dto = try await MovieDBClient().movieDetails(for: movieID)
-            return MovieDetailsViewData(dto: dto)
         },
         movieDescription: { movieID in
             let dto = try await MovieDBClient().movieDetails(for: movieID)
@@ -68,7 +64,6 @@ struct MovieDataClient {
             homeData: { _ in .previewValue() },
             popularMovies: { [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },
             actorDetails: { _ in .previewValue() },
-            movieDetails: { _ in .previewValue() },
             movieDescription: { _ in
                 let movie = MovieDetailsViewData.previewValue()
                 return (title: movie.title, description: movie.description)

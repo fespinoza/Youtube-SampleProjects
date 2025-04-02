@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "1C6970C1-D775-4FC4-8CBB-44B75C6EBC45",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "MovieDetailsTests",
+        "name" : "MovieDetailsTests"
+      }
+    }
+  ],
+  "version" : 1
+}
