@@ -8,7 +8,6 @@ class SnapshotEnvironment: SnapshotRunningEnvironment {
             .deletingPathExtension()
             .deletingLastPathComponent()
             .deletingLastPathComponent()
-            .deletingLastPathComponent()
     }
 
     func bundleUrl() -> URL {
