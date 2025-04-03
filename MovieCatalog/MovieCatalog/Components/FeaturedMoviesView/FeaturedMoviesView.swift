@@ -111,6 +111,7 @@ struct FeaturedMoviesView: View {
             .gladiatorTwo(),
         ]
     )
+    .environment(Router.previewRouter())
 }
 
 extension FeatureMovieViewData {
