@@ -1,20 +1,6 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
-
-//public struct Gallery {
-//
-//    public struct IronMan {
-//
-//    }
-//
-//
-//
-//}
-
-//enum PreviewImage: String {
-//    case actor
-//}
-
+import SwiftUI
 
 public struct PreviewImage: ExpressibleByStringLiteral, Sendable {
     let rawValue: String
@@ -72,15 +58,8 @@ public extension PreviewImage {
     }
 }
 
-import SwiftUI
-
 public extension Image {
     init(preview: PreviewImage) {
         self.init(preview.rawValue, bundle: .module)
     }
-}
-
-
-func foo() {
-    let a = Image(preview: .Actor.BradPitt.medium)
 }

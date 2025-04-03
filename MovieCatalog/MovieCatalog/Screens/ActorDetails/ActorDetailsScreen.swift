@@ -1,6 +1,7 @@
 import SwiftUI
 import MovieModels
 import MovieComponents
+import Navigation
 
 struct ActorDetailsScreen: View {
     let actorID: ActorID
@@ -20,5 +21,15 @@ struct ActorDetailsScreen: View {
 
     func fetchActorDetails() async throws -> ActorDetailsViewData {
         try await actorDetails(actorID)
+    }
+}
+
+#Preview {
+    NavigationStack {
+        ActorDetailsScreen(actorID: .randomPreviewId())
+            .environment(\.movieDataClient.actorDetails, { id in
+                throw URLError(.badURL)
+            })
+            .environment(Router.previewRouter())
     }
 }

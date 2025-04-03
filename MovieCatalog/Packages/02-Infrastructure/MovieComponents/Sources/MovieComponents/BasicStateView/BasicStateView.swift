@@ -31,11 +31,15 @@ public struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataCont
 
             case let .error(error):
                 ContentUnavailableView(
-                    "Error",
-                    systemImage: "xmark",
-                    description: Text(error.localizedDescription)
-                )
-                .foregroundStyle(.primary, .red)
+                    label: {
+                        Label("Error", systemImage: "xmark")
+                            .foregroundStyle(.primary, .red)
+                    }) {
+                        Text(error.localizedDescription)
+                    } actions: {
+                        Button("Retry", action: retry)
+                            .buttonStyle(.borderedProminent)
+                    }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -46,6 +50,10 @@ public struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataCont
     func initialLoad() async {
         guard state == .idle else { return }
         await performFetchData()
+    }
+
+    func retry() {
+        Task { await performFetchData() }
     }
 
     private func performFetchData(showLoading: Bool = true) async {
