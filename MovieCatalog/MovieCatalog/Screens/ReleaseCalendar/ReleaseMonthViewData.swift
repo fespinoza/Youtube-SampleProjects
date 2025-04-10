@@ -60,11 +60,11 @@ extension ReleaseMonthViewData {
                 return ReleaseMonthViewData(
                     year: date.formatted(.dateTime.year()),
                     month: date.formatted(.dateTime.month()),
-                    movies: value.compactMap { UpcomingMovieViewData(dto: $0, genreStore: genreStore) }
+                    movies: value
+                        .sorted(by: { $0.assertReleaseDate < $1.assertReleaseDate })
+                        .compactMap { UpcomingMovieViewData(dto: $0, genreStore: genreStore) }
                 )
             }
-
-        // TODO: sort movies within the dates
 
         return flatGroups
     }

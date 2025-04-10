@@ -3,7 +3,7 @@ import Tagged
 
 public typealias GenreID = Tagged<Genre, Int>
 
-public struct Genre: Decodable, Identifiable {
+public struct Genre: Decodable, Identifiable, Sendable, Hashable {
     public let id: GenreID
     public let name: String
 

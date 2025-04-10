@@ -7,7 +7,6 @@ class SnapshotEnvironment: SnapshotRunningEnvironment {
         URL(fileURLWithPath: "\(#file)", isDirectory: false)
             .deletingPathExtension()
             .deletingLastPathComponent()
-            .deletingLastPathComponent()
     }
 
     func bundleUrl() -> URL {

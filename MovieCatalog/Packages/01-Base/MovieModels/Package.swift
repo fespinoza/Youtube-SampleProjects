@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "MovieModels",
+    platforms: [.iOS(.v17)],
     products: [
         .library(
             name: "MovieModels",
@@ -18,5 +19,6 @@ let package = Package(
             name: "MovieModels",
             dependencies: [.product(name: "Tagged", package: "swift-tagged")]
         ),
+        .testTarget(name: "MovieModelsTests", dependencies: ["MovieModels"])
     ]
 )

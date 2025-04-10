@@ -47,6 +47,18 @@ public struct MovieDBClient {
         return container.results
     }
 
+    public func moviesBy(genre: Genre) async throws -> [MovieSummary] { // TODO: pagination
+        let url = try url(
+            for: "/discover/movie",
+            params: [
+                .init(name: "sort_by", value: "popularity.desc"),
+                .init(name: "with_genres", value: "\(genre.id)"),
+            ]
+        )
+        let container: DiscoverMovieResponse = try await fetch(url)
+        return container.results
+    }
+
     public func upcomingMovies() async throws -> [MovieSummary] {
         let url = try url(
             for: "/discover/movie",
@@ -86,6 +98,14 @@ public struct MovieDBClient {
             ]
         )
         return try await fetch(url)
+    }
+
+    public func searchMoviesOrActors(text: String) async throws -> [SearchResult] {
+        let url = try url(for: "/search/multi", params: [
+            .init(name: "query", value: text),
+        ])
+        let container: SearchResultsContainer = try await fetch(url)
+        return container.results
     }
 
     public enum EndpointError: Error {

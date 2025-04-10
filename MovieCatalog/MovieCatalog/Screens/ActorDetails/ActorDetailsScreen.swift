@@ -27,9 +27,7 @@ struct ActorDetailsScreen: View {
 #Preview {
     NavigationStack {
         ActorDetailsScreen(actorID: .randomPreviewId())
-            .environment(\.movieDataClient.actorDetails, { id in
-                throw URLError(.badURL)
-            })
+            .environment(\.movieDataClient.actorDetails, { id in throw URLError(.badURL) })
             .environment(Router.previewRouter())
     }
 }

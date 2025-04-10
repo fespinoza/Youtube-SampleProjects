@@ -75,7 +75,7 @@ extension MovieDetailsViewData {
             runtime: Utils.formatRuntime(minutes: dto.runtime),
             releaseYear: Utils.formattedReleaseYear(from: dto.releaseDate),
             releaseDate: Utils.formattedReleaseDate(from: dto.releaseDate),
-            poster: .remote(from: dto.posterURL, defaultImage: Image.missingPoster),
+            poster: .remote(from: dto.posterURL, defaultImage: Image.defaultMoviePoster),
             actors: actors,
             galleryItems: ImageContainerViewData.galleryItems(for: dto),
             galleryItemsDto: dto.images.backdrops
@@ -89,7 +89,7 @@ extension MovieDetailsViewData.ActorViewData {
             id: dto.id,
             name: dto.name,
             characterName: dto.character,
-            profilePicture: .remote(from: dto.profilePictureSmall)
+            profilePicture: .remote(from: dto.profilePictureSmall, defaultImage: .defaultActorProfile)
         )
     }
 }
@@ -106,7 +106,7 @@ extension MovieDetailsViewData {
         runtime: String = "2h 6m",
         releaseYear: String = "2008",
         releaseDate: String = "May 30th, 2028",
-        poster: ImageViewData? = .image(Image(preview: .Movie.IronMan.medium)),
+        poster: ImageViewData? = .image(Image(preview: .Movie.Poster.IronMan.medium)),
         actors: [MovieDetailsViewData.ActorViewData] = [
             .previewValue(),
             .previewValue(),
@@ -128,7 +128,7 @@ extension MovieDetailsViewData {
             runtime: runtime,
             releaseYear: releaseYear,
             releaseDate: releaseDate,
-            poster: poster ?? .image(Image.missingPoster),
+            poster: poster ?? .image(Image.defaultMoviePoster),
             actors: actors,
             galleryItems: galleryItems,
             galleryItemsDto: []

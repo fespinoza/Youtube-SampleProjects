@@ -51,6 +51,9 @@ struct MovieDataClient {
 
             case .upcoming:
                 try await client.upcomingMovies().map(MovieCardViewData.upcoming(from:))
+
+            case let .genre(genre):
+                try await client.moviesBy(genre: genre).map(MovieCardViewData.upcoming(from:))
             }
         },
         releaseCalendar: { genreStore in

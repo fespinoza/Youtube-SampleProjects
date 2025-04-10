@@ -32,28 +32,38 @@ public extension PreviewImage {
     }
 
     struct Movie {
-        public struct EternalSunshine {
-            public static let large: PreviewImage = "movie/eternalSunshine/large"
-            public static let medium: PreviewImage = "movie/eternalSunshine/medium"
-            public static let small: PreviewImage = "movie/eternalSunshine/small"
+        public struct Poster {
+            public struct EternalSunshine {
+                public static let large: PreviewImage = "movie/eternalSunshine/poster/large"
+                public static let medium: PreviewImage = "movie/eternalSunshine/poster/medium"
+                public static let small: PreviewImage = "movie/eternalSunshine/poster/small"
+            }
+            
+            public struct Gladiator {
+                public static let large: PreviewImage = "movie/gladiator/poster/large"
+                public static let medium: PreviewImage = "movie/gladiator/poster/medium"
+                public static let small: PreviewImage = "movie/gladiator/poster/small"
+            }
+            
+            public struct IronMan {
+                public static let large: PreviewImage = "movie/ironMan/poster/large"
+                public static let medium: PreviewImage = "movie/ironMan/poster/medium"
+                public static let small: PreviewImage = "movie/ironMan/poster/small"
+            }
+            
+            public struct KindaPregnant {
+                public static let large: PreviewImage = "movie/kindaPregnant/poster/large"
+                public static let medium: PreviewImage = "movie/kindaPregnant/poster/medium"
+                public static let small: PreviewImage = "movie/kindaPregnant/poster/small"
+            }
         }
 
-        public struct Gladiator {
-            public static let large: PreviewImage = "movie/gladiator/large"
-            public static let medium: PreviewImage = "movie/gladiator/medium"
-            public static let small: PreviewImage = "movie/gladiator/small"
-        }
-
-        public struct IronMan {
-            public static let large: PreviewImage = "movie/ironMan/large"
-            public static let medium: PreviewImage = "movie/ironMan/medium"
-            public static let small: PreviewImage = "movie/ironMan/small"
-        }
-
-        public struct KindaPregnant {
-            public static let large: PreviewImage = "movie/kindaPregnant/large"
-            public static let medium: PreviewImage = "movie/kindaPregnant/medium"
-            public static let small: PreviewImage = "movie/kindaPregnant/small"
+        public struct Backdrop {
+            public struct IronMan {
+                public static let large: PreviewImage = "movie/ironMan/backdrop/large"
+                public static let medium: PreviewImage = "movie/ironMan/backdrop/medium"
+                public static let small: PreviewImage = "movie/ironMan/backdrop/small"
+            }
         }
     }
 }

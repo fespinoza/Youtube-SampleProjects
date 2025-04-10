@@ -39,4 +39,27 @@ public extension MovieSummary {
         guard let backdropPath else { return nil }
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath)")
     }
+
+    var assertReleaseDate: Date {
+        Utils.parseReleaseDate(from: releaseDate) ?? Date()
+    }
+}
+
+private enum Utils {
+    static let releaseDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter
+    }()
+
+    static func parseReleaseDate(from dateString: String?) -> Date? {
+        guard
+            let dateString,
+            let date = releaseDateFormatter.date(from: dateString)
+        else { return nil }
+
+        return date
+    }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B0286C92D9DE261006A89EB /* MovieDetails in Frameworks */ = {isa = PBXBuildFile; productRef = 9B0286C82D9DE261006A89EB /* MovieDetails */; };
+		9B2915A82DBBFE53004F5C82 /* MovieSearch in Frameworks */ = {isa = PBXBuildFile; productRef = 9B2915A72DBBFE53004F5C82 /* MovieSearch */; };
 		9B51ECE62D9B1AD600619EFF /* MovieModels in Frameworks */ = {isa = PBXBuildFile; productRef = 9B51ECE52D9B1AD600619EFF /* MovieModels */; };
 		9B7E944A2D56A2E5002783BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B7E94492D56A2E1002783BA /* README.md */; };
 		9B7E945F2D56B19B002783BA /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 9B7E945E2D56B19B002783BA /* Tagged */; };
@@ -43,6 +44,7 @@
 				"01-Base/Logging",
 				"02-Infrastructure/MovieDBNetworking",
 				"03-Features/MovieDetails",
+				"03-Features/MovieSearch",
 			);
 			target = 9B7E94372D56A2D9002783BA /* MovieCatalog */;
 		};
@@ -50,7 +52,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Config/BaseConfig_EXAMPLE.xcconfig,
-				Config/BaseConfig.xcconfig,
 				Resources/Info.plist,
 				"Resources/Preview Content/API Responses/upcomingMovies.json",
 			);
@@ -100,6 +101,7 @@
 				9BA99A952D9B2122000BD406 /* Navigation in Frameworks */,
 				9BA99A932D9B211F000BD406 /* MovieComponents in Frameworks */,
 				9BA99A972D9B2126000BD406 /* Logging in Frameworks */,
+				9B2915A82DBBFE53004F5C82 /* MovieSearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +175,7 @@
 				9B8624B92D9C8865007B11E6 /* Config */,
 				9B8624BB2D9C8868007B11E6 /* MovieDBNetworking */,
 				9B0286C82D9DE261006A89EB /* MovieDetails */,
+				9B2915A72DBBFE53004F5C82 /* MovieSearch */,
 			);
 			productName = MovieCatalog;
 			productReference = 9B7E94382D56A2D9002783BA /* MovieCatalog.app */;
@@ -554,6 +557,10 @@
 		9B0286C82D9DE261006A89EB /* MovieDetails */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MovieDetails;
+		};
+		9B2915A72DBBFE53004F5C82 /* MovieSearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MovieSearch;
 		};
 		9B51ECE52D9B1AD600619EFF /* MovieModels */ = {
 			isa = XCSwiftPackageProductDependency;

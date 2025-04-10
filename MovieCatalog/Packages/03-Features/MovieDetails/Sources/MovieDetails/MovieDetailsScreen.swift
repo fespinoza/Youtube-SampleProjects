@@ -1,6 +1,7 @@
 import SwiftUI
 import MovieModels
 import MovieComponents
+import Navigation
 
 public struct MovieDetailsScreen: View {
     let movieID: MovieID
@@ -25,4 +26,5 @@ public struct MovieDetailsScreen: View {
 #Preview {
     MovieDetailsScreen(movieID: .randomPreviewId())
         .environment(\.movieDetailsDataSource, .previewClient())
+        .environment(Router.previewRouter())
 }

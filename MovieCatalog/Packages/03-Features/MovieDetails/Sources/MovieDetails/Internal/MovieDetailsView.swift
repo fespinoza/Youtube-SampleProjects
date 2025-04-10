@@ -183,5 +183,6 @@ struct MovieDetailsView: View {
 #Preview {
     NavigationStack {
         MovieDetailsView(viewData: .previewValue())
+            .environment(Router.previewRouter())
     }
 }

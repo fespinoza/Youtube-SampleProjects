@@ -36,3 +36,7 @@ struct UpcomingMovieView: View {
         }
     }
 }
+
+#Preview {
+    UpcomingMovieView(movie: .previewValue())
+}

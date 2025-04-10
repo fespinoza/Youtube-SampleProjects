@@ -29,7 +29,7 @@ public struct MovieCardViewData: Identifiable, Equatable {
 }
 
 public extension MovieCardViewData {
-    static let defaultImage: Image = Image(.missingPoster)
+    static let defaultImage: Image = Image.defaultMoviePoster
 
     static func basic(from summary: MovieSummary) -> Self {
         .init(
@@ -69,7 +69,7 @@ public extension MovieCardViewData {
         .init(
             id: id,
             title: title,
-            image: image ?? .image(Image(preview: .Movie.Gladiator.small)),
+            image: image ?? .image(Image(preview: .Movie.Poster.Gladiator.small)),
             style: style
         )
     }
@@ -77,21 +77,21 @@ public extension MovieCardViewData {
     static func gladiatorTwo() -> Self {
         .previewValue(
             title: "Gladiator II",
-            image: .image(Image(preview: .Movie.Gladiator.small))
+            image: .image(Image(preview: .Movie.Poster.Gladiator.small))
         )
     }
 
     static func kindaPregnant() -> Self {
         .previewValue(
             title: "Kinda Pregnent",
-            image: .image(Image(preview: .Movie.KindaPregnant.small))
+            image: .image(Image(preview: .Movie.Poster.KindaPregnant.small))
         )
     }
 
     static func eternalSunshine() -> Self {
         .previewValue(
             title: "Eternal Sunshine of the Spotless Mind",
-            image: .image(Image(preview: .Movie.EternalSunshine.small))
+            image: .image(Image(preview: .Movie.Poster.EternalSunshine.small))
         )
     }
 
@@ -99,7 +99,7 @@ public extension MovieCardViewData {
         .previewValue(
             id: .init(1_182_047),
             title: "Iron Man",
-            image: .image(Image(preview: .Movie.IronMan.small))
+            image: .image(Image(preview: .Movie.Poster.IronMan.small))
         )
     }
 }
