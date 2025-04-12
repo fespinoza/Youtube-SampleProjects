@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B42458F2DAB0DDD00A2C8C8 /* MovieModels in Frameworks */ = {isa = PBXBuildFile; productRef = 9B42458E2DAB0DDD00A2C8C8 /* MovieModels */; };
+		9B4245922DAB0FDD00A2C8C8 /* Config in Frameworks */ = {isa = PBXBuildFile; productRef = 9B4245912DAB0FDD00A2C8C8 /* Config */; };
 		9B7E944A2D56A2E5002783BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B7E94492D56A2E1002783BA /* README.md */; };
 		9B7E945F2D56B19B002783BA /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 9B7E945E2D56B19B002783BA /* Tagged */; };
 		9BDAC7412D63D4850044A76C /* SnapshotTestingKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BDAC7402D63D4850044A76C /* SnapshotTestingKit */; };
@@ -33,6 +34,7 @@
 		9B5927A42D63D1BE0013A133 /* Exceptions for "Packages" folder in "MovieCatalog" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"1-Base/Config",
 				"1-Base/MovieModels",
 				"1-Base/SnapshotTestingKit",
 			);
@@ -79,6 +81,7 @@
 			files = (
 				9B7E945F2D56B19B002783BA /* Tagged in Frameworks */,
 				9B42458F2DAB0DDD00A2C8C8 /* MovieModels in Frameworks */,
+				9B4245922DAB0FDD00A2C8C8 /* Config in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +147,7 @@
 			packageProductDependencies = (
 				9B7E945E2D56B19B002783BA /* Tagged */,
 				9B42458E2DAB0DDD00A2C8C8 /* MovieModels */,
+				9B4245912DAB0FDD00A2C8C8 /* Config */,
 			);
 			productName = MovieCatalog;
 			productReference = 9B7E94382D56A2D9002783BA /* MovieCatalog.app */;
@@ -527,6 +531,10 @@
 		9B42458E2DAB0DDD00A2C8C8 /* MovieModels */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MovieModels;
+		};
+		9B4245912DAB0FDD00A2C8C8 /* Config */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Config;
 		};
 		9B7E945E2D56B19B002783BA /* Tagged */ = {
 			isa = XCSwiftPackageProductDependency;

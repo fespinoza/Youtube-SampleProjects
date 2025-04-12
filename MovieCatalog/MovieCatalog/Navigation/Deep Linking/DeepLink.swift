@@ -1,4 +1,5 @@
 import Foundation
+import Config
 
 struct DeepLink {
     static func destination(from url: URL) -> Destination? {

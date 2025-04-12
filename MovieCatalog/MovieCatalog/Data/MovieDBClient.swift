@@ -1,5 +1,6 @@
 import Foundation
 import MovieModels
+import Config
 
 struct MovieDBClient {
     func homeData() async throws -> HomeData {
