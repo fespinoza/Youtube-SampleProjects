@@ -20,7 +20,7 @@ public extension MovieDetails {
     struct ImageCollection: Decodable {
         public let backdrops: [Backdrop]
 
-        public struct Backdrop: Decodable {
+        public struct Backdrop: Decodable, Hashable {
             public let aspectRatio: Double
             public let filePath: String
 

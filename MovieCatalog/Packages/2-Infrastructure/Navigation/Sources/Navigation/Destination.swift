@@ -1,7 +1,7 @@
 import Foundation
 import MovieModels
 
-enum Destination: Hashable {
+public enum Destination: Hashable {
     case tab(_ destination: TabDestination)
     case push(_ destination: PushDestination)
     case sheet(_ destination: SheetDestination)
@@ -9,7 +9,7 @@ enum Destination: Hashable {
 }
 
 extension Destination: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         switch self {
         case let .tab(destination): ".tab(\(destination))"
         case let .push(destination): ".push(\(destination))"
@@ -19,12 +19,12 @@ extension Destination: CustomStringConvertible {
     }
 }
 
-enum PushDestination: Hashable, CustomStringConvertible {
+public enum PushDestination: Hashable, CustomStringConvertible {
     case movieDetails(id: MovieID)
     case actorDetails(id: ActorID)
     case movieList(_ movieListType: MovieListType)
 
-    var description: String {
+    public var description: String {
         switch self {
         case let .movieDetails(id): ".movieDetails(\(id))"
         case let .actorDetails(id): ".actorDetails(\(id))"
@@ -33,18 +33,18 @@ enum PushDestination: Hashable, CustomStringConvertible {
     }
 }
 
-enum TabDestination: String, Hashable {
+public enum TabDestination: String, Hashable {
     case home
     case search
     case releaseCalendar
     case favorites
 }
 
-enum SheetDestination: Hashable, CustomStringConvertible {
+public enum SheetDestination: Hashable, CustomStringConvertible {
     case movieDescription(id: MovieID)
     case movieDescriptionValue(id: MovieID, title: String, description: String)
 
-    var description: String {
+    public var description: String {
         switch self {
         case let .movieDescription(id): ".movieDescription(\(id))"
         case let .movieDescriptionValue(id, _, _): ".movieDescriptionValue(\(id))"
@@ -53,7 +53,7 @@ enum SheetDestination: Hashable, CustomStringConvertible {
 }
 
 extension SheetDestination: Identifiable {
-    var id: String {
+    public var id: String {
         switch self {
         case let .movieDescription(id): id.rawValue.formatted()
         case let .movieDescriptionValue(id, _, _): id.rawValue.formatted()
@@ -61,7 +61,7 @@ extension SheetDestination: Identifiable {
     }
 }
 
-enum FullScreenDestination: Hashable {
+public enum FullScreenDestination: Hashable {
     // `movieGallery` and `movieGalleryValue` are the same, but they represent
     // different data states, for the first one, we need to fetch the data, but
     // on the second one the data is already available.
@@ -70,11 +70,11 @@ enum FullScreenDestination: Hashable {
     // The second one is intended for in-app navigation, as the data is already available
     // when we will show the movie gallery
     case movieGallery(id: MovieID)
-    case movieGalleryValue(id: MovieID, images: [ImageContainerViewData], selectedImageIndex: Int)
+    case movieGalleryValue(id: MovieID, images: [MovieDetails.ImageCollection.Backdrop], selectedImageIndex: Int)
 }
 
 extension FullScreenDestination: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         switch self {
         case let .movieGallery(id): ".movieGallery(\(id))"
         case let .movieGalleryValue(id, _, _): ".movieGalleryValue(\(id))"
@@ -83,7 +83,7 @@ extension FullScreenDestination: CustomStringConvertible {
 }
 
 extension FullScreenDestination: Identifiable {
-    var id: String {
+    public var id: String {
         switch self {
         case let .movieGallery(id): id.rawValue.formatted()
         case let .movieGalleryValue(id, _, _): id.rawValue.formatted()

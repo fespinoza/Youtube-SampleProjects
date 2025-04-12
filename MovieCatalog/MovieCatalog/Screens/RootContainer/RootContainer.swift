@@ -1,4 +1,5 @@
 import SwiftUI
+import Navigation
 
 struct RootContainer: View {
     @State var genreStore: GenreStore = .init()

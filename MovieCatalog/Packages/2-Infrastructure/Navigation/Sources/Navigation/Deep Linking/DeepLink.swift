@@ -1,8 +1,8 @@
 import Foundation
 import Config
 
-struct DeepLink {
-    static func destination(from url: URL) -> Destination? {
+public struct DeepLink {
+    public static func destination(from url: URL) -> Destination? {
         guard url.scheme == Config.deepLinkScheme else { return nil }
 
         for parser in registeredParsers {

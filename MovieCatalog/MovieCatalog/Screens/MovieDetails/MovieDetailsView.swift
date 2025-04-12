@@ -1,4 +1,5 @@
 import SwiftUI
+import Navigation
 
 struct MovieDetailsView: View {
     let viewData: MovieDetailsViewData
@@ -57,7 +58,7 @@ struct MovieDetailsView: View {
                                     NavigationButton(
                                         fullScreen: .movieGalleryValue(
                                             id: viewData.id,
-                                            images: viewData.galleryItems,
+                                            images: viewData.galleryItemsDto,
                                             selectedImageIndex: index
                                         )
                                     ) {

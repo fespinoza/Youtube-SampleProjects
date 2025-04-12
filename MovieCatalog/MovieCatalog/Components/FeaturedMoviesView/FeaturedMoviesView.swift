@@ -1,5 +1,6 @@
 import SwiftUI
 import MovieModels
+import Navigation
 
 struct FeatureMovieViewData: Identifiable, Equatable {
     let id: MovieID

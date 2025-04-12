@@ -4,26 +4,26 @@ import Config
 
 /// A way to specify navigation
 @Observable
-final class Router {
+public final class Router {
     let id = UUID()
     let level: Int
 
     /// Specifies which tab the router was build for
-    let identifierTab: TabDestination?
+    public let identifierTab: TabDestination?
 
     /// Only relevant for the `level 0` root router. Defines the tab to select
-    var selectedTab: TabDestination?
+    public var selectedTab: TabDestination?
 
     /// Values presented in the navigation stack
-    var navigationStackPath: [PushDestination] = []
+    public var navigationStackPath: [PushDestination] = []
 
     /// Current presented sheet
-    var presentingSheet: SheetDestination?
+    public var presentingSheet: SheetDestination?
 
     /// Current presented full screen
-    var presentingFullScreen: FullScreenDestination?
+    public var presentingFullScreen: FullScreenDestination?
 
-    let logger = Logger(subsystem: Config.bundleID, category: "Navigation")
+    public let logger = Logger(subsystem: Config.bundleID, category: "Navigation")
 
     /// Reference to the parent router to form a hierarchy
     /// Router levels increase for the children
@@ -33,7 +33,7 @@ final class Router {
     /// Used for deep link resolution
     private(set) var isActive: Bool = false
 
-    init(level: Int, identifierTab: TabDestination?) {
+    public init(level: Int, identifierTab: TabDestination?) {
         self.level = level
         self.identifierTab = identifierTab
         self.parent = nil
@@ -54,7 +54,7 @@ final class Router {
 
 // MARK: - Router Management
 
-extension Router {
+public extension Router {
     func childRouter(for tab: TabDestination? = nil) -> Router {
         let router = Router(level: level + 1, identifierTab: tab ?? identifierTab)
         router.parent = self
@@ -79,7 +79,7 @@ extension Router {
 
 // MARK: - Navigation
 
-extension Router {
+public extension Router {
     func navigate(to destination: Destination) {
         switch destination {
         case let .tab(tab):
@@ -130,7 +130,7 @@ extension Router {
 }
 
 extension Router: CustomDebugStringConvertible {
-    var debugDescription: String {
+    public var debugDescription: String {
         "Router[\(shortId) - \(identifierTabName) - Level: \(level)]"
     }
 

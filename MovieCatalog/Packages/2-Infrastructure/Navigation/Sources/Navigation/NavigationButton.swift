@@ -1,12 +1,12 @@
 import SwiftUI
 
 /// My own version of `NavigationLink` to work with the ``Router``
-struct NavigationButton<Content: View>: View {
+public struct NavigationButton<Content: View>: View {
     let destination: Destination
     @ViewBuilder var content: () -> Content
     @Environment(Router.self) private var router
 
-    init(
+    public init(
         destination: Destination,
         @ViewBuilder content: @escaping () -> Content
     ) {
@@ -14,7 +14,7 @@ struct NavigationButton<Content: View>: View {
         self.content = content
     }
 
-    init(
+    public init(
         push destination: PushDestination,
         @ViewBuilder content: @escaping () -> Content
     ) {
@@ -22,7 +22,7 @@ struct NavigationButton<Content: View>: View {
         self.content = content
     }
 
-    init(
+    public init(
         sheet destination: SheetDestination,
         @ViewBuilder content: @escaping () -> Content
     ) {
@@ -30,7 +30,7 @@ struct NavigationButton<Content: View>: View {
         self.content = content
     }
 
-    init(
+    public init(
         fullScreen destination: FullScreenDestination,
         @ViewBuilder content: @escaping () -> Content
     ) {
@@ -38,7 +38,7 @@ struct NavigationButton<Content: View>: View {
         self.content = content
     }
 
-    var body: some View {
+    public var body: some View {
         Button(action: { router.navigate(to: destination) }) {
             content()
         }

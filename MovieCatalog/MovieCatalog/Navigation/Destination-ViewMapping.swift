@@ -1,4 +1,5 @@
 import SwiftUI
+import Navigation
 
 @ViewBuilder func view(for destination: PushDestination) -> some View {
     switch destination {

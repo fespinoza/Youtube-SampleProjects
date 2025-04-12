@@ -8,18 +8,21 @@ struct ImageContainerViewData: Identifiable, Hashable {
 }
 
 extension ImageContainerViewData {
-    static func galleryItems(for dto: MovieDetails) -> [ImageContainerViewData] {
-        dto
-            .images
-            .backdrops
-            .dropFirst()
+    public init(dto: MovieDetails.ImageCollection.Backdrop) {
+        self.init(
+            image: .remote(from: dto.imageURL),
+            aspectRatio: dto.aspectRatio
+        )
+    }
+
+    public static func galleryItems(for dto: [MovieDetails.ImageCollection.Backdrop]) -> [ImageContainerViewData] {
+        dto.dropFirst()
             .prefix(10)
-            .map { backdrop in
-                    .init(
-                        image: .remote(from: backdrop.imageURL),
-                        aspectRatio: backdrop.aspectRatio
-                    )
-            }
+            .map(ImageContainerViewData.init(dto:))
+    }
+
+    public static func galleryItems(for dto: MovieDetails) -> [ImageContainerViewData] {
+        galleryItems(for: dto.images.backdrops)
     }
 }
 
@@ -34,6 +37,7 @@ struct MovieDetailsViewData: Identifiable, Equatable {
     let poster: ImageViewData
     let actors: [ActorViewData]
     let galleryItems: [ImageContainerViewData]
+    let galleryItemsDto: [MovieDetails.ImageCollection.Backdrop]
 
     struct ActorViewData: Identifiable, Equatable {
         let id: ActorID
@@ -61,7 +65,8 @@ extension MovieDetailsViewData {
             releaseDate: Utils.formattedReleaseDate(from: dto.releaseDate),
             poster: .remote(from: dto.posterURL, defaultImage: Image(.missingPoster)),
             actors: actors,
-            galleryItems: ImageContainerViewData.galleryItems(for: dto)
+            galleryItems: ImageContainerViewData.galleryItems(for: dto),
+            galleryItemsDto: dto.images.backdrops
         )
     }
 }
@@ -113,7 +118,8 @@ extension MovieDetailsViewData {
             releaseDate: releaseDate,
             poster: poster ?? .image(Image(.missingPoster)),
             actors: actors,
-            galleryItems: galleryItems
+            galleryItems: galleryItems,
+            galleryItemsDto: []
         )
     }
 }
