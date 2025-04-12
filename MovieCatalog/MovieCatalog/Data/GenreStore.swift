@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieModels
 
 @Observable
 class GenreStore {

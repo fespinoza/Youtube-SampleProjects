@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieModels
 
 struct ActorDetailsView: View {
     let viewData: ActorDetailsViewData

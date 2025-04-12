@@ -1,4 +1,5 @@
 import Foundation
+import MovieModels
 
 struct ReleaseMonthViewData: Identifiable, Equatable {
     let id = UUID()

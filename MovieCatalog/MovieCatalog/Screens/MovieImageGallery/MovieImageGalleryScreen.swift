@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieModels
 
 struct MovieImageGalleryScreen: View {
     let movieID: MovieID

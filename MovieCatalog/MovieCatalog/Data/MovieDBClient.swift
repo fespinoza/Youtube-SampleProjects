@@ -1,4 +1,5 @@
 import Foundation
+import MovieModels
 
 struct MovieDBClient {
     func homeData() async throws -> HomeData {

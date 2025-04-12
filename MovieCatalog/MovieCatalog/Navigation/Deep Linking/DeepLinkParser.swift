@@ -1,4 +1,5 @@
 import Foundation
+import MovieModels
 
 /// A function that matches a deep link URL to a destination if possible
 struct DeepLinkParser {
