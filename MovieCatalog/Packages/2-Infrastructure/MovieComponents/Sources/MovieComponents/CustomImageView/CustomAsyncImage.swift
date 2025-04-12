@@ -1,5 +1,6 @@
 import OSLog
 import SwiftUI
+import Config
 
 /** Custom implementation of the `AsyncImage` view from iOS 15
  We took inspiration from that implementation to make a custom one for us.
@@ -29,6 +30,11 @@ public struct CustomAsyncImage<Output: View>: View {
     @Environment(\.placeholderColor) private var placeholderColor
     @Environment(\.imageClient) private var imageClient
     private let logger = os.Logger.forCategory("CustomAsyncImage")
+
+    public init(state: ImageViewData, transform: ((Image) -> Output)?) {
+        self.state = state
+        self.transform = transform
+    }
 
     public var body: some View {
         Group {

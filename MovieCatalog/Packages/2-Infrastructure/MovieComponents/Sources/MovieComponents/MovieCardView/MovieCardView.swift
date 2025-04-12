@@ -1,11 +1,15 @@
 import SwiftUI
 
-struct MovieCardView: View {
+public struct MovieCardView: View {
     let viewData: MovieCardViewData
 
     @Environment(\.movieCardSize) var movieCardSize
 
-    var body: some View {
+    public init(viewData: MovieCardViewData) {
+        self.viewData = viewData
+    }
+
+    public var body: some View {
         VStack(alignment: .leading) {
             CustomAsyncImage(state: viewData.image) { image in
                 image

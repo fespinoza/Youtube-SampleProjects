@@ -1,5 +1,6 @@
 import SwiftUI
 import Navigation
+import MovieComponents
 
 @ViewBuilder func view(for destination: PushDestination) -> some View {
     switch destination {

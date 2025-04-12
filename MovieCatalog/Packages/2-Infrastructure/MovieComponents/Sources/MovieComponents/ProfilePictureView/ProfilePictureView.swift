@@ -1,10 +1,15 @@
 import SwiftUI
+import PreviewData
 
-struct ProfilePictureView: View {
+public struct ProfilePictureView: View {
     let image: ImageViewData
     let size: CGFloat = 80
 
-    var body: some View {
+    public init(image: ImageViewData) {
+        self.image = image
+    }
+
+    public var body: some View {
         CustomAsyncImage(state: image) { image in
             image
                 .resizable()
@@ -17,5 +22,5 @@ struct ProfilePictureView: View {
 }
 
 #Preview {
-    ProfilePictureView(image: .image(Image(.Actor.BradPitt.small)))
+    ProfilePictureView(image: .image(Image(preview: .Actor.BradPitt.small)))
 }

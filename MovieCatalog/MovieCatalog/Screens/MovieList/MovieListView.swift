@@ -1,6 +1,7 @@
 import SwiftUI
 import MovieModels
 import Navigation
+import MovieComponents
 
 struct MovieListView: View {
     let movies: [MovieCardViewData]

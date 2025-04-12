@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: View>: View {
+public struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: View>: View {
     @Binding var state: BasicLoadingState<ViewData>
     @ViewBuilder var loadingContent: () -> LoadingContent
     @ViewBuilder var dataContent: (ViewData) -> DataContent
     var fetchData: () async throws -> ViewData
 
-    init(
+    public init(
         state: Binding<BasicLoadingState<ViewData>>,
         loadingContent: @escaping () -> LoadingContent,
         dataContent: @escaping (ViewData) -> DataContent,
@@ -18,7 +18,7 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
         self.fetchData = fetchData
     }
 
-    var body: some View {
+    public var body: some View {
         Group {
             switch state {
             case .idle,
@@ -31,11 +31,15 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
 
             case let .error(error):
                 ContentUnavailableView(
-                    "Error",
-                    systemImage: "xmark",
-                    description: Text(error.localizedDescription)
-                )
-                .foregroundStyle(.primary, .red)
+                    label: {
+                        Label("Error", systemImage: "xmark")
+                            .foregroundStyle(.primary, .red)
+                    }) {
+                        Text(error.localizedDescription)
+                    } actions: {
+                        Button("Retry", action: retry)
+                            .buttonStyle(.borderedProminent)
+                    }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -46,6 +50,10 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
     func initialLoad() async {
         guard state == .idle else { return }
         await performFetchData()
+    }
+
+    func retry() {
+        Task { await performFetchData() }
     }
 
     private func performFetchData(showLoading: Bool = true) async {
@@ -60,7 +68,7 @@ struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: Vi
     }
 }
 
-extension BasicStateView where LoadingContent == LoadingStateView {
+public extension BasicStateView where LoadingContent == LoadingStateView {
     init(
         state: Binding<BasicLoadingState<ViewData>>,
         dataContent: @escaping (ViewData) -> DataContent,

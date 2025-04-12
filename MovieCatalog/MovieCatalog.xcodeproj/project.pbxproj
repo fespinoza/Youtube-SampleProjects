@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3845362DAB1BDE007C9F3F /* MovieComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 9B3845352DAB1BDE007C9F3F /* MovieComponents */; };
 		9B3E8D4C2DAB133F00D61DF7 /* MovieDBNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 9B3E8D4B2DAB133F00D61DF7 /* MovieDBNetworking */; };
 		9B3E8DCE2DAB154100D61DF7 /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = 9B3E8DCD2DAB154100D61DF7 /* Navigation */; };
 		9B42458F2DAB0DDD00A2C8C8 /* MovieModels in Frameworks */ = {isa = PBXBuildFile; productRef = 9B42458E2DAB0DDD00A2C8C8 /* MovieModels */; };
@@ -88,6 +89,7 @@
 				9B4245922DAB0FDD00A2C8C8 /* Config in Frameworks */,
 				9B3E8D4C2DAB133F00D61DF7 /* MovieDBNetworking in Frameworks */,
 				9B3E8DCE2DAB154100D61DF7 /* Navigation in Frameworks */,
+				9B3845362DAB1BDE007C9F3F /* MovieComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +158,7 @@
 				9B4245912DAB0FDD00A2C8C8 /* Config */,
 				9B3E8D4B2DAB133F00D61DF7 /* MovieDBNetworking */,
 				9B3E8DCD2DAB154100D61DF7 /* Navigation */,
+				9B3845352DAB1BDE007C9F3F /* MovieComponents */,
 			);
 			productName = MovieCatalog;
 			productReference = 9B7E94382D56A2D9002783BA /* MovieCatalog.app */;
@@ -536,6 +539,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9B3845352DAB1BDE007C9F3F /* MovieComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MovieComponents;
+		};
 		9B3E8D4B2DAB133F00D61DF7 /* MovieDBNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MovieDBNetworking;

@@ -1,4 +1,5 @@
 import OSLog
+import Config
 import SwiftUI
 
 /// Internal only type as a simple/default implementation of the `ImageClient` protocol.

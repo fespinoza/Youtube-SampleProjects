@@ -1,13 +1,15 @@
 import SwiftUI
 import MovieModels
+import Tagged
+import PreviewData
 
-struct MovieCardViewData: Identifiable, Equatable {
-    let id: MovieID
-    let title: String
-    let image: ImageViewData
-    let style: Style
+public struct MovieCardViewData: Identifiable, Equatable {
+    public let id: MovieID
+    public let title: String
+    public let image: ImageViewData
+    public let style: Style
 
-    init(
+    public init(
         id: MovieID,
         title: String,
         image: ImageViewData,
@@ -19,14 +21,14 @@ struct MovieCardViewData: Identifiable, Equatable {
         self.style = style
     }
 
-    enum Style: Equatable {
+    public enum Style: Equatable {
         case basic
         case upcoming(releaseDate: String)
         case ranking(ranking: String)
     }
 }
 
-extension MovieCardViewData {
+public extension MovieCardViewData {
     static let defaultImage: Image = Image(.missingPoster)
 
     static func basic(from summary: MovieSummary) -> Self {
@@ -57,17 +59,17 @@ extension MovieCardViewData {
     }
 }
 
-extension MovieCardViewData {
+public extension MovieCardViewData {
     static func previewValue(
         id: MovieID = .randomPreviewId(),
         title: String = "Gladiator II",
-        image: ImageViewData = .image(Image(.Movie.Gladiator.small)),
+        image: ImageViewData? = nil,
         style: MovieCardViewData.Style = .basic
     ) -> Self {
         .init(
             id: id,
             title: title,
-            image: image,
+            image: image ?? .image(Image(preview: .Movie.Poster.Gladiator.small)),
             style: style
         )
     }
@@ -75,21 +77,21 @@ extension MovieCardViewData {
     static func gladiatorTwo() -> Self {
         .previewValue(
             title: "Gladiator II",
-            image: .image(Image(.Movie.Gladiator.small))
+            image: .image(Image(preview: .Movie.Poster.Gladiator.small))
         )
     }
 
     static func kindaPregnant() -> Self {
         .previewValue(
             title: "Kinda Pregnent",
-            image: .image(Image(.Movie.KindaPregnant.small))
+            image: .image(Image(preview: .Movie.Poster.KindaPregnant.small))
         )
     }
 
     static func eternalSunshine() -> Self {
         .previewValue(
             title: "Eternal Sunshine of the Spotless Mind",
-            image: .image(Image(.Movie.EternalSunshine.small))
+            image: .image(Image(preview: .Movie.Poster.EternalSunshine.small))
         )
     }
 
@@ -97,7 +99,7 @@ extension MovieCardViewData {
         .previewValue(
             id: .init(1_182_047),
             title: "Iron Man",
-            image: .image(Image(.Movie.IronMan.small))
+            image: .image(Image(preview: .Movie.Poster.IronMan.small))
         )
     }
 }

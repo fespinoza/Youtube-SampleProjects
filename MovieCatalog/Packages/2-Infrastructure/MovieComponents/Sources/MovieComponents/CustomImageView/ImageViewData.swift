@@ -14,7 +14,7 @@ import SwiftUI
  The idea is whenever we have a URL that is a representation of an image,
  we pass `remote(url)` to the view data values.
  */
-public enum ImageViewData: Equatable {
+public enum ImageViewData: Equatable, Sendable {
     case empty
     case remote(url: URL)
     case loading
@@ -59,7 +59,7 @@ extension ImageViewData: Hashable {
     }
 }
 
-extension ImageViewData {
+public extension ImageViewData {
     static func remote(from url: URL?) -> ImageViewData {
         if let url = url {
             .remote(url: url)

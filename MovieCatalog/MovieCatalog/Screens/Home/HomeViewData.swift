@@ -1,5 +1,6 @@
 import SwiftUI
 import MovieModels
+import MovieComponents
 
 struct HomeViewData: Equatable {
     let featuredMovies: [FeatureMovieViewData]

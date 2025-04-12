@@ -1,6 +1,7 @@
 import SwiftUI
 import Navigation
 import MovieModels
+import MovieComponents
 
 struct HomeView: View {
     let viewData: HomeViewData

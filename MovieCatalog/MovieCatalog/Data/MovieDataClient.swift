@@ -1,6 +1,7 @@
 import SwiftUI
 import MovieModels
 import MovieDBNetworking
+import MovieComponents
 
 struct MovieDataClient {
     var homeData: (GenreStore) async throws -> HomeViewData

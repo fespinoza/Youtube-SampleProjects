@@ -1,10 +1,15 @@
 import SwiftUI
 
-struct LoadingStateView: View {
-    @State var showProgress: Bool = false
-    @State var title: String = "Loading..."
+public struct LoadingStateView: View {
+    @State var showProgress: Bool
+    @State var title: String
 
-    var body: some View {
+    public init(showProgress: Bool = false, title: String = "Loading...") {
+        self.showProgress = showProgress
+        self.title = title
+    }
+
+    public var body: some View {
         VStack {
             if showProgress {
                 VStack(spacing: .spacingSM) {
