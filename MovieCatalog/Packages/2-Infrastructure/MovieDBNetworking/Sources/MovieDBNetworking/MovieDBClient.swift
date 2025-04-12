@@ -2,8 +2,10 @@ import Foundation
 import MovieModels
 import Config
 
-struct MovieDBClient {
-    func homeData() async throws -> HomeData {
+public struct MovieDBClient {
+    public init() {}
+
+    public func homeData() async throws -> HomeData {
         async let popular = popularMovies()
         async let topRated = topRatedMovies()
         async let upcoming = upcomingMovies()
@@ -21,7 +23,7 @@ struct MovieDBClient {
         )
     }
 
-    func popularMovies() async throws -> [MovieSummary] {
+    public func popularMovies() async throws -> [MovieSummary] {
         let url = try url(
             for: "/discover/movie",
             params: [
@@ -32,7 +34,7 @@ struct MovieDBClient {
         return container.results
     }
 
-    func topRatedMovies() async throws -> [MovieSummary] {
+    public func topRatedMovies() async throws -> [MovieSummary] {
         let url = try url(
             for: "/discover/movie",
             params: [
@@ -45,13 +47,13 @@ struct MovieDBClient {
         return container.results
     }
 
-    func upcomingMovies() async throws -> [MovieSummary] {
+    public func upcomingMovies() async throws -> [MovieSummary] {
         let url = try url(
             for: "/discover/movie",
             params: [
                 .init(name: "sort_by", value: "popularity.desc"),
                 .init(name: "with_release_type", value: "3"),
-                .init(name: "primary_release_date.gte", value: Utils.formattedRequestDate(from: Date())),
+                .init(name: "primary_release_date.gte", value: formattedRequestDate(from: Date())),
                 .init(name: "with_original_language", value: "en"),
             ]
         )
@@ -59,7 +61,7 @@ struct MovieDBClient {
         return container.results
     }
 
-    func movieDetails(for movieID: MovieID) async throws -> MovieDetails {
+    public func movieDetails(for movieID: MovieID) async throws -> MovieDetails {
         let url = try url(
             for: "/movie/\(movieID)",
             params: [
@@ -70,13 +72,13 @@ struct MovieDBClient {
         return try await fetch(url)
     }
 
-    func genres() async throws -> [Genre] {
+    public func genres() async throws -> [Genre] {
         let url = try url(for: "/genre/movie/list")
         let container: GenreContainer = try await fetch(url)
         return container.genres
     }
 
-    func actorDetails(for actorID: ActorID) async throws -> ActorDetails {
+    public func actorDetails(for actorID: ActorID) async throws -> ActorDetails {
         let url = try url(
             for: "/person/\(actorID)",
             params: [
@@ -118,5 +120,11 @@ struct MovieDBClient {
 
         let (data, _) = try await URLSession.shared.data(for: request)
         return try Config.decoder.decode(T.self, from: data)
+    }
+
+    private func formattedRequestDate(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
     }
 }
