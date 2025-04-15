@@ -14,6 +14,7 @@
 		9B4245922DAB0FDD00A2C8C8 /* Config in Frameworks */ = {isa = PBXBuildFile; productRef = 9B4245912DAB0FDD00A2C8C8 /* Config */; };
 		9B7E944A2D56A2E5002783BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B7E94492D56A2E1002783BA /* README.md */; };
 		9B7E945F2D56B19B002783BA /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 9B7E945E2D56B19B002783BA /* Tagged */; };
+		9BC66EE32DAE74B200DB8E2C /* MovieDetails in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC66EE22DAE74B200DB8E2C /* MovieDetails */; };
 		9BDAC7412D63D4850044A76C /* SnapshotTestingKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BDAC7402D63D4850044A76C /* SnapshotTestingKit */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 				"1-Base/SnapshotTestingKit",
 				"2-Infrastructure/MovieDBNetworking",
 				"2-Infrastructure/Navigation",
+				"3-Features/MovieDetails",
 			);
 			target = 9B7E94372D56A2D9002783BA /* MovieCatalog */;
 		};
@@ -86,6 +88,7 @@
 			files = (
 				9B7E945F2D56B19B002783BA /* Tagged in Frameworks */,
 				9B42458F2DAB0DDD00A2C8C8 /* MovieModels in Frameworks */,
+				9BC66EE32DAE74B200DB8E2C /* MovieDetails in Frameworks */,
 				9B4245922DAB0FDD00A2C8C8 /* Config in Frameworks */,
 				9B3E8D4C2DAB133F00D61DF7 /* MovieDBNetworking in Frameworks */,
 				9B3E8DCE2DAB154100D61DF7 /* Navigation in Frameworks */,
@@ -159,6 +162,7 @@
 				9B3E8D4B2DAB133F00D61DF7 /* MovieDBNetworking */,
 				9B3E8DCD2DAB154100D61DF7 /* Navigation */,
 				9B3845352DAB1BDE007C9F3F /* MovieComponents */,
+				9BC66EE22DAE74B200DB8E2C /* MovieDetails */,
 			);
 			productName = MovieCatalog;
 			productReference = 9B7E94382D56A2D9002783BA /* MovieCatalog.app */;
@@ -563,6 +567,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B7E945D2D56B19B002783BA /* XCRemoteSwiftPackageReference "swift-tagged" */;
 			productName = Tagged;
+		};
+		9BC66EE22DAE74B200DB8E2C /* MovieDetails */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MovieDetails;
 		};
 		9BDAC7402D63D4850044A76C /* SnapshotTestingKit */ = {
 			isa = XCSwiftPackageProductDependency;

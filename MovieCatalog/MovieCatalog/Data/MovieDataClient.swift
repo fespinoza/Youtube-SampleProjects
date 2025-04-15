@@ -2,12 +2,12 @@ import SwiftUI
 import MovieModels
 import MovieDBNetworking
 import MovieComponents
+import PreviewData
 
 struct MovieDataClient {
     var homeData: (GenreStore) async throws -> HomeViewData
     var popularMovies: () async throws -> [MovieCardViewData]
     var actorDetails: (ActorID) async throws -> ActorDetailsViewData
-    var movieDetails: (MovieID) async throws -> MovieDetailsViewData
     var movieDescription: (MovieID) async throws -> (title: String, description: String)
     var movieGallery: (MovieID) async throws -> [ImageContainerViewData]
     var movieList: (MovieListType) async throws -> [MovieCardViewData]
@@ -25,10 +25,6 @@ struct MovieDataClient {
         actorDetails: { actorID in
             let dto = try await MovieDBClient().actorDetails(for: actorID)
             return .init(dto: dto)
-        },
-        movieDetails: { movieID in
-            let dto = try await MovieDBClient().movieDetails(for: movieID)
-            return MovieDetailsViewData(dto: dto)
         },
         movieDescription: { movieID in
             let dto = try await MovieDBClient().movieDetails(for: movieID)
@@ -68,13 +64,22 @@ struct MovieDataClient {
             homeData: { _ in .previewValue() },
             popularMovies: { [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },
             actorDetails: { _ in .previewValue() },
-            movieDetails: { _ in .previewValue() },
             movieDescription: { _ in
-                let movie = MovieDetailsViewData.previewValue()
-                return (title: movie.title, description: movie.description)
+                return (
+                    title: "Iron Man",
+                    description: """
+                    After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized \
+                    suit of armor to fight evil.
+                    """
+                )
             },
             movieGallery: { _ in
-                MovieDetailsViewData.previewValue().galleryItems
+                [
+                    .previewValue(image: .image(Image(preview: .Gallery.IronMan.image1))),
+                    .previewValue(image: .image(Image(preview: .Gallery.IronMan.image2))),
+                    .previewValue(image: .image(Image(preview: .Gallery.IronMan.image3))),
+                    .previewValue(image: .image(Image(preview: .Gallery.IronMan.image4))),
+                ]
             },
             movieList: { _ in [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },
             releaseCalendar: { _ in [.previewValue()] }
