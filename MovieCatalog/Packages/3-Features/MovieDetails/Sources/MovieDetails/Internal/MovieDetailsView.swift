@@ -56,13 +56,7 @@ struct MovieDetailsView: View {
                         ScrollView(.horizontal) {
                             HStack(spacing: .spacingM) {
                                 ForEach(Array(viewData.galleryItems.enumerated()), id: \.element.id) { index, item in
-                                    NavigationButton(
-                                        fullScreen: .movieGalleryValue(
-                                            id: viewData.id,
-                                            images: viewData.galleryItemsDto,
-                                            selectedImageIndex: index
-                                        )
-                                    ) {
+                                    NavigationButton(destination: viewData.galleryDestinationFactory(index)) {
                                         CustomAsyncImage(state: item.image) { image in
                                             image
                                                 .resizable()

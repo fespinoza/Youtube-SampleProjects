@@ -7,14 +7,14 @@ struct MovieDetailsDataSource: Sendable {
     var movieDetails: @Sendable (MovieID) async throws -> MovieDetailsViewData
 
     static let live: MovieDetailsDataSource = .init(
-        movieDetails: { movieID in
+        movieDetails: { @MainActor movieID in
             let dto = try await MovieDBClient().movieDetails(for: movieID)
             return MovieDetailsViewData(dto: dto)
         }
     )
 
     static func previewClient() -> MovieDetailsDataSource {
-        .init(movieDetails: { _ in .previewValue() })
+        .init(movieDetails: { @MainActor _ in .previewValue() })
     }
 }
 

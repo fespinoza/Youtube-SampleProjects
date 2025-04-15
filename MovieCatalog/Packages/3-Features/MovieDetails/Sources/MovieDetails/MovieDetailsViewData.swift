@@ -2,31 +2,7 @@ import SwiftUI
 import MovieModels
 import MovieComponents
 import PreviewData
-
-struct ImageContainerViewData: Identifiable, Hashable {
-    let id = UUID()
-    let image: ImageViewData
-    let aspectRatio: CGFloat
-}
-
-extension ImageContainerViewData {
-    public init(dto: MovieDetails.ImageCollection.Backdrop) {
-        self.init(
-            image: .remote(from: dto.imageURL),
-            aspectRatio: dto.aspectRatio
-        )
-    }
-
-    public static func galleryItems(for dto: [MovieDetails.ImageCollection.Backdrop]) -> [ImageContainerViewData] {
-        dto.dropFirst()
-            .prefix(10)
-            .map(ImageContainerViewData.init(dto:))
-    }
-
-    public static func galleryItems(for dto: MovieDetails) -> [ImageContainerViewData] {
-        galleryItems(for: dto.images.backdrops)
-    }
-}
+import Navigation
 
 struct MovieDetailsViewData: Identifiable, Equatable {
     let id: MovieID
@@ -39,7 +15,15 @@ struct MovieDetailsViewData: Identifiable, Equatable {
     let poster: ImageViewData
     let actors: [ActorViewData]
     let galleryItems: [ImageContainerViewData]
-    let galleryItemsDto: [MovieDetails.ImageCollection.Backdrop]
+    // normally this would be a destination,
+    // but since I also pass the selected image index, this
+    // needs to be a function then
+    let galleryDestinationFactory: (Int) -> Destination
+
+    static func == (lhs: MovieDetailsViewData, rhs: MovieDetailsViewData) -> Bool {
+        (lhs.id, lhs.title) == (rhs.id, rhs.title)
+    }
+
 
     struct ActorViewData: Identifiable, Equatable {
         let id: ActorID
@@ -57,6 +41,9 @@ extension MovieDetailsViewData {
             dto.credits.cast.map(ActorViewData.init(dto:))
         }
 
+        // np more thant 10 images
+        let backdrops = Array(dto.images.backdrops.prefix(10))
+
         self.init(
             id: dto.id,
             title: dto.title,
@@ -67,8 +54,16 @@ extension MovieDetailsViewData {
             releaseDate: Utils.formattedReleaseDate(from: dto.releaseDate),
             poster: .remote(from: dto.posterURL, defaultImage: Image.missingPoster),
             actors: actors,
-            galleryItems: ImageContainerViewData.galleryItems(for: dto),
-            galleryItemsDto: dto.images.backdrops
+            galleryItems: ImageContainerViewData.galleryItems(for: backdrops),
+            galleryDestinationFactory: { selectedImageIndex in
+                .fullScreen(
+                    .movieGalleryValue(
+                        id: dto.id,
+                        images: backdrops,
+                        selectedImageIndex: selectedImageIndex
+                    )
+                )
+            }
         )
     }
 }
@@ -121,7 +116,7 @@ extension MovieDetailsViewData {
             poster: poster ?? .image(Image.missingPoster),
             actors: actors,
             galleryItems: galleryItems,
-            galleryItemsDto: []
+            galleryDestinationFactory: { _ in .push(.movieDetails(id: .randomPreviewId())) }
         )
     }
 }

@@ -21,9 +21,7 @@ extension ImageContainerViewData {
     }
 
     public static func galleryItems(for dto: [MovieDetails.ImageCollection.Backdrop]) -> [ImageContainerViewData] {
-        dto.dropFirst()
-            .prefix(10)
-            .map(ImageContainerViewData.init(dto:))
+        dto.map(ImageContainerViewData.init(dto:))
     }
 
     public static func galleryItems(for dto: MovieDetails) -> [ImageContainerViewData] {
