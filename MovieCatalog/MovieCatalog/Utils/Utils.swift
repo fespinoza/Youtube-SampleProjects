@@ -65,10 +65,4 @@ enum Utils {
 
         return date.formatted(date: .abbreviated, time: .omitted)
     }
-
-    static func formattedRequestDate(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.string(from: date)
-    }
 }

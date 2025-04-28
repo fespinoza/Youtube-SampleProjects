@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieComponents
 
 struct UpcomingMovieView: View {
     let movie: UpcomingMovieViewData

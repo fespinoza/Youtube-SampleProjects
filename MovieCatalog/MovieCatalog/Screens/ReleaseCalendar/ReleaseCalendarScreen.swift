@@ -1,4 +1,5 @@
 import SwiftUI
+import MovieComponents
 
 struct ReleaseCalendarScreen: View {
     @State var loadingState: BasicLoadingState<[ReleaseMonthViewData]> = .idle

@@ -1,4 +1,6 @@
 import SwiftUI
+import MovieModels
+import MovieComponents
 
 struct ActorDetailsScreen: View {
     let actorID: ActorID

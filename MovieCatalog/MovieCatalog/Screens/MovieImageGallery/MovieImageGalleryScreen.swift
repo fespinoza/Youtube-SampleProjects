@@ -1,4 +1,6 @@
 import SwiftUI
+import MovieModels
+import MovieComponents
 
 struct MovieImageGalleryScreen: View {
     let movieID: MovieID
@@ -13,9 +15,9 @@ struct MovieImageGalleryScreen: View {
         self._selectedImage = .init(initialValue: 0)
     }
 
-    init(movieID: MovieID, images: [ImageContainerViewData], selectedImage: Int) {
+    init(movieID: MovieID, images: [MovieDetails.ImageCollection.Backdrop], selectedImage: Int) {
         self.movieID = movieID
-        self._state = .init(initialValue: .dataLoaded(images))
+        self._state = .init(initialValue: .dataLoaded(ImageContainerViewData.galleryItems(for: images)))
         self._selectedImage = .init(initialValue: selectedImage)
     }
 
