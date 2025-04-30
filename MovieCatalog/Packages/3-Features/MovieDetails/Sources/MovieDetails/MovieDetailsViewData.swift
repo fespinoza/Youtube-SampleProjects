@@ -52,7 +52,7 @@ extension MovieDetailsViewData {
             runtime: Utils.formatRuntime(minutes: dto.runtime),
             releaseYear: Utils.formattedReleaseYear(from: dto.releaseDate),
             releaseDate: Utils.formattedReleaseDate(from: dto.releaseDate),
-            poster: .remote(from: dto.posterURL, defaultImage: Image.missingPoster),
+            poster: .remote(from: dto.posterURL, defaultImage: Image.defaultMoviePoster),
             actors: actors,
             galleryItems: ImageContainerViewData.galleryItems(for: backdrops),
             galleryDestinationFactory: { selectedImageIndex in
@@ -113,7 +113,7 @@ extension MovieDetailsViewData {
             runtime: runtime,
             releaseYear: releaseYear,
             releaseDate: releaseDate,
-            poster: poster ?? .image(Image.missingPoster),
+            poster: poster ?? .image(Image.defaultMoviePoster),
             actors: actors,
             galleryItems: galleryItems,
             galleryDestinationFactory: { _ in .push(.movieDetails(id: .randomPreviewId())) }

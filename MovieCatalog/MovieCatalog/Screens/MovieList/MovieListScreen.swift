@@ -17,7 +17,7 @@ struct MovieListScreen: View {
             },
             fetchData: { try await movieList(listType) }
         )
-        .navigationTitle(listType.rawValue)
+        .navigationTitle(listType.title)
     }
 }
 

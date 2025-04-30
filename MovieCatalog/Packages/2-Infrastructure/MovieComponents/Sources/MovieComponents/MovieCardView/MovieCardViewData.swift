@@ -29,7 +29,7 @@ public struct MovieCardViewData: Identifiable, Equatable {
 }
 
 public extension MovieCardViewData {
-    static let defaultImage: Image = Image(.missingPoster)
+    static let defaultImage: Image = Image.defaultMoviePoster
 
     static func basic(from summary: MovieSummary) -> Self {
         .init(
