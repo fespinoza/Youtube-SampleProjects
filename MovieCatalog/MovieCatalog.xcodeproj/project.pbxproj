@@ -16,6 +16,7 @@
 		9B7E945F2D56B19B002783BA /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 9B7E945E2D56B19B002783BA /* Tagged */; };
 		9BC66EE32DAE74B200DB8E2C /* MovieDetails in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC66EE22DAE74B200DB8E2C /* MovieDetails */; };
 		9BDAC7412D63D4850044A76C /* SnapshotTestingKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9BDAC7402D63D4850044A76C /* SnapshotTestingKit */; };
+		9BEAC0662DC21BE80011F8B2 /* MovieSearch in Frameworks */ = {isa = PBXBuildFile; productRef = 9BEAC0652DC21BE80011F8B2 /* MovieSearch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B7E945F2D56B19B002783BA /* Tagged in Frameworks */,
+				9BEAC0662DC21BE80011F8B2 /* MovieSearch in Frameworks */,
 				9B42458F2DAB0DDD00A2C8C8 /* MovieModels in Frameworks */,
 				9BC66EE32DAE74B200DB8E2C /* MovieDetails in Frameworks */,
 				9B4245922DAB0FDD00A2C8C8 /* Config in Frameworks */,
@@ -163,6 +165,7 @@
 				9B3E8DCD2DAB154100D61DF7 /* Navigation */,
 				9B3845352DAB1BDE007C9F3F /* MovieComponents */,
 				9BC66EE22DAE74B200DB8E2C /* MovieDetails */,
+				9BEAC0652DC21BE80011F8B2 /* MovieSearch */,
 			);
 			productName = MovieCatalog;
 			productReference = 9B7E94382D56A2D9002783BA /* MovieCatalog.app */;
@@ -575,6 +578,10 @@
 		9BDAC7402D63D4850044A76C /* SnapshotTestingKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SnapshotTestingKit;
+		};
+		9BEAC0652DC21BE80011F8B2 /* MovieSearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MovieSearch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,5 +1,6 @@
 import SwiftUI
 import Navigation
+import MovieSearch
 
 struct RootContainer: View {
     @State var genreStore: GenreStore = .init()
@@ -15,7 +16,7 @@ struct RootContainer: View {
 
             Tab("Search", systemImage: "magnifyingglass", value: TabDestination.search) {
                 NavigationContainer(parentRouter: router, tab: .search) {
-                    TodoScreen(title: "Search")
+                    MovieSearchScreen()
                 }
             }
 
