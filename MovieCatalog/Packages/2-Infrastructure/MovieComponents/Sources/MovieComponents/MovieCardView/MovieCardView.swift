@@ -75,7 +75,7 @@ public struct MovieCardView: View {
             HStack(alignment: .top) {
                 MovieCardView(viewData: .ironMan())
                 MovieCardView(viewData: .previewValue(image: .error))
-                MovieCardView(viewData: .previewValue(image: .image(Image(.missingPoster))))
+                MovieCardView(viewData: .previewValue(image: .image(Image.defaultMoviePoster)))
             }
         }
         .padding()
