@@ -70,6 +70,7 @@ public extension Router {
     func resignActive() {
         logger.debug("\(self.debugDescription): \(#function)")
         isActive = false
+        parent?.setActive()
     }
 
     static func previewRouter() -> Router {
