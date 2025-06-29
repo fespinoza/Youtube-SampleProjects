@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 
         // Initialize your view controller
-        let rootViewController = HelloWorldViewController()
+        let rootViewController = MainTabBarController()
 
         // Optionally embed in a UINavigationController
         let navController = UINavigationController(rootViewController: rootViewController)
