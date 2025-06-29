@@ -14,6 +14,7 @@ class MainTabBarController: UITabBarController {
         secondVC.view.backgroundColor = .systemGreen
         secondVC.tabBarItem = UITabBarItem(title: "Second", image: UIImage(systemName: "2.circle"), tag: 1)
         let secondNav = UINavigationController(rootViewController: secondVC)
+        secondNav.navigationBar.prefersLargeTitles = true
 
         let thirdVC = SimpleContentViewController(titleText: "Third", image: UIImage(systemName: "person"))
         thirdVC.view.backgroundColor = .systemYellow
