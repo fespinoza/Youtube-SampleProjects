@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9BD600302E11F00200F726C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9BD6002F2E11EFFD00F726C2 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9BD6000E2E11E89700F726C2 /* UIKitNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD6002F2E11EFFD00F726C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +50,7 @@
 		9BD600052E11E89700F726C2 = {
 			isa = PBXGroup;
 			children = (
+				9BD6002F2E11EFFD00F726C2 /* README.md */,
 				9BD600102E11E89700F726C2 /* UIKitNavigation */,
 				9BD6000F2E11E89700F726C2 /* Products */,
 			);
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD600302E11F00200F726C2 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

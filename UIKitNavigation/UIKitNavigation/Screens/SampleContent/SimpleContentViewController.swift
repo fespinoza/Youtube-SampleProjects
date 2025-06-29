@@ -27,13 +27,16 @@ class SimpleContentViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
-        navigationItem.title = titleText
-
+        setupNavigationBar()
         setupScrollView()
         setupContent()
     }
 
     // MARK: - Setup Scroll View and Stack
+
+    func setupNavigationBar() {
+        navigationItem.title = titleText
+    }
 
     private func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -121,14 +124,8 @@ class SimpleContentViewController: UIViewController {
 
         let buttonTitles = ["Action 1", "Action 2", "Cancel"]
         for title in buttonTitles {
-            let config = UIButton.Configuration.borderedProminent()
-
-            let button = UIButton(type: .system)
-            button.setTitle(title, for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-            button.backgroundColor = UIColor.systemGray6
-            button.layer.cornerRadius = 8
-            button.configuration = config
+            let button = makeButton(with: title)
+            button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
 
             button.addAction(
                 UIAction { [weak self] _ in
@@ -144,6 +141,69 @@ class SimpleContentViewController: UIViewController {
 
             contentStack.addArrangedSubview(button)
         }
+
+        let sheet = makeButton(with: "Sheet Content")
+        sheet.addAction(
+            UIAction { [weak self] _ in
+                guard let self else { return }
+                
+                let sheetContent = SimpleContentViewController(
+                    titleText: "Sheet Content",
+                    image: UIImage(systemName: "circle")
+                )
+                sheetContent.navigationItem.rightBarButtonItem = UIBarButtonItem(
+                    title: "Close",
+                    primaryAction: UIAction { [weak sheetContent] _ in
+                        sheetContent?.dismiss(animated: true)
+                    }
+                )
+                self.present(
+                    UINavigationController(rootViewController: sheetContent),
+                    animated: true
+                )
+            },
+            for: .touchUpInside
+        )
+        contentStack.addArrangedSubview(sheet)
+
+        let fullScreen = makeButton(with: "Full Screen")
+        fullScreen.addAction(
+            UIAction { [weak self] _ in
+                guard let self else { return }
+
+                let fullScreenContent = SimpleContentViewController(
+                    titleText: "Full Screen Content",
+                    image: UIImage(systemName: "triangle")
+                )
+                fullScreenContent.navigationItem.rightBarButtonItem = UIBarButtonItem(
+                    title: "Close",
+                    primaryAction: UIAction { [weak fullScreenContent] _ in
+                        fullScreenContent?.dismiss(animated: true)
+                    }
+                )
+                let fullScreenNav = UINavigationController(rootViewController: fullScreenContent)
+                fullScreenNav.modalPresentationStyle = .fullScreen
+
+                self.present(fullScreenNav, animated: true)
+            },
+            for: .touchUpInside
+        )
+        contentStack.addArrangedSubview(fullScreen)
+    }
+
+    private func makeButton(with title: String) -> UIButton {
+        var config = UIButton.Configuration.borderedProminent()
+        config.imagePadding = 8
+        config.imagePlacement = .trailing
+
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.backgroundColor = UIColor.systemGray6
+        button.layer.cornerRadius = 8
+        button.configuration = config
+
+        return button
     }
 }
 
