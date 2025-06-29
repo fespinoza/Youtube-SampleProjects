@@ -1,8 +1,18 @@
 import UIKit
 
+enum Example: String, CaseIterable {
+    case largeTitle
+    case simple
+    case stickyHeader
+    case badlyConfigured
+    case transparentScrollEdge
+    case customTitleView
+    case segmentedControlTitleView
+}
+
 class SimpleContentViewController: UIViewController {
-    private let titleText: String
-    private let image: UIImage?
+    let titleText: String
+    let image: UIImage?
 
     // MARK: - UI Elements
 
@@ -27,13 +37,16 @@ class SimpleContentViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
-        navigationItem.title = titleText
-
+        setupNavigationBar()
         setupScrollView()
         setupContent()
     }
 
     // MARK: - Setup Scroll View and Stack
+
+    func setupNavigationBar() {
+        navigationItem.title = titleText
+    }
 
     private func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,17 +79,19 @@ class SimpleContentViewController: UIViewController {
 
     private func setupContent() {
         let titleLabel = UILabel()
-        titleLabel.text = titleText
+        titleLabel.text = "Content"
         titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
-        contentStack.addArrangedSubview(titleLabel)
 
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .systemBlue
         imageView.translatesAutoresizingMaskIntoConstraints = false
+
         contentStack.addArrangedSubview(imageView)
+        contentStack.addArrangedSubview(titleLabel)
+
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: 150),
             imageView.widthAnchor.constraint(equalToConstant: 150)
@@ -119,21 +134,131 @@ class SimpleContentViewController: UIViewController {
         paragraphLabel.textAlignment = .left
         contentStack.addArrangedSubview(paragraphLabel)
 
-        let buttonTitles = ["Action 1", "Action 2", "Cancel"]
-        for title in buttonTitles {
-            let config = UIButton.Configuration.borderedProminent()
+        for title in Example.allCases {
+            let button = makeButton(with: title.rawValue)
+            button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
 
-            let button = UIButton(type: .system)
-            button.setTitle(title, for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-            button.backgroundColor = UIColor.systemGray6
-            button.layer.cornerRadius = 8
-            button.configuration = config
+            button.addAction(
+                UIAction { [weak self] _ in
+                    guard let self else { return }
+
+                    let controller: UIViewController = switch title {
+                    case .simple:
+                        SimpleContentViewController(titleText: title.rawValue, image: UIImage(systemName: "square"))
+
+                    case .largeTitle:
+                        LargeTitleViewController(titleText: title.rawValue, image: UIImage(systemName: "square"))
+
+                    case .stickyHeader:
+                        StickyHeaderViewController(image: UIImage(resource: .tedLasso), title: "Ted Lasso")
+
+                    case .badlyConfigured:
+                        BadlyConfiguredViewController(titleText: title.rawValue, image: UIImage(systemName: "square"))
+
+                    case .transparentScrollEdge:
+                        TransparentScrollEdgeViewController(
+                            titleText: title.rawValue,
+                            image: UIImage(systemName: "square")
+                        )
+
+                    case .customTitleView:
+                        CustomTitleViewController(titleText: title.rawValue, image: UIImage(systemName: "square"))
+                        
+                    case .segmentedControlTitleView:
+                        PeopleListViewController()
+                    }
+
+                    self.navigationController?.pushViewController(controller, animated: true)
+                },
+                for: .touchUpInside
+            )
+
             contentStack.addArrangedSubview(button)
         }
+
+        let sheet = makeButton(with: "Sheet Content")
+        sheet.addAction(
+            UIAction { [weak self] _ in
+                guard let self else { return }
+                
+                let sheetContent = SimpleContentViewController(
+                    titleText: "Sheet Content",
+                    image: UIImage(systemName: "circle")
+                )
+                sheetContent.navigationItem.rightBarButtonItem = UIBarButtonItem(
+                    title: "Close",
+                    primaryAction: UIAction { [weak sheetContent] _ in
+                        sheetContent?.dismiss(animated: true)
+                    }
+                )
+                self.present(
+                    UINavigationController(rootViewController: sheetContent),
+                    animated: true
+                )
+            },
+            for: .touchUpInside
+        )
+        contentStack.addArrangedSubview(sheet)
+
+        let fullScreen = makeButton(with: "Full Screen")
+        fullScreen.addAction(
+            UIAction { [weak self] _ in
+                guard let self else { return }
+
+                let fullScreenContent = SimpleContentViewController(
+                    titleText: "Full Screen Content",
+                    image: UIImage(systemName: "triangle")
+                )
+                fullScreenContent.navigationItem.rightBarButtonItem = UIBarButtonItem(
+                    title: "Close",
+                    primaryAction: UIAction { [weak fullScreenContent] _ in
+                        fullScreenContent?.dismiss(animated: true)
+                    }
+                )
+                let fullScreenNav = UINavigationController(rootViewController: fullScreenContent)
+                fullScreenNav.modalPresentationStyle = .fullScreen
+
+                self.present(fullScreenNav, animated: true)
+            },
+            for: .touchUpInside
+        )
+        contentStack.addArrangedSubview(fullScreen)
+    }
+
+    private func makeButton(with title: String) -> UIButton {
+        var config = UIButton.Configuration.borderedProminent()
+        config.imagePadding = 8
+        config.imagePlacement = .trailing
+
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        button.backgroundColor = UIColor.systemGray6
+        button.layer.cornerRadius = 8
+        button.configuration = config
+
+        return button
     }
 }
 
 #Preview {
-    SimpleContentViewController(titleText: "Hello World", image: UIImage(systemName: "globe"))
+    UINavigationController(
+        rootViewController: SimpleContentViewController(
+            titleText: "Hello World",
+            image: UIImage(systemName: "globe")
+        )
+    )
+}
+
+func largeTitleNavController() -> UINavigationController {
+    let navController = UINavigationController(
+        rootViewController: SimpleContentViewController(
+            titleText: "Hello World",
+            image: UIImage(systemName: "globe")
+        )
+    )
+    
+    navController.navigationBar.prefersLargeTitles = true
+    
+    return navController
 }
