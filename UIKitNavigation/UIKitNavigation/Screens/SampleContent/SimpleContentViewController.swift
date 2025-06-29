@@ -66,7 +66,7 @@ class SimpleContentViewController: UIViewController {
 
     private func setupContent() {
         let titleLabel = UILabel()
-        titleLabel.text = titleText
+        titleLabel.text = "Content"
         titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
@@ -129,6 +129,19 @@ class SimpleContentViewController: UIViewController {
             button.backgroundColor = UIColor.systemGray6
             button.layer.cornerRadius = 8
             button.configuration = config
+
+            button.addAction(
+                UIAction { [weak self] _ in
+                    guard let self else { return }
+                    
+                    self.navigationController?.pushViewController(
+                        SimpleContentViewController(titleText: title, image: UIImage(systemName: "square")),
+                        animated: true
+                    )
+                },
+                for: .touchUpInside
+            )
+
             contentStack.addArrangedSubview(button)
         }
     }
