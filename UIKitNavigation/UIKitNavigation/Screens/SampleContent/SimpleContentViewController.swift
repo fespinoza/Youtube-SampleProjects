@@ -1,8 +1,16 @@
 import UIKit
 
+enum Example: String, CaseIterable {
+    case largeTitle
+    case simple
+    case stickyHeader
+    case badlyConfigured
+    case transparentScrollEdge
+}
+
 class SimpleContentViewController: UIViewController {
-    private let titleText: String
-    private let image: UIImage?
+    let titleText: String
+    let image: UIImage?
 
     // MARK: - UI Elements
 
@@ -36,6 +44,7 @@ class SimpleContentViewController: UIViewController {
 
     func setupNavigationBar() {
         navigationItem.title = titleText
+        navigationItem.largeTitleDisplayMode = .never
     }
 
     private func setupScrollView() {
@@ -122,19 +131,36 @@ class SimpleContentViewController: UIViewController {
         paragraphLabel.textAlignment = .left
         contentStack.addArrangedSubview(paragraphLabel)
 
-        let buttonTitles = ["Action 1", "Action 2", "Cancel"]
-        for title in buttonTitles {
-            let button = makeButton(with: title)
+        for title in Example.allCases {
+            let button = makeButton(with: title.rawValue)
             button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
 
             button.addAction(
                 UIAction { [weak self] _ in
                     guard let self else { return }
-                    
-                    self.navigationController?.pushViewController(
-                        SimpleContentViewController(titleText: title, image: UIImage(systemName: "square")),
-                        animated: true
-                    )
+
+                    let controller: UIViewController = switch title {
+                    case .simple:
+                        SimpleContentViewController(titleText: title.rawValue, image: UIImage(systemName: "square"))
+
+                    case .largeTitle:
+                        LargeTitleViewController(titleText: title.rawValue, image: UIImage(systemName: "square"))
+
+                    case .stickyHeader:
+                        StickyHeaderViewController(image: UIImage(resource: .tedLasso), title: "Ted Lasso")
+
+                    case .badlyConfigured:
+                        BadlyConfiguredViewController(titleText: title.rawValue, image: UIImage(systemName: "square"))
+
+                    case .transparentScrollEdge:
+                        TransparentScrollEdgeViewController(
+                            titleText: title.rawValue,
+                            image: UIImage(systemName: "square")
+                        )
+
+                    }
+
+                    self.navigationController?.pushViewController(controller, animated: true)
                 },
                 for: .touchUpInside
             )

@@ -35,6 +35,7 @@ class StickyHeaderViewController: UIViewController, UIScrollViewDelegate {
 
     func setupNavigationBar() {
         navigationItem.title = customTitle
+        navigationItem.largeTitleDisplayMode = .never
 
         let scrollEdge = UINavigationBarAppearance()
         scrollEdge.configureWithTransparentBackground()
