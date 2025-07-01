@@ -46,16 +46,6 @@ class StickyHeaderViewController: UIViewController, UIScrollViewDelegate {
         standard.configureWithDefaultBackground()
         standard.titleTextAttributes = [.foregroundColor: UIColor.purple]
         navigationItem.standardAppearance = standard
-
-        let compactEdgeTop = UINavigationBarAppearance()
-        compactEdgeTop.configureWithOpaqueBackground()
-        compactEdgeTop.backgroundColor = .yellow
-        navigationController?.navigationBar.compactAppearance = compactEdgeTop
-
-        let compactEdge = UINavigationBarAppearance()
-        compactEdge.configureWithOpaqueBackground()
-        compactEdge.backgroundColor = .red
-        navigationItem.compactAppearance = compactEdge
     }
 
     private func setupScrollView() {

@@ -32,15 +32,19 @@ class LargeTitleViewController: SimpleContentViewController {
 
         navigationItem.scrollEdgeAppearance = scrollEdgeAppearance
 
+        // These doesn't seem to have any effect on iOS 18 👇
+
         let compactScrollEdge = UINavigationBarAppearance()
-        compactScrollEdge.configureWithDefaultBackground()
+        compactScrollEdge.configureWithOpaqueBackground()
+        compactScrollEdge.backgroundColor = .white
         compactScrollEdge.titleTextAttributes = [.foregroundColor: UIColor.blue]
         compactScrollEdge.largeTitleTextAttributes = [.foregroundColor: UIColor.red]
 
         navigationItem.compactScrollEdgeAppearance = compactScrollEdge
 
         let compact = UINavigationBarAppearance()
-        compactScrollEdge.configureWithDefaultBackground()
+        compact.configureWithOpaqueBackground()
+        compact.backgroundColor = .purple
         compactScrollEdge.titleTextAttributes = [.foregroundColor: UIColor.green]
         compactScrollEdge.largeTitleTextAttributes = [.foregroundColor: UIColor.yellow]
         navigationItem.compactAppearance = compact

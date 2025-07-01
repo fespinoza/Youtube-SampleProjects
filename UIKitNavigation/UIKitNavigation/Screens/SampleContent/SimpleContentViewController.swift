@@ -82,13 +82,15 @@ class SimpleContentViewController: UIViewController {
         titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
-        contentStack.addArrangedSubview(titleLabel)
 
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .systemBlue
         imageView.translatesAutoresizingMaskIntoConstraints = false
+
         contentStack.addArrangedSubview(imageView)
+        contentStack.addArrangedSubview(titleLabel)
+
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: 150),
             imageView.widthAnchor.constraint(equalToConstant: 150)

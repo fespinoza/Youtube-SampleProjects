@@ -32,7 +32,6 @@ class BadlyConfiguredViewController: SimpleContentViewController {
         // This means visiting this particular view controller
         // affects the styling of other view controllers
         navigationController?.navigationBar.scrollEdgeAppearance = scrollEdge
-
     }
 }
 
