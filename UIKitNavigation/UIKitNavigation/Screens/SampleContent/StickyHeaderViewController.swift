@@ -44,7 +44,8 @@ class StickyHeaderViewController: UIViewController, UIScrollViewDelegate {
 
         let standard = UINavigationBarAppearance()
         standard.configureWithDefaultBackground()
-        standard.titleTextAttributes = [.foregroundColor: UIColor.purple]
+        standard.titleTextAttributes = [.foregroundColor: UIColor.yellow]
+        standard.backgroundColor = .purple
         navigationItem.standardAppearance = standard
     }
 

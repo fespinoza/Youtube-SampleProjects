@@ -6,6 +6,8 @@ enum Example: String, CaseIterable {
     case stickyHeader
     case badlyConfigured
     case transparentScrollEdge
+    case customTitleView
+    case segmentedControlTitleView
 }
 
 class SimpleContentViewController: UIViewController {
@@ -44,7 +46,12 @@ class SimpleContentViewController: UIViewController {
 
     func setupNavigationBar() {
         navigationItem.title = titleText
-        navigationItem.largeTitleDisplayMode = .never
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        
+        navigationItem.scrollEdgeAppearance = appearance
     }
 
     private func setupScrollView() {
@@ -160,6 +167,11 @@ class SimpleContentViewController: UIViewController {
                             image: UIImage(systemName: "square")
                         )
 
+                    case .customTitleView:
+                        CustomTitleViewController(titleText: title.rawValue, image: UIImage(systemName: "square"))
+                        
+                    case .segmentedControlTitleView:
+                        PeopleListViewController()
                     }
 
                     self.navigationController?.pushViewController(controller, animated: true)
@@ -236,5 +248,23 @@ class SimpleContentViewController: UIViewController {
 }
 
 #Preview {
-    SimpleContentViewController(titleText: "Hello World", image: UIImage(systemName: "globe"))
+    UINavigationController(
+        rootViewController: SimpleContentViewController(
+            titleText: "Hello World",
+            image: UIImage(systemName: "globe")
+        )
+    )
+}
+
+func largeTitleNavController() -> UINavigationController {
+    let navController = UINavigationController(
+        rootViewController: SimpleContentViewController(
+            titleText: "Hello World",
+            image: UIImage(systemName: "globe")
+        )
+    )
+    
+    navController.navigationBar.prefersLargeTitles = true
+    
+    return navController
 }

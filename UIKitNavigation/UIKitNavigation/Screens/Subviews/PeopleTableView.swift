@@ -70,56 +70,55 @@ class PersonCell: UITableViewCell {
     }
 }
 
+import UIKit
+
 class PeopleTableView: UIView, UITableViewDataSource {
-
+    
     private let tableView = UITableView()
-
-    private let people: [(name: String, phone: String)] = [
-        ("Alice Johnson", "555-1234"),
-        ("Bob Smith", "555-5678"),
-        ("Carol White", "555-9012"),
-        ("David Green", "555-3456"),
-        ("Eva Blue", "555-7890")
-    ]
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private var people: [(name: String, phone: String)]
+    
+    // MARK: - Init
+    
+    init(people: [(name: String, phone: String)]) {
+        self.people = people
+        super.init(frame: .zero)
         setupTableView()
     }
-
+    
     required init?(coder: NSCoder) {
+        self.people = []
         super.init(coder: coder)
         setupTableView()
     }
-
+    
     private func setupTableView() {
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-
+        
         tableView.dataSource = self
         tableView.register(PersonCell.self, forCellReuseIdentifier: "PersonCell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
     }
-
+    
     // MARK: - UITableViewDataSource
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return people.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell else {
             return UITableViewCell()
         }
-
+        
         let person = people[indexPath.row]
         cell.configure(name: person.name, phone: person.phone)
         return cell
@@ -128,5 +127,11 @@ class PeopleTableView: UIView, UITableViewDataSource {
 
 
 #Preview {
-//    PeopleListView()
+    PeopleTableView(people: [
+        ("David Green", "555-3456"),
+        ("Eva Blue", "555-7890"),
+        ("Frank Orange", "555-4321"),
+        ("Grace Pink", "555-8765"),
+        ("Henry Brown", "555-6543")
+    ])
 }

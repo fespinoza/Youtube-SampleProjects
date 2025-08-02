@@ -21,14 +21,8 @@ class CustomTitleViewController: SimpleContentViewController {
     override func setupNavigationBar() {
         navigationItem.title = titleText
 
-        // if someome turns on `prefersLargeTitles`, we don't want this
-        // screen to be affected at all, then we enforce that with this value
-        navigationItem.largeTitleDisplayMode = .never
-
-        let scrollEdgeAppearance = UINavigationBarAppearance()
-        scrollEdgeAppearance.configureWithTransparentBackground()
-        scrollEdgeAppearance.titleTextAttributes = [.foregroundColor: UIColor.clear]
-        navigationItem.scrollEdgeAppearance = scrollEdgeAppearance
+        let titleView = TitleIconView(title: titleText, systemImageName: "tray.full")
+        navigationItem.titleView = titleView
     }
 }
 

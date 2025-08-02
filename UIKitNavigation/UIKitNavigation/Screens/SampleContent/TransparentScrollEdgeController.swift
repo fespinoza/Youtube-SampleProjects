@@ -21,7 +21,7 @@ class TransparentScrollEdgeViewController: SimpleContentViewController {
     override func setupNavigationBar() {
         navigationItem.title = titleText
 
-        // if someome turns on `prefersLargeTitles`, we don't want this
+        // if someone turns on `prefersLargeTitles`, we don't want this
         // screen to be affected at all, then we enforce that with this value
         navigationItem.largeTitleDisplayMode = .never
 
