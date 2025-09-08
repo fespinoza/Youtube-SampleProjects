@@ -14,13 +14,7 @@ struct RootContainer: View {
                 }
             }
 
-            Tab("Search", systemImage: "magnifyingglass", value: TabDestination.search) {
-                NavigationContainer(parentRouter: router, tab: .search) {
-                    MovieSearchScreen()
-                }
-            }
-
-            Tab("Release Calendar", systemImage: "calendar", value: TabDestination.releaseCalendar) {
+            Tab("Releases", systemImage: "calendar", value: TabDestination.releaseCalendar) {
                 NavigationContainer(parentRouter: router, tab: .releaseCalendar) {
                     ReleaseCalendarScreen()
                 }
@@ -29,6 +23,12 @@ struct RootContainer: View {
             Tab("Favorites", systemImage: "star", value: TabDestination.favorites) {
                 NavigationContainer(parentRouter: router, tab: .favorites) {
                     TodoScreen(title: "Favorites")
+                }
+            }
+
+            Tab("Search", systemImage: "magnifyingglass", value: TabDestination.search, role: .search) {
+                NavigationContainer(parentRouter: router, tab: .search) {
+                    MovieSearchScreen()
                 }
             }
         }
