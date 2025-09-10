@@ -32,6 +32,8 @@ struct RootContainer: View {
                 }
             }
         }
+        .backport
+        .tabBarMinimizeBehavior(.onScrollDown)
         .environment(genreStore)
     }
 }
