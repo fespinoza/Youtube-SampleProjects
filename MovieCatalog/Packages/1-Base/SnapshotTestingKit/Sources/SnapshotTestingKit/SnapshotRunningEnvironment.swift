@@ -45,9 +45,9 @@ extension SnapshotRunningEnvironment {
     ///
     /// - Parameters:
     ///   - view: the view to test
-    ///   - variant: configuration of whcih device and configurations the snapshot will be taken in
+    ///   - variant: configuration of which device and configurations the snapshot will be taken in
     ///   - record: (default `nil`) optional override to the record mode
-    public func expectSnapshot(
+    @MainActor public func expectSnapshot(
         of view: some View,
         on variant: SnapshotVariant,
         record: SnapshotTestingConfiguration.Record? = nil,
