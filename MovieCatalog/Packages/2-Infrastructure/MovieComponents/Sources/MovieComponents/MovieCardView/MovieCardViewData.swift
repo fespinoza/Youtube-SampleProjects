@@ -3,7 +3,7 @@ import MovieModels
 import Tagged
 import PreviewData
 
-public struct MovieCardViewData: Identifiable, Equatable {
+public struct MovieCardViewData: Identifiable, Equatable, Sendable {
     public let id: MovieID
     public let title: String
     public let image: ImageViewData
@@ -21,7 +21,7 @@ public struct MovieCardViewData: Identifiable, Equatable {
         self.style = style
     }
 
-    public enum Style: Equatable {
+    public enum Style: Equatable, Sendable {
         case basic
         case upcoming(releaseDate: String)
         case ranking(ranking: String)

@@ -2,7 +2,7 @@ import SwiftUI
 import MovieModels
 import MovieComponents
 
-struct ActorDetailsViewData: Identifiable, Equatable {
+struct ActorDetailsViewData: Identifiable, Equatable, Sendable {
     let id: ActorID
     let name: String
     let profilePicture: ImageViewData
