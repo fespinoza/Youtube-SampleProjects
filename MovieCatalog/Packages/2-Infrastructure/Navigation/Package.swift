@@ -1,10 +1,10 @@
-// swift-tools-version: 5.10
+// swift-tools-version: 6.1
 
 import PackageDescription
 
 let package = Package(
     name: "Navigation",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v18)],
     products: [
         .library(
             name: "Navigation",

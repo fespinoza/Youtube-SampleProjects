@@ -2,7 +2,7 @@ import Foundation
 import Config
 
 public struct DeepLink {
-    public static func destination(from url: URL) -> Destination? {
+    @MainActor public static func destination(from url: URL) -> Destination? {
         guard url.scheme == Config.deepLinkScheme else { return nil }
 
         for parser in registeredParsers {
@@ -14,7 +14,7 @@ public struct DeepLink {
         return nil
     }
 
-    static let registeredParsers: [DeepLinkParser] = [
+    @MainActor static let registeredParsers: [DeepLinkParser] = [
         .equal(to: ["home"], destination: .tab(.home)),
         .equal(to: ["search"], destination: .tab(.search)),
         .equal(to: ["release-calendar"], destination: .tab(.releaseCalendar)),

@@ -34,7 +34,7 @@ extension DeepLinkParser {
         }
     }
 
-    static let movieDetails: Self = .init { url in
+    @MainActor static let movieDetails: Self = .init { url in
         guard
             url.fullComponents.first == "movies",
             let movieID = url.fullComponents.last.flatMap(Int.init)
@@ -43,7 +43,7 @@ extension DeepLinkParser {
         return .push(.movieDetails(id: .init(movieID)))
     }
 
-    static let movieDetailsDescription: Self = .init { url in
+    @MainActor static let movieDetailsDescription: Self = .init { url in
         guard
             url.fullComponents.first == "movies",
             url.fullComponents.count == 3,
@@ -54,7 +54,7 @@ extension DeepLinkParser {
         return .sheet(.movieDescription(id: .init(movieID)))
     }
 
-    static let movieDetailsGallery: Self = .init { url in
+    @MainActor static let movieDetailsGallery: Self = .init { url in
         guard
             url.fullComponents.first == "movies",
             url.fullComponents.count == 3,
@@ -65,7 +65,7 @@ extension DeepLinkParser {
         return .fullScreen(.movieGallery(id: .init(movieID)))
     }
 
-    static let actorDetails: Self = .init { url in
+    @MainActor static let actorDetails: Self = .init { url in
         guard
             url.fullComponents.first == "actors",
             let actorID = url.fullComponents.last.flatMap(Int.init)
