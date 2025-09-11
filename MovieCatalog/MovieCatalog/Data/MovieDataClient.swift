@@ -4,14 +4,14 @@ import MovieDBNetworking
 import MovieComponents
 import PreviewData
 
-struct MovieDataClient {
-    var homeData: (GenreStore) async throws -> HomeViewData
-    var popularMovies: () async throws -> [MovieCardViewData]
-    var actorDetails: (ActorID) async throws -> ActorDetailsViewData
-    var movieDescription: (MovieID) async throws -> (title: String, description: String)
-    var movieGallery: (MovieID) async throws -> [ImageContainerViewData]
-    var movieList: (MovieListType) async throws -> [MovieCardViewData]
-    var releaseCalendar: (GenreStore) async throws -> [ReleaseMonthViewData]
+struct MovieDataClient: Sendable{
+    var homeData: @Sendable (GenreStore) async throws -> HomeViewData
+    var popularMovies: @Sendable () async throws -> [MovieCardViewData]
+    var actorDetails: @Sendable (ActorID) async throws -> ActorDetailsViewData
+    var movieDescription: @Sendable (MovieID) async throws -> (title: String, description: String)
+    var movieGallery: @Sendable (MovieID) async throws -> [ImageContainerViewData]
+    var movieList: @Sendable (MovieListType) async throws -> [MovieCardViewData]
+    var releaseCalendar: @Sendable (GenreStore) async throws -> [ReleaseMonthViewData]
 
     static let dbClient: MovieDataClient = .init(
         homeData: { genreStore in
