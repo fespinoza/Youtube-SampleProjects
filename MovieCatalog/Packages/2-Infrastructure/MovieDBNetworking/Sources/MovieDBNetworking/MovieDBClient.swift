@@ -2,7 +2,7 @@ import Foundation
 import MovieModels
 import Config
 
-public struct MovieDBClient {
+public struct MovieDBClient: Sendable {
     public init() {}
 
     public func homeData() async throws -> HomeData {
