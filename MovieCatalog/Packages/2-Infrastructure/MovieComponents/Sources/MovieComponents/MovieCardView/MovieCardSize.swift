@@ -4,7 +4,7 @@ public extension EnvironmentValues {
     @Entry var movieCardSize: MovieCardSize = .medium
 }
 
-public struct MovieCardSize {
+public struct MovieCardSize: Sendable {
     public let width: CGFloat
     public let height: CGFloat
 

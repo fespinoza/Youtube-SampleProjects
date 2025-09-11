@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct BasicStateView<ViewData: Equatable, LoadingContent: View, DataContent: View>: View {
+public struct BasicStateView<ViewData: Equatable & Sendable, LoadingContent: View, DataContent: View>: View {
     @Binding var state: BasicLoadingState<ViewData>
     @ViewBuilder var loadingContent: () -> LoadingContent
     @ViewBuilder var dataContent: (ViewData) -> DataContent
