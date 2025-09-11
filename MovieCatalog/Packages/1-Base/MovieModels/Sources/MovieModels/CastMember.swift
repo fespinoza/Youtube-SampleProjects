@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CastMember: Decodable {
+public struct CastMember: Decodable, Sendable {
     public let id: ActorID
     public let name: String
     public let character: String

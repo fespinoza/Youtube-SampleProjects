@@ -4,7 +4,7 @@ import MovieComponents
 import PreviewData
 import Navigation
 
-struct MovieDetailsViewData: Identifiable, Equatable {
+struct MovieDetailsViewData: Identifiable, Equatable, Sendable {
     let id: MovieID
     let title: String
     let genres: [String]
@@ -18,14 +18,13 @@ struct MovieDetailsViewData: Identifiable, Equatable {
     // normally this would be a destination,
     // but since I also pass the selected image index, this
     // needs to be a function then
-    let galleryDestinationFactory: (Int) -> Destination
+    let galleryDestinationFactory: @Sendable (Int) -> Destination
 
     static func == (lhs: MovieDetailsViewData, rhs: MovieDetailsViewData) -> Bool {
         (lhs.id, lhs.title) == (rhs.id, rhs.title)
     }
 
-
-    struct ActorViewData: Identifiable, Equatable {
+    struct ActorViewData: Identifiable, Equatable, Sendable {
         let id: ActorID
         let name: String
         let characterName: String
