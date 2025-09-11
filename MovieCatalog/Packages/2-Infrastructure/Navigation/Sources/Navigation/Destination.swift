@@ -19,7 +19,7 @@ extension Destination: CustomStringConvertible {
     }
 }
 
-public enum PushDestination: Hashable, CustomStringConvertible {
+public enum PushDestination: Hashable, CustomStringConvertible, Sendable {
     case movieDetails(id: MovieID)
     case actorDetails(id: ActorID)
     case movieList(_ movieListType: MovieListType)

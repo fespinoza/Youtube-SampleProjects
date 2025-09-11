@@ -3,7 +3,7 @@ import SwiftUI
 import MovieModels
 import Navigation
 
-struct GenreViewData: Identifiable, Equatable {
+struct GenreViewData: Identifiable, Equatable, Sendable {
     let id: GenreID
     let name: String
     let image: ImageViewData
