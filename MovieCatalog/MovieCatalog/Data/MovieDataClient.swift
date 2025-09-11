@@ -16,7 +16,7 @@ struct MovieDataClient: Sendable{
     static let dbClient: MovieDataClient = .init(
         homeData: { genreStore in
             let dto = try await MovieDBClient().homeData()
-            return .build(from: dto, genreStore: genreStore)
+            return await .build(from: dto, genreStore: genreStore)
         },
         popularMovies: {
             let dto = try await MovieDBClient().popularMovies()
@@ -58,7 +58,7 @@ struct MovieDataClient: Sendable{
         },
         releaseCalendar: { genreStore in
             let dto = try await MovieDBClient().upcomingMovies()
-            return ReleaseMonthViewData.buildCollection(from: dto, genreStore: genreStore)
+            return await ReleaseMonthViewData.buildCollection(from: dto, genreStore: genreStore)
         }
     )
 

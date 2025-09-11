@@ -2,6 +2,7 @@ import SwiftUI
 import MovieModels
 import MovieDBNetworking
 
+@MainActor
 @Observable
 class GenreStore {
     private(set) var genres: [Genre]

@@ -2,7 +2,7 @@ import SwiftUI
 import MovieModels
 import MovieComponents
 
-struct UpcomingMovieViewData: Identifiable, Equatable {
+struct UpcomingMovieViewData: Identifiable, Equatable, Sendable {
     let id: MovieID
     let title: String
     let genres: String
@@ -32,7 +32,7 @@ extension UpcomingMovieViewData {
 }
 
 extension UpcomingMovieViewData {
-    init?(dto: MovieSummary, genreStore: GenreStore) {
+    @MainActor init?(dto: MovieSummary, genreStore: GenreStore) {
         guard let date = Utils.parseReleaseDate(from: dto.releaseDate) else {
             return nil
         }

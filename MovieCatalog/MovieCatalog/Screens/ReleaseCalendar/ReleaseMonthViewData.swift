@@ -25,7 +25,7 @@ extension ReleaseMonthViewData {
 }
 
 extension ReleaseMonthViewData {
-    static func buildCollection(from dto: [MovieSummary], genreStore: GenreStore) -> [Self] {
+    @MainActor static func buildCollection(from dto: [MovieSummary], genreStore: GenreStore) -> [Self] {
         var groups: [YearMonth: [MovieSummary]] = [:]
         for summary in dto {
             guard let releaseDate = summary.releaseDate.flatMap({ Utils.parseReleaseDate(from: $0) }) else {

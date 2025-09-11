@@ -3,7 +3,7 @@ import Navigation
 import MovieComponents
 import MovieDetails
 
-@ViewBuilder func view(for destination: PushDestination) -> some View {
+@ViewBuilder @MainActor func view(for destination: PushDestination) -> some View {
     switch destination {
     case .movieDetails(let id):
         MovieDetailsScreen(movieID: id)
@@ -16,7 +16,7 @@ import MovieDetails
     }
 }
 
-@ViewBuilder func view(for destination: SheetDestination) -> some View {
+@ViewBuilder @MainActor func view(for destination: SheetDestination) -> some View {
     Group {
         switch destination {
         case let .movieDescription(id):
@@ -32,7 +32,7 @@ import MovieDetails
     .presentationBackground(.regularMaterial)
 }
 
-@ViewBuilder func view(for destination: FullScreenDestination) -> some View {
+@ViewBuilder @MainActor func view(for destination: FullScreenDestination) -> some View {
     Group {
         switch destination {
         case let .movieGallery(id):

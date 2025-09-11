@@ -13,7 +13,7 @@ struct FeatureMovieViewData: Identifiable, Equatable {
 }
 
 extension FeatureMovieViewData {
-    static func build(from dto: MovieSummary, genreStore: GenreStore) -> Self {
+    @MainActor static func build(from dto: MovieSummary, genreStore: GenreStore) -> Self {
         self.init(
             id: dto.id,
             title: dto.title,

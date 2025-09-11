@@ -10,7 +10,7 @@ struct HomeViewData: Equatable {
 }
 
 extension HomeViewData {
-    static func build(from dto: HomeData, genreStore: GenreStore) -> Self {
+    @MainActor static func build(from dto: HomeData, genreStore: GenreStore) -> Self {
         let featured: [FeatureMovieViewData] = dto.featuredMovies.map { movie in
             .build(from: movie, genreStore: genreStore)
         }
