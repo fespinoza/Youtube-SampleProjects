@@ -6,6 +6,10 @@ import Foundation
  Q: Can there be non-isolated mutable state?
  A: it seems so, ``messages`` is non-isolated and mutable state
 
+ Q: When should I use `nonisolated`?
+ A: in library code, where I want callers to decide the Thread the code will be run on
+
+
 
  */
 
@@ -16,6 +20,10 @@ struct Person: Sendable {
     var description: String {
         "\(name) (\(age.formatted()))"
     }
+}
+
+struct Value {
+    var rawValue: Int
 }
 
 nonisolated class Constants {
@@ -80,11 +88,18 @@ class ContentViewModel {
 
     @concurrent func printMessagesConcurrently() async {
         var person = Person(name: "Pablo", age: 25)
+
+        var value = Value(rawValue: 2)
         Task {
             // Non-Sendable type 'DataContainer' of property 'dataContainer' cannot exit main actor-isolated context
 //            await dataContainer.addMessage("Hello \(person.name)")
 
             person.age = 26
+            value.rawValue = 3
         }
+
+//        value.rawValue = 6
+        // Sending value of non-Sendable type '() async -> ()' risks causing data races
+        person.age = 28
     }
 }
