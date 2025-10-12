@@ -62,6 +62,38 @@ class ContentLogic {
 
 }
 
+@MainActor
+class SafeContent {
+    var value: Int = 0
+}
+
+@MainActor
+class LoginContainer {
+    var title: String = "Hello, World!"
+
+    nonisolated let content: SafeContent = .init()
+
+    @MainActor var data: DataContainer = .init(title: "Main")
+
+    // 'nonisolated' can not be applied to variable with non-'Sendable' type 'DataContainer'
+//    nonisolated let otherData: DataContainer = .init(title: "Other")
+
+    func checkContent() {
+        print("content: \(content.value)")
+
+        print("data: \(data.title) ")
+
+        Task { @concurrent in
+            let value = await content.value
+            print("other content: \(value)")
+
+            // Non-Sendable type 'DataContainer' of property 'data' cannot exit main actor-isolated context
+//            let title = await data.title
+//            print("other value: \(title)")
+        }
+    }
+}
+
 @Observable
 class ContentViewModel {
     var inputText = "" {
