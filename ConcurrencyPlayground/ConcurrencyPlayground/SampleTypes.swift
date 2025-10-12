@@ -28,6 +28,10 @@ struct Value {
 
 nonisolated class Constants {
     static let containerName: String = "MyDataContainer"
+
+    // Static property 'foo' is not concurrency-safe because it is nonisolated global shared mutable state
+//    static var foo: Int = 3
+    static let foo: Int = 3
 }
 
 nonisolated class DataContainer {
@@ -89,12 +93,22 @@ class ContentViewModel {
     @concurrent func printMessagesConcurrently() async {
         var person = Person(name: "Pablo", age: 25)
 
+        // Main actor-isolated property 'dataContainer' cannot be accessed from outside of the actor
+//        dataContainer.addMessage("foo")
+
+        // Non-Sendable type 'DataContainer' of property 'dataContainer' cannot exit main actor-isolated context
+//        await dataContainer.addMessage("foo")
+
+        Task { @MainActor in
+            dataContainer.addMessage("Hello World")
+        }
+
         var value = Value(rawValue: 2)
         Task {
             // Non-Sendable type 'DataContainer' of property 'dataContainer' cannot exit main actor-isolated context
 //            await dataContainer.addMessage("Hello \(person.name)")
 
-            person.age = 26
+//            person.age = 26
             value.rawValue = 3
         }
 
