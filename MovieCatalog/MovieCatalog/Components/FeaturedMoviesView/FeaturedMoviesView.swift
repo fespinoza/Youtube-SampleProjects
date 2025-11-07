@@ -66,7 +66,7 @@ struct FeaturedMoviesView: View {
             LinearGradient(
                 stops: [
                     .init(color: .clear, location: 0.6),
-                    .init(color: .black, location: 1.0),
+                    .init(color: .black, location: 1.0)
                 ],
                 startPoint: .init(x: 0, y: 0),
                 endPoint: .init(x: 0, y: 1.0)
@@ -108,7 +108,7 @@ struct FeaturedMoviesView: View {
         featuredMovies: [
             .ironMan(),
             .eternalSunshine(),
-            .gladiatorTwo(),
+            .gladiatorTwo()
         ]
     )
 }

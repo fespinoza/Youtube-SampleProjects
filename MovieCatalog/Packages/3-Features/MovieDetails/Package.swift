@@ -9,14 +9,14 @@ let package = Package(
         .library(
             name: "MovieDetails",
             targets: ["MovieDetails"]
-        ),
+        )
     ],
     dependencies: [
         .package(path: "../01-Base/PreviewData"),
         .package(path: "../01-Base/SnapshotTestingKit"),
         .package(path: "../02-Infrastructure/MovieDBNetworking"),
         .package(path: "../02-Infrastructure/MovieComponents"),
-        .package(path: "../02-Infrastructure/Navigation"),
+        .package(path: "../02-Infrastructure/Navigation")
     ],
     targets: [
         .target(
@@ -27,8 +27,8 @@ let package = Package(
             name: "MovieDetailsTests",
             dependencies: ["MovieDetails", "SnapshotTestingKit"],
             resources: [
-                .copy("__Snapshots__"),
+                .copy("__Snapshots__")
             ]
-        ),
+        )
     ]
 )

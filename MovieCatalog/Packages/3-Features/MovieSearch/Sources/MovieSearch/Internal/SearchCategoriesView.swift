@@ -7,7 +7,7 @@ struct SearchCategoriesView: View {
 
     private let columns: [GridItem] = [
         .init(.flexible()),
-        .init(.flexible()),
+        .init(.flexible())
     ]
 
     var body: some View {
@@ -26,7 +26,7 @@ struct SearchCategoriesView: View {
                                 colors: [
                                     .clear,
                                     .black.opacity(0.6),
-                                    .black.opacity(0.8),
+                                    .black.opacity(0.8)
                                 ],
                                 startPoint: .init(x: 0, y: 0.5),
                                 endPoint: .init(x: 0, y: 1)

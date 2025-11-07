@@ -28,6 +28,6 @@ public struct DeepLink {
         .movieDetailsDescription,
         .movieDetailsGallery,
 
-        .actorDetails,
+        .actorDetails
     ]
 }

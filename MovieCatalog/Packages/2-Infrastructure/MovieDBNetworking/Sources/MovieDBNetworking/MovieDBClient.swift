@@ -27,7 +27,7 @@ public struct MovieDBClient {
         let url = try url(
             for: "/discover/movie",
             params: [
-                .init(name: "sort_by", value: "popularity.desc"),
+                .init(name: "sort_by", value: "popularity.desc")
             ]
         )
         let container: DiscoverMovieResponse = try await fetch(url)
@@ -40,7 +40,7 @@ public struct MovieDBClient {
             params: [
                 .init(name: "sort_by", value: "vote_average.desc"),
                 .init(name: "without_genres", value: "99,10755"),
-                .init(name: "vote_count.gte", value: "200"),
+                .init(name: "vote_count.gte", value: "200")
             ]
         )
         let container: DiscoverMovieResponse = try await fetch(url)
@@ -54,7 +54,7 @@ public struct MovieDBClient {
                 .init(name: "sort_by", value: "popularity.desc"),
                 .init(name: "with_release_type", value: "3"),
                 .init(name: "primary_release_date.gte", value: formattedRequestDate(from: Date())),
-                .init(name: "with_original_language", value: "en"),
+                .init(name: "with_original_language", value: "en")
             ]
         )
         let container: DiscoverMovieResponse = try await fetch(url)
@@ -66,7 +66,7 @@ public struct MovieDBClient {
             for: "/discover/movie",
             params: [
                 .init(name: "sort_by", value: "popularity.desc"),
-                .init(name: "with_genres", value: "\(genre.id)"),
+                .init(name: "with_genres", value: "\(genre.id)")
             ]
         )
         let container: DiscoverMovieResponse = try await fetch(url)
@@ -78,7 +78,7 @@ public struct MovieDBClient {
             for: "/movie/\(movieID)",
             params: [
                 .init(name: "include_image_language", value: "en"),
-                .init(name: "append_to_response", value: "images,credits"),
+                .init(name: "append_to_response", value: "images,credits")
             ]
         )
         return try await fetch(url)
@@ -94,7 +94,7 @@ public struct MovieDBClient {
         let url = try url(
             for: "/person/\(actorID)",
             params: [
-                .init(name: "append_to_response", value: "movie_credits"),
+                .init(name: "append_to_response", value: "movie_credits")
             ]
         )
         return try await fetch(url)
@@ -102,7 +102,7 @@ public struct MovieDBClient {
 
     public func searchMoviesOrActors(text: String) async throws -> [SearchResult] {
         let url = try url(for: "/search/multi", params: [
-            .init(name: "query", value: text),
+            .init(name: "query", value: text)
         ])
         let container: SearchResultsContainer = try await fetch(url)
         return container.results
@@ -122,7 +122,7 @@ public struct MovieDBClient {
 
         components.queryItems = [
             .init(name: "api_key", value: Config.apiKey),
-            .init(name: "language", value: "en-US"),
+            .init(name: "language", value: "en-US")
         ] + params
 
         guard let url = components.url else {

@@ -23,7 +23,7 @@ struct MovieDetailsView: View {
                         LinearGradient(
                             stops: [
                                 .init(color: .black.opacity(0.7), location: 0.0),
-                                .init(color: .clear, location: 0.3),
+                                .init(color: .clear, location: 0.3)
                             ],
                             startPoint: .init(x: 0, y: 0),
                             endPoint: .init(x: 0, y: 1.0)
@@ -97,7 +97,7 @@ struct MovieDetailsView: View {
             stops: [
                 .init(color: .clear, location: 0.6),
                 .init(color: .black.opacity(0.4), location: 0.7),
-                .init(color: .black, location: 1.0),
+                .init(color: .black, location: 1.0)
             ],
             startPoint: .init(x: 0, y: 0),
             endPoint: .init(x: 0, y: 1.0)
@@ -139,7 +139,7 @@ struct MovieDetailsView: View {
                                 LinearGradient(
                                     colors: [
                                         .black.opacity(0.0),
-                                        .black.opacity(0.8),
+                                        .black.opacity(0.8)
                                     ],
                                     startPoint: .init(x: 0, y: 0),
                                     endPoint: .init(x: 0.5, y: 0)

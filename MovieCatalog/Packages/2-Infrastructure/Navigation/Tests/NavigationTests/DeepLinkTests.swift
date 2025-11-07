@@ -24,7 +24,7 @@ struct DeepLinkTests {
 
             ("moviecat://list/upcoming", Destination.push(.movieList(.upcoming))),
             ("moviecat://list/top-rated", Destination.push(.movieList(.topRated))),
-            ("moviecat://list/popular", Destination.push(.movieList(.popular))),
+            ("moviecat://list/popular", Destination.push(.movieList(.popular)))
         ]
     )
     func parsingTests(rawURL: String, expectedDestination: Destination) throws {

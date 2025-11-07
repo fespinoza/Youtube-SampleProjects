@@ -64,7 +64,6 @@ private struct InnerContainer<Content: View>: View {
         NavigationContainer(parentRouter: router) { view(for: destination) }
     }
 
-
     @ViewBuilder func navigationView(for destination: FullScreenDestination, from router: Router) -> some View {
         NavigationContainer(parentRouter: router) { view(for: destination) }
     }

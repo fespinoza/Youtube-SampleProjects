@@ -8,13 +8,13 @@ let package = Package(
         .library(
             name: "MovieSearch",
             targets: ["MovieSearch"]
-        ),
+        )
     ],
     dependencies: [
         .package(path: "../01-Base/PreviewData"),
         .package(path: "../02-Infrastructure/MovieDBNetworking"),
         .package(path: "../02-Infrastructure/MovieComponents"),
-        .package(path: "../02-Infrastructure/Navigation"),
+        .package(path: "../02-Infrastructure/Navigation")
     ],
     targets: [
         .target(
@@ -23,9 +23,9 @@ let package = Package(
                 "PreviewData",
                 "MovieDBNetworking",
                 "MovieComponents",
-                "Navigation",
+                "Navigation"
             ]
-        ),
+        )
 
     ]
 )

@@ -40,7 +40,7 @@ class MovieSearchScreenViewModel: ObservableObject {
             .dropFirst()
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .removeDuplicates()
-            .sink(receiveValue: { [weak self] value in
+            .sink(receiveValue: { [weak self] _ in
                 guard let self else { return }
 
                 currentSearchTask?.cancel()
@@ -52,7 +52,7 @@ class MovieSearchScreenViewModel: ObservableObject {
         $searchText
             .dropFirst()
             .removeDuplicates()
-            .sink { [weak self] value in
+            .sink { [weak self] _ in
                 self?.searchResults = .loading
             }
             .store(in: &observations)
@@ -110,7 +110,7 @@ extension MovieSearchScreenViewModel: SearchContentViewActions {
     func select(recentSearch: String) {
         searchText = recentSearch
     }
-    
+
     func delete(recentSearch: String) {
         recentSearches.removeAll(where: { $0 == recentSearch })
     }

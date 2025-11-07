@@ -41,6 +41,6 @@ extension GenreViewData {
         .previewValue(name: "Comedy"),
         .previewValue(name: "Horror"),
         .previewValue(name: "Science Fiction"),
-        .previewValue(name: "Thriller"),
+        .previewValue(name: "Thriller")
     ]
 }

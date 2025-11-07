@@ -9,11 +9,11 @@ let package = Package(
         .library(
             name: "Navigation",
             targets: ["Navigation"]
-        ),
+        )
     ],
     dependencies: [
         .package(path: "../1-Base/Config"),
-        .package(path: "../1-Base/MovieModels"),
+        .package(path: "../1-Base/MovieModels")
     ],
     targets: [
         .target(
@@ -23,6 +23,6 @@ let package = Package(
         .testTarget(
             name: "NavigationTests",
             dependencies: ["Navigation"]
-        ),
+        )
     ]
 )

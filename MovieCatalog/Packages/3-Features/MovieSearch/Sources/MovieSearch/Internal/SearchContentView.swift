@@ -98,7 +98,7 @@ private struct Demo: View {
         [
             .movie(.previewValue()),
             .movie(.previewValue()),
-            .actor(.previewValue()),
+            .actor(.previewValue())
         ]
     )
 
