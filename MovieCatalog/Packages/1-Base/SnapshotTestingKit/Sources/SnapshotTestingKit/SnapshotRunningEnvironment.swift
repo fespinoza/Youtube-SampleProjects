@@ -11,8 +11,9 @@ public protocol SnapshotRunningEnvironment {
     /// to run the snapshots against this location locally
     ///
     /// > [!WARNING]
-    /// > The implementation of `sourceCodeTestDirectory` depends on the location in the file system of the type that confirms
-    /// > to `SnapshotRunningEnvironment` and if the location changes, the implementation may need to change as well
+    /// > The implementation of `sourceCodeTestDirectory` depends on the location in the file system of
+    /// > the type that confirms to `SnapshotRunningEnvironment` and if the location changes,
+    /// the implementation may need to change as well
     func sourceCodeTestDirectory() -> URL
 
     /// Location of the bundle, so the snapshots can be

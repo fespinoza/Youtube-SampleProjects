@@ -156,7 +156,8 @@ public extension SnapshotVariant {
     }
 
     /// Minimal variants to test a screen in
-    /// - Parameter navigationTitle: (default `nil`) If provided, it will wrap the view in a `NavigationStack` and set the title
+    /// - Parameter navigationTitle: (default `nil`) If provided,
+    ///             it will wrap the view in a `NavigationStack` and set the title
     /// - Returns: An array of snapshot variants to test with
     static func minimalVariants(navigationTitle: String? = nil) -> [SnapshotVariant] {
         let navigationBar: SnapshotVariant.NavigationBarWrapper? = if let navigationTitle {

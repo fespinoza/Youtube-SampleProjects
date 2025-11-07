@@ -45,7 +45,11 @@ public extension MovieCardViewData {
             id: summary.id,
             title: summary.title,
             image: .remote(from: summary.posterURL, defaultImage: defaultImage),
-            style: (summary.releaseDate.flatMap { .upcoming(releaseDate: Utils.formattedUpcomingReleaseDate(from: $0)) }) ?? .basic
+            style: (
+                summary.releaseDate.flatMap {
+                    .upcoming(releaseDate: Utils.formattedUpcomingReleaseDate(from: $0))
+                }
+            ) ?? .basic
         )
     }
 

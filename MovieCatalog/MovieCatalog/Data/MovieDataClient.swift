@@ -71,8 +71,8 @@ struct MovieDataClient {
                 return (
                     title: "Iron Man",
                     description: """
-                    After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized \
-                    suit of armor to fight evil.
+                    After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a \
+                    unique weaponized suit of armor to fight evil.
                     """
                 )
             },
