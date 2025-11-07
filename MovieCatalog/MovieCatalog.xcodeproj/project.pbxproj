@@ -149,6 +149,7 @@
 				9B7E94342D56A2D9002783BA /* Sources */,
 				9B7E94352D56A2D9002783BA /* Frameworks */,
 				9B7E94362D56A2D9002783BA /* Resources */,
+				9B8EEF272EBE6F1400B7A240 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -256,6 +257,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B8EEF272EBE6F1400B7A240 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pwd\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint .\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9B7E94342D56A2D9002783BA /* Sources */ = {
@@ -417,6 +439,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieCatalog/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieCatalog/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Movie Catalog";
@@ -449,6 +472,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieCatalog/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieCatalog/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Movie Catalog";
