@@ -1,0 +1,3 @@
+--self "init-only"
+--self-required "debug"
+
