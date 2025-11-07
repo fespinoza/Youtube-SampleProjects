@@ -1,5 +1,5 @@
-import SwiftUI
 import PreviewData
+import SwiftUI
 
 public struct ProfilePictureView: View {
     let image: ImageViewData

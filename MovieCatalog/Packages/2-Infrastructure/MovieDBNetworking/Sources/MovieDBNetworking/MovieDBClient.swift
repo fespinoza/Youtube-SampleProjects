@@ -1,6 +1,6 @@
+import Config
 import Foundation
 import MovieModels
-import Config
 
 public struct MovieDBClient {
     public init() {}
@@ -27,7 +27,7 @@ public struct MovieDBClient {
         let url = try url(
             for: "/discover/movie",
             params: [
-                .init(name: "sort_by", value: "popularity.desc")
+                .init(name: "sort_by", value: "popularity.desc"),
             ]
         )
         let container: DiscoverMovieResponse = try await fetch(url)
@@ -94,7 +94,7 @@ public struct MovieDBClient {
         let url = try url(
             for: "/person/\(actorID)",
             params: [
-                .init(name: "append_to_response", value: "movie_credits")
+                .init(name: "append_to_response", value: "movie_credits"),
             ]
         )
         return try await fetch(url)
@@ -102,7 +102,7 @@ public struct MovieDBClient {
 
     public func searchMoviesOrActors(text: String) async throws -> [SearchResult] {
         let url = try url(for: "/search/multi", params: [
-            .init(name: "query", value: text)
+            .init(name: "query", value: text),
         ])
         let container: SearchResultsContainer = try await fetch(url)
         return container.results

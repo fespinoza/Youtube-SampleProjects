@@ -1,6 +1,6 @@
-import SwiftUI
-import Navigation
 import MovieSearch
+import Navigation
+import SwiftUI
 
 struct RootContainer: View {
     @State var genreStore: GenreStore = .init()

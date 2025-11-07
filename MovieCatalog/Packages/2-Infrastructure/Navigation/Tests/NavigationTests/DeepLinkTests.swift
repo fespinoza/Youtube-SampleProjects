@@ -1,6 +1,6 @@
 import Foundation
-import Testing
 @testable import Navigation
+import Testing
 
 @Suite("DeepLink parsing tests")
 struct DeepLinkTests {

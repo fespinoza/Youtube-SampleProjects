@@ -1,8 +1,8 @@
-import SwiftUI
-import MovieModels
 import MovieComponents
-import PreviewData
+import MovieModels
 import Navigation
+import PreviewData
+import SwiftUI
 
 struct MovieDetailsViewData: Identifiable, Equatable {
     let id: MovieID

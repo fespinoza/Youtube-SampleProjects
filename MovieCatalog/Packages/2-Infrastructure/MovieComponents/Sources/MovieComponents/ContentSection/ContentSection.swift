@@ -1,5 +1,5 @@
-import SwiftUI
 import Navigation
+import SwiftUI
 
 public struct ContentSection<Content: View>: View {
     var title: String

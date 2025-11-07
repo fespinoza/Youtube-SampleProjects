@@ -1,18 +1,18 @@
 import SnapshotTesting
 import UIKit
 
-extension CGSize {
+public extension CGSize {
     /// Creates a size instance with the width of an iPhone 16 Pro
     /// and the height at least of that iPhone
     ///
     /// - Parameter height: height value for a taller iPhone 16 Pro
-    public static func iPhone16Pro(height: CGFloat) -> Self {
+    static func iPhone16Pro(height: CGFloat) -> Self {
         .init(width: 402, height: max(height, 874))
     }
 }
 
-extension ViewImageConfig {
-    public static let iPhone16Pro = ViewImageConfig.iPhone16Pro(.portrait)
+public extension ViewImageConfig {
+    static let iPhone16Pro = ViewImageConfig.iPhone16Pro(.portrait)
 
     /// Custom definition of the parameters of iPhone 16 Pro
     ///
@@ -20,7 +20,7 @@ extension ViewImageConfig {
     ///
     /// - Parameter orientation: device orientation
     /// - Returns: config for snapshot test for the iPhone 15 Pro
-    public static func iPhone16Pro(_ orientation: Orientation) -> ViewImageConfig {
+    static func iPhone16Pro(_ orientation: Orientation) -> ViewImageConfig {
         let safeArea: UIEdgeInsets
         let size: CGSize
 
@@ -37,8 +37,8 @@ extension ViewImageConfig {
     }
 }
 
-extension UITraitCollection {
-    public static func iPhone16Pro(_ orientation: ViewImageConfig.Orientation) -> UITraitCollection {
+public extension UITraitCollection {
+    static func iPhone16Pro(_ orientation: ViewImageConfig.Orientation) -> UITraitCollection {
         .iPhone13(orientation)
     }
 }

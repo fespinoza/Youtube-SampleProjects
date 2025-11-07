@@ -8,7 +8,8 @@ let package = Package(
     products: [
         .library(
             name: "MovieComponents",
-            targets: ["MovieComponents"]),
+            targets: ["MovieComponents"]
+        ),
     ],
     dependencies: [
         .package(path: "../01-Base/MovieModels"),
@@ -16,6 +17,6 @@ let package = Package(
         .package(path: "../02-Infrastructure/Navigation"),
     ],
     targets: [
-        .target(name: "MovieComponents", dependencies: ["MovieModels", "Navigation", "PreviewData"])
+        .target(name: "MovieComponents", dependencies: ["MovieModels", "Navigation", "PreviewData"]),
     ]
 )

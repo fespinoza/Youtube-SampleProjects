@@ -1,8 +1,8 @@
-import SwiftUI
-import MovieModels
 import MovieComponents
-import PreviewData
+import MovieModels
 import Navigation
+import PreviewData
+import SwiftUI
 
 enum SearchResultViewData: Identifiable, Equatable {
     case movie(_: MovieResultViewData)
@@ -21,7 +21,7 @@ extension SearchResultViewData {
         switch dto {
         case let .movie(movieSummary):
             self = .movie(.init(dto: movieSummary))
-        case .actor(let actorSummary):
+        case let .actor(actorSummary):
             self = .actor(.init(dto: actorSummary))
         }
     }

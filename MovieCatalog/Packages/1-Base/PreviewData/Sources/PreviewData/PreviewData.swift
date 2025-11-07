@@ -9,19 +9,19 @@ public struct PreviewImage: ExpressibleByStringLiteral, Sendable {
 }
 
 public extension PreviewImage {
-    struct Actor {
-        public struct BradPitt {
+    enum Actor {
+        public enum BradPitt {
             public static let medium: PreviewImage = "actor/bradPitt/medium"
             public static let small: PreviewImage = "actor/bradPitt/small"
         }
 
-        public struct PedroPascal {
+        public enum PedroPascal {
             public static let medium: PreviewImage = "actor/pedroPascal/medium"
         }
     }
 
-    struct Gallery {
-        public struct IronMan {
+    enum Gallery {
+        public enum IronMan {
             public static let image1: PreviewImage = "gallery/ironMan/image1"
             public static let image2: PreviewImage = "gallery/ironMan/image2"
             public static let image3: PreviewImage = "gallery/ironMan/image3"
@@ -29,35 +29,35 @@ public extension PreviewImage {
         }
     }
 
-    struct Movie {
-        public struct Poster {
-            public struct EternalSunshine {
+    enum Movie {
+        public enum Poster {
+            public enum EternalSunshine {
                 public static let large: PreviewImage = "movie/eternalSunshine/poster/large"
                 public static let medium: PreviewImage = "movie/eternalSunshine/poster/medium"
                 public static let small: PreviewImage = "movie/eternalSunshine/poster/small"
             }
 
-            public struct Gladiator {
+            public enum Gladiator {
                 public static let large: PreviewImage = "movie/gladiator/poster/large"
                 public static let medium: PreviewImage = "movie/gladiator/poster/medium"
                 public static let small: PreviewImage = "movie/gladiator/poster/small"
             }
 
-            public struct IronMan {
+            public enum IronMan {
                 public static let large: PreviewImage = "movie/ironMan/poster/large"
                 public static let medium: PreviewImage = "movie/ironMan/poster/medium"
                 public static let small: PreviewImage = "movie/ironMan/poster/small"
             }
 
-            public struct KindaPregnant {
+            public enum KindaPregnant {
                 public static let large: PreviewImage = "movie/kindaPregnant/poster/large"
                 public static let medium: PreviewImage = "movie/kindaPregnant/poster/medium"
                 public static let small: PreviewImage = "movie/kindaPregnant/poster/small"
             }
         }
 
-        public struct Backdrop {
-            public struct IronMan {
+        public enum Backdrop {
+            public enum IronMan {
                 public static let large: PreviewImage = "movie/ironMan/backdrop/large"
                 public static let medium: PreviewImage = "movie/ironMan/backdrop/medium"
                 public static let small: PreviewImage = "movie/ironMan/backdrop/small"

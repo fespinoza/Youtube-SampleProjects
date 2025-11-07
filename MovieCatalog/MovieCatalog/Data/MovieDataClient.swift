@@ -1,8 +1,8 @@
-import SwiftUI
-import MovieModels
-import MovieDBNetworking
 import MovieComponents
+import MovieDBNetworking
+import MovieModels
 import PreviewData
+import SwiftUI
 
 struct MovieDataClient {
     var homeData: (GenreStore) async throws -> HomeViewData
@@ -35,7 +35,7 @@ struct MovieDataClient {
         },
         movieGallery: { movieID in
             let dto = try await MovieDBClient().movieDetails(for: movieID)
-           return ImageContainerViewData.galleryItems(for: dto)
+            return ImageContainerViewData.galleryItems(for: dto)
         },
         movieList: { listType in
             let client = MovieDBClient()
@@ -68,7 +68,7 @@ struct MovieDataClient {
             popularMovies: { [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },
             actorDetails: { _ in .previewValue() },
             movieDescription: { _ in
-                return (
+                (
                     title: "Iron Man",
                     description: """
                     After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a \

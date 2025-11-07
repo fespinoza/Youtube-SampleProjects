@@ -61,7 +61,7 @@ extension ImageViewData: Hashable {
 
 public extension ImageViewData {
     static func remote(from url: URL?) -> ImageViewData {
-        if let url = url {
+        if let url {
             .remote(url: url)
         } else {
             .empty
@@ -69,7 +69,7 @@ public extension ImageViewData {
     }
 
     static func remote(from url: URL?, defaultImage: Image) -> ImageViewData {
-        if let url = url {
+        if let url {
             .remote(url: url)
         } else {
             .image(defaultImage)

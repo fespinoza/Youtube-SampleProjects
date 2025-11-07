@@ -1,7 +1,7 @@
-import SwiftUI
 import MovieComponents
-import Navigation
 import MovieModels
+import Navigation
+import SwiftUI
 
 struct MovieSearchView: View {
     let genres: [GenreViewData]

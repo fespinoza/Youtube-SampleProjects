@@ -1,6 +1,6 @@
-import SwiftUI
 import SnapshotTesting
 import SnapshotTestingKit
+import SwiftUI
 
 class SnapshotEnvironment: SnapshotRunningEnvironment {
     func sourceCodeTestDirectory() -> URL {

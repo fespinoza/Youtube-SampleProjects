@@ -1,14 +1,14 @@
-import SwiftUI
-import Navigation
 import MovieComponents
 import MovieDetails
+import Navigation
+import SwiftUI
 
 @ViewBuilder func view(for destination: PushDestination) -> some View {
     switch destination {
-    case .movieDetails(let id):
+    case let .movieDetails(id):
         MovieDetailsScreen(movieID: id)
 
-    case .actorDetails(let id):
+    case let .actorDetails(id):
         ActorDetailsScreen(actorID: id)
 
     case let .movieList(listType):

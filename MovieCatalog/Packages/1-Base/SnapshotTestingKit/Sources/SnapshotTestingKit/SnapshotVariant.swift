@@ -1,5 +1,5 @@
-import SwiftUI
 import SnapshotTesting
+import SwiftUI
 import Testing
 
 /// Encapsulate how to take snapshots for SwiftUI views
@@ -67,7 +67,7 @@ public struct SnapshotVariant {
         case .fixedSize: "FixedSize-\(appearance.suffix)"
         }
 
-        var additions: String = ""
+        var additions = ""
         if dynamicTypeSize != Self.defaultDynamicTypeSize {
             additions += "-\(dynamicTypeSize)"
         }

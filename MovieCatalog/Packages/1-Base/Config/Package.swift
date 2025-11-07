@@ -12,6 +12,6 @@ let package = Package(
         ),
     ],
     targets: [
-        .target(name: "Config")
+        .target(name: "Config"),
     ]
 )

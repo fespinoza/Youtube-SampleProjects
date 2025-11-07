@@ -1,7 +1,7 @@
-import SwiftUI
-import Navigation
-import MovieModels
 import MovieComponents
+import MovieModels
+import Navigation
+import SwiftUI
 
 struct HomeView: View {
     let viewData: HomeViewData

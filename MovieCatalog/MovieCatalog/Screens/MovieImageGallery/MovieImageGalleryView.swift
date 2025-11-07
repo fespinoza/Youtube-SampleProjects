@@ -1,5 +1,5 @@
-import SwiftUI
 import MovieComponents
+import SwiftUI
 
 struct MovieImageGalleryView: View {
     let images: [ImageContainerViewData]
@@ -74,7 +74,7 @@ struct MovieImageGalleryView: View {
 }
 
 #Preview {
-    @Previewable @State var selectedImage: Int = 3
+    @Previewable @State var selectedImage = 3
 
     MovieImageGalleryView(
         images: [

@@ -1,6 +1,6 @@
-import SwiftUI
-import MovieModels
 import MovieComponents
+import MovieModels
+import SwiftUI
 
 struct UpcomingMovieViewData: Identifiable, Equatable {
     let id: MovieID
