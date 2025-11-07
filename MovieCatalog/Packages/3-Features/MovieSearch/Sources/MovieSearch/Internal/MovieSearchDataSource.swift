@@ -27,7 +27,7 @@ struct MovieSearchDataSource {
                     .movie(.previewValue()),
                     .movie(.previewValue()),
                     .movie(.previewValue()),
-                    .movie(.previewValue())
+                    .movie(.previewValue()),
                 ]
             }
         )

@@ -138,7 +138,7 @@ public extension SnapshotVariant {
             .init(device: .iPhone, appearance: .lightMode, navigationBar: navigationBar),
             .init(device: .iPhone, appearance: .darkMode, navigationBar: navigationBar),
             .init(device: .iPad(.portrait), appearance: .lightMode, navigationBar: navigationBar),
-            .init(device: .iPad(.landscape), appearance: .darkMode, navigationBar: navigationBar)
+            .init(device: .iPad(.landscape), appearance: .darkMode, navigationBar: navigationBar),
         ]
 
         if checkAccessibility {
@@ -168,7 +168,7 @@ public extension SnapshotVariant {
 
         return [
             .init(device: .iPhone, appearance: .darkMode, navigationBar: navigationBar),
-            .init(device: .iPad(.landscape), appearance: .lightMode, navigationBar: navigationBar)
+            .init(device: .iPad(.landscape), appearance: .lightMode, navigationBar: navigationBar),
         ]
     }
 
@@ -195,7 +195,7 @@ public extension SnapshotVariant {
 
         return [
             .init(device: fixedSize, appearance: .lightMode, navigationBar: navigationBar),
-            .init(device: fixedSize, appearance: .darkMode, navigationBar: navigationBar)
+            .init(device: fixedSize, appearance: .darkMode, navigationBar: navigationBar),
         ]
     }
 }

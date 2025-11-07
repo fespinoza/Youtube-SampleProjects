@@ -8,7 +8,7 @@ let package = Package(
         .library(
             name: "SnapshotTestingKit",
             targets: ["SnapshotTestingKit"]
-        )
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0")
@@ -19,6 +19,6 @@ let package = Package(
             dependencies: [
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
             ]
-        )
+        ),
     ]
 )

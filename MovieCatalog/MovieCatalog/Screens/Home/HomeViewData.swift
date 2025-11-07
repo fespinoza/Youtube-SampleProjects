@@ -35,25 +35,25 @@ extension HomeViewData {
         featuredMovies: [FeatureMovieViewData] = [
             .ironMan(),
             .gladiatorTwo(),
-            .eternalSunshine()
+            .eternalSunshine(),
         ],
         newMovies: [MovieCardViewData] = [
             .eternalSunshine(),
             .gladiatorTwo(),
             .kindaPregnant(),
-            .ironMan()
+            .ironMan(),
         ],
         topMovies: [MovieCardViewData] = [
             .previewValue(style: .ranking(ranking: "#1")),
             .previewValue(style: .ranking(ranking: "#2")),
             .previewValue(style: .ranking(ranking: "#3")),
-            .previewValue(style: .ranking(ranking: "#4"))
+            .previewValue(style: .ranking(ranking: "#4")),
         ],
         upcomingMovies: [MovieCardViewData] = [
             .previewValue(style: .upcoming(releaseDate: "July 4th")),
             .previewValue(style: .upcoming(releaseDate: "July 4th")),
             .previewValue(style: .upcoming(releaseDate: "July 4th")),
-            .previewValue(style: .upcoming(releaseDate: "July 4th"))
+            .previewValue(style: .upcoming(releaseDate: "July 4th")),
         ]
     ) -> Self {
         .init(

@@ -16,7 +16,7 @@ struct HomeView: View {
                             LinearGradient(
                                 stops: [
                                     .init(color: .black.opacity(0.7), location: 0.0),
-                                    .init(color: .clear, location: 0.3)
+                                    .init(color: .clear, location: 0.3),
                                 ],
                                 startPoint: .init(x: 0, y: 0),
                                 endPoint: .init(x: 0, y: 1.0)

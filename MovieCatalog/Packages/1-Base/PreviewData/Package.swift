@@ -9,7 +9,7 @@ let package = Package(
         .library(
             name: "PreviewData",
             targets: ["PreviewData"]
-        )
+        ),
     ],
     targets: [
         .target(name: "PreviewData")

@@ -40,7 +40,7 @@ extension ActorDetailsViewData {
             .gladiatorTwo(),
             .eternalSunshine(),
             .kindaPregnant(),
-            .ironMan()
+            .ironMan(),
         ]
     ) -> Self {
         .init(

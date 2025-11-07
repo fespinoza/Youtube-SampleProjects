@@ -40,7 +40,7 @@ public struct MovieDBClient {
             params: [
                 .init(name: "sort_by", value: "vote_average.desc"),
                 .init(name: "without_genres", value: "99,10755"),
-                .init(name: "vote_count.gte", value: "200")
+                .init(name: "vote_count.gte", value: "200"),
             ]
         )
         let container: DiscoverMovieResponse = try await fetch(url)
@@ -54,7 +54,7 @@ public struct MovieDBClient {
                 .init(name: "sort_by", value: "popularity.desc"),
                 .init(name: "with_release_type", value: "3"),
                 .init(name: "primary_release_date.gte", value: formattedRequestDate(from: Date())),
-                .init(name: "with_original_language", value: "en")
+                .init(name: "with_original_language", value: "en"),
             ]
         )
         let container: DiscoverMovieResponse = try await fetch(url)
@@ -66,7 +66,7 @@ public struct MovieDBClient {
             for: "/discover/movie",
             params: [
                 .init(name: "sort_by", value: "popularity.desc"),
-                .init(name: "with_genres", value: "\(genre.id)")
+                .init(name: "with_genres", value: "\(genre.id)"),
             ]
         )
         let container: DiscoverMovieResponse = try await fetch(url)
@@ -78,7 +78,7 @@ public struct MovieDBClient {
             for: "/movie/\(movieID)",
             params: [
                 .init(name: "include_image_language", value: "en"),
-                .init(name: "append_to_response", value: "images,credits")
+                .init(name: "append_to_response", value: "images,credits"),
             ]
         )
         return try await fetch(url)
@@ -122,7 +122,7 @@ public struct MovieDBClient {
 
         components.queryItems = [
             .init(name: "api_key", value: Config.apiKey),
-            .init(name: "language", value: "en-US")
+            .init(name: "language", value: "en-US"),
         ] + params
 
         guard let url = components.url else {

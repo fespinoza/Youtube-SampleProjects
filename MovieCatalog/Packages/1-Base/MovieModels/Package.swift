@@ -9,7 +9,7 @@ let package = Package(
         .library(
             name: "MovieModels",
             targets: ["MovieModels"]
-        )
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-tagged", from: "0.6.0")
@@ -20,6 +20,6 @@ let package = Package(
             dependencies: [
                 .product(name: "Tagged", package: "swift-tagged")
             ]
-        )
+        ),
     ]
 )

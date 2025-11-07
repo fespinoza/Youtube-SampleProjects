@@ -81,7 +81,7 @@ struct MovieDataClient {
                     .previewValue(image: .image(Image(preview: .Gallery.IronMan.image1))),
                     .previewValue(image: .image(Image(preview: .Gallery.IronMan.image2))),
                     .previewValue(image: .image(Image(preview: .Gallery.IronMan.image3))),
-                    .previewValue(image: .image(Image(preview: .Gallery.IronMan.image4)))
+                    .previewValue(image: .image(Image(preview: .Gallery.IronMan.image4))),
                 ]
             },
             movieList: { _ in [.eternalSunshine(), .gladiatorTwo(), .ironMan()] },

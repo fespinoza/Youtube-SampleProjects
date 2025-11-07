@@ -82,7 +82,7 @@ struct MovieImageGalleryView: View {
             .previewValue(image: .loading),
             .previewValue(image: .image(Image(.Gallery.IronMan.image2))),
             .previewValue(image: .image(Image(.Gallery.IronMan.image3))),
-            .previewValue(image: .image(Image(.Gallery.IronMan.image4)))
+            .previewValue(image: .image(Image(.Gallery.IronMan.image4))),
         ],
         selectedImage: $selectedImage
     )

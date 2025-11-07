@@ -34,7 +34,7 @@ struct ReleaseCalendarView: View {
                 .previewValue(month: "May"),
                 .previewValue(month: "June"),
                 .previewValue(month: "July"),
-                .previewValue(month: "August")
+                .previewValue(month: "August"),
             ]
         )
     }

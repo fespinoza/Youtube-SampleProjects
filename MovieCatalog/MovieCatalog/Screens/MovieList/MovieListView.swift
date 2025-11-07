@@ -11,7 +11,7 @@ struct MovieListView: View {
             LazyVGrid(
                 columns: [
                     .init(.fixed(MovieCardSize.large.width), spacing: 8, alignment: .top),
-                    .init(.fixed(MovieCardSize.large.width), spacing: 8, alignment: .top)
+                    .init(.fixed(MovieCardSize.large.width), spacing: 8, alignment: .top),
                 ],
                 alignment: HorizontalAlignment.center,
                 spacing: 24
@@ -33,7 +33,7 @@ struct MovieListView: View {
             .eternalSunshine(),
             .gladiatorTwo(),
             .kindaPregnant(),
-            .ironMan()
+            .ironMan(),
         ]
     )
 }
