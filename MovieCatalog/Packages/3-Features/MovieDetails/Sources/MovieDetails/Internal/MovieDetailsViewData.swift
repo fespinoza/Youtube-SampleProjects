@@ -40,7 +40,7 @@ extension MovieDetailsViewData {
             dto.credits.cast.map(ActorViewData.init(dto:))
         }
 
-        // np more thant 10 images
+        // no more than 10 images
         let backdrops = Array(dto.images.backdrops.prefix(10))
 
         self.init(
