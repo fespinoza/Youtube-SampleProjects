@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "MovieDetails",
+    defaultLocalization: "en",
     platforms: [.iOS(.v17)],
     products: [
         .library(
