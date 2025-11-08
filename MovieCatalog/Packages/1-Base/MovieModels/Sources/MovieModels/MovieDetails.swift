@@ -3,7 +3,7 @@ import Tagged
 
 public typealias MovieID = Tagged<MovieDetails, Int>
 
-public struct MovieDetails: Decodable {
+public struct MovieDetails: Decodable, Hashable {
     public let id: MovieID
     public let genres: [Genre]
     public let runtime: Int
@@ -17,7 +17,7 @@ public struct MovieDetails: Decodable {
 }
 
 public extension MovieDetails {
-    struct ImageCollection: Decodable {
+    struct ImageCollection: Decodable, Hashable {
         public let backdrops: [Backdrop]
 
         public struct Backdrop: Decodable, Hashable {
@@ -30,7 +30,7 @@ public extension MovieDetails {
         }
     }
 
-    struct Credits: Decodable {
+    struct Credits: Decodable, Hashable {
         public let cast: [CastMember]
     }
 

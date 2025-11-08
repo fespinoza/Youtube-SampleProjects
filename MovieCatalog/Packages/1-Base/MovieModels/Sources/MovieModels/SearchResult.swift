@@ -1,7 +1,7 @@
 import Foundation
 import OSLog
 
-public struct SearchResultsContainer: Decodable {
+public struct SearchResultsContainer: Decodable, Hashable {
     public let page: Int
     public let totalPages: Int
     public let totalResults: Int
@@ -62,7 +62,7 @@ public struct SearchResultsContainer: Decodable {
     }
 }
 
-public enum SearchResult: Decodable {
+public enum SearchResult: Decodable, Hashable {
     case movie(MovieSummary)
     case actor(ActorSummary)
 
@@ -89,7 +89,7 @@ public enum SearchResult: Decodable {
     }
 }
 
-public struct ActorSummary: Decodable {
+public struct ActorSummary: Decodable, Hashable {
     public let id: ActorID
     public let name: String
     public let profilePath: String?

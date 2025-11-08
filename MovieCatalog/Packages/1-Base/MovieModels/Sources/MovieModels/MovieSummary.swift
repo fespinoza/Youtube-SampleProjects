@@ -1,7 +1,7 @@
 import Foundation
 import Tagged
 
-public struct MovieSummary: Decodable, Identifiable {
+public struct MovieSummary: Decodable, Identifiable, Hashable {
     public let backdropPath: String?
     public let id: MovieID
     public let overview: String?

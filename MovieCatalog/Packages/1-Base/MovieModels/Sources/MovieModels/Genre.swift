@@ -13,6 +13,6 @@ public struct Genre: Decodable, Identifiable, Hashable, Sendable {
     }
 }
 
-public struct GenreContainer: Decodable {
+public struct GenreContainer: Decodable, Hashable {
     public let genres: [Genre]
 }
