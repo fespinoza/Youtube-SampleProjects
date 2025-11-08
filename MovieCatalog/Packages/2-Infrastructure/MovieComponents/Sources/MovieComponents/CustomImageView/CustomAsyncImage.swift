@@ -52,7 +52,11 @@ public struct CustomAsyncImage<Output: View>: View {
                             Image(systemName: "xmark.circle")
                                 .font(.system(size: 50))
 
-                            Text("Couldn't load image")
+                            Text(
+                                "Couldn't load image",
+                                bundle: .module,
+                                comment: "Error message when failed to load an image"
+                            )
                         }
                     }
             case let .image(image):

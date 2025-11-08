@@ -37,7 +37,11 @@ public struct MovieSearchScreen: View {
         .searchable(
             text: $viewModel.searchText,
             placement: .navigationBarDrawer(displayMode: .always),
-            prompt: Text("Search for Movies and Actors")
+            prompt: Text(
+                "Search for Movies and Actors",
+                bundle: .module,
+                comment: "Search prompt"
+            )
         )
     }
 }

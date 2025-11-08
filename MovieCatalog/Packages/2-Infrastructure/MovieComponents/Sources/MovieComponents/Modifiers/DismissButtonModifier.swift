@@ -6,7 +6,7 @@ public struct DismissButtonModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content.toolbar {
             Button(action: { dismiss() }) {
-                Text("Close")
+                Text("Close", bundle: .module, comment: "Close button")
             }
         }
     }
