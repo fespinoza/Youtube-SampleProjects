@@ -21,3 +21,11 @@ custom_rules:
     regex: '[^\w]Text\(\s*(?:"{3}[\s\S]*?"{3}|"[^"]*")(?![^)]*bundle:\s*\.module)[^)]*\)'
     message: "Remember to refer to the correct localization bundle with `bundle: .module`"
     severity: warning
+  models_must_conform_to_hashable:
+    included:
+      - Packages/1-Base/MovieModels
+    name: "Struct Hashable Conformance"
+    message: "All structs must conform to Hashable."
+    regex: 'public\s+struct\s+[A-Za-z_]\w*(?:\s*<[^>{]*>)?\s*(?:\{|\s*:\s*(?![^{}]*(?:\bHashable\b))[^{]+\{)'
+    severity: warning
+
