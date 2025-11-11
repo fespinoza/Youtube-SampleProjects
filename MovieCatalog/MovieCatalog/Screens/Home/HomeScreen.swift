@@ -1,5 +1,5 @@
-import SwiftUI
 import MovieComponents
+import SwiftUI
 
 struct HomeScreen: View {
     @State var loadingState: BasicLoadingState<HomeViewData> = .idle

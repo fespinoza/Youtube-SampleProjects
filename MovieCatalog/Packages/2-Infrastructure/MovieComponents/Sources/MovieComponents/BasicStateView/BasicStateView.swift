@@ -75,7 +75,7 @@ public extension BasicStateView where LoadingContent == LoadingStateView {
         fetchData: @escaping () async throws -> ViewData
     ) {
         _state = state
-        loadingContent = { LoadingStateView() }
+        self.loadingContent = { LoadingStateView() }
         self.dataContent = dataContent
         self.fetchData = fetchData
     }

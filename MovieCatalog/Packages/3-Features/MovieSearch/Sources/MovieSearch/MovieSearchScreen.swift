@@ -1,6 +1,6 @@
-import SwiftUI
-import Navigation
 import MovieComponents
+import Navigation
+import SwiftUI
 
 public struct MovieSearchScreen: View {
     @StateObject var viewModel: MovieSearchScreenViewModel = .init()
@@ -37,7 +37,7 @@ public struct MovieSearchScreen: View {
         .searchable(
             text: $viewModel.searchText,
             placement: .navigationBarDrawer(displayMode: .always),
-            prompt: Text("Search for Movies and Actors")
+            prompt: Text("Search for Movies and Actors", bundle: .module, comment: "Prompt in search bar")
         )
     }
 }

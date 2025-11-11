@@ -1,6 +1,6 @@
+import Config
 import OSLog
 import SwiftUI
-import Config
 
 /** Custom implementation of the `AsyncImage` view from iOS 15
  We took inspiration from that implementation to make a custom one for us.
@@ -52,7 +52,7 @@ public struct CustomAsyncImage<Output: View>: View {
                             Image(systemName: "xmark.circle")
                                 .font(.system(size: 50))
 
-                            Text("Couldn't load image")
+                            Text("Couldn't load image", bundle: .module, comment: "Error case for image loading")
                         }
                     }
             case let .image(image):

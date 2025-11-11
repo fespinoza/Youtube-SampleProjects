@@ -1,7 +1,7 @@
-import SwiftUI
-import MovieModels
 import MovieComponents
 import MovieDBNetworking
+import MovieModels
+import SwiftUI
 
 struct MovieDetailsDataSource: Sendable {
     var movieDetails: @Sendable (MovieID) async throws -> MovieDetailsViewData

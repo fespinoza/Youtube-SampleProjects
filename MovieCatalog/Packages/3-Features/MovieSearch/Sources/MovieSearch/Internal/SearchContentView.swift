@@ -1,6 +1,6 @@
-import SwiftUI
-import Navigation
 import MovieComponents
+import Navigation
+import SwiftUI
 
 @MainActor protocol SearchContentViewActions: AnyObject {
     func select(recentSearch: String)
@@ -21,7 +21,11 @@ struct SearchContentView: View {
                         Label("Content Search", systemImage: "magnifyingglass")
                     },
                     description: {
-                        Text("Search for movies by title or actors by name")
+                        Text(
+                            "Search for movies by title or actors by name",
+                            bundle: .module,
+                            comment: "Empty content description"
+                        )
                     }
                 )
             } else {
@@ -66,7 +70,11 @@ struct SearchContentView: View {
                     Label("No matches", systemImage: "questionmark.circle")
                 },
                 description: {
-                    Text("No results found for '\(searchText)', try to search for something else")
+                    Text(
+                        "No results found for '\(searchText)', try to search for something else",
+                        bundle: .module,
+                        comment: "No results found description"
+                    )
                 }
             )
 

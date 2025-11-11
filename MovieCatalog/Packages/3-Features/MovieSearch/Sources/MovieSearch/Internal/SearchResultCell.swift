@@ -1,8 +1,8 @@
-import SwiftUI
-import MovieModels
 import MovieComponents
-import PreviewData
+import MovieModels
 import Navigation
+import PreviewData
+import SwiftUI
 
 enum SearchResultViewData: Identifiable, Equatable {
     case movie(_: MovieResultViewData)
@@ -21,7 +21,7 @@ extension SearchResultViewData {
         switch dto {
         case let .movie(movieSummary):
             self = .movie(.init(dto: movieSummary))
-        case .actor(let actorSummary):
+        case let .actor(actorSummary):
             self = .actor(.init(dto: actorSummary))
         }
     }
@@ -91,7 +91,7 @@ struct SearchResultCell: View {
                 VStack(alignment: .leading) {
                     Text(movieViewData.title)
 
-                    Text("Movie - \(movieViewData.releaseYear)")
+                    Text("Movie - \(movieViewData.releaseYear)", bundle: .module, comment: "Movie release year")
                         .font(.caption)
                         .foregroundStyle(Color.secondary)
                 }
@@ -108,7 +108,7 @@ struct SearchResultCell: View {
 
                 VStack(alignment: .leading) {
                     Text(actorViewData.name)
-                    Text("Actor")
+                    Text("Actor", bundle: .module, comment: "Actor title")
                         .foregroundStyle(Color.secondary)
                         .font(.caption)
                 }
@@ -118,7 +118,6 @@ struct SearchResultCell: View {
         }
     }
 }
-
 
 private struct Demo: View {
     @State var content: SearchResultViewData
@@ -153,10 +152,10 @@ extension MovieResultViewData {
         image: ImageViewData = .image(Image(preview: .Movie.Backdrop.IronMan.small))
     ) -> Self {
         .init(
-            id: id,    
-            title: title,    
-            releaseYear: releaseYear,    
-            image: image   
+            id: id,
+            title: title,
+            releaseYear: releaseYear,
+            image: image
         )
     }
 }
@@ -168,9 +167,9 @@ extension ActorResultViewData {
         profileImage: ImageViewData = .image(Image(preview: .Actor.PedroPascal.medium))
     ) -> Self {
         .init(
-            id: id,    
-            name: name,    
-            profileImage: profileImage   
+            id: id,
+            name: name,
+            profileImage: profileImage
         )
     }
 }

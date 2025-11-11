@@ -1,6 +1,6 @@
 import Foundation
-import SwiftUI
 import SnapshotTesting
+import SwiftUI
 import Testing
 import XCTest
 
@@ -11,7 +11,8 @@ public protocol SnapshotRunningEnvironment {
     /// to run the snapshots against this location locally
     ///
     /// > [!WARNING]
-    /// > The implementation of `sourceCodeTestDirectory` depends on the location in the file system of the type that confirms
+    /// > The implementation of `sourceCodeTestDirectory` depends on the location in the
+    /// > file system of the type that confirms
     /// > to `SnapshotRunningEnvironment` and if the location changes, the implementation may need to change as well
     func sourceCodeTestDirectory() -> URL
 
@@ -100,21 +101,21 @@ extension SnapshotRunningEnvironment {
         column: UInt
     ) {
         #if canImport(Testing)
-        if Test.current != nil {
-            Issue.record(
-                Comment(rawValue: message()),
-                sourceLocation: SourceLocation(
-                    fileID: fileID.description,
-                    filePath: filePath.description,
-                    line: Int(line),
-                    column: Int(column)
+            if Test.current != nil {
+                Issue.record(
+                    Comment(rawValue: message()),
+                    sourceLocation: SourceLocation(
+                        fileID: fileID.description,
+                        filePath: filePath.description,
+                        line: Int(line),
+                        column: Int(column)
+                    )
                 )
-            )
-        } else {
-            XCTFail(message(), file: filePath, line: line)
-        }
+            } else {
+                XCTFail(message(), file: filePath, line: line)
+            }
         #else
-        XCTFail(message(), file: filePath, line: line)
+            XCTFail(message(), file: filePath, line: line)
         #endif
     }
 }

@@ -26,6 +26,5 @@ let package = Package(
                 "Navigation",
             ]
         ),
-
     ]
 )

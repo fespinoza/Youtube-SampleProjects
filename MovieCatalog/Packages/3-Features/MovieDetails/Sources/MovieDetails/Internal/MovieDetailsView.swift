@@ -1,6 +1,6 @@
-import SwiftUI
-import Navigation
 import MovieComponents
+import Navigation
+import SwiftUI
 
 struct MovieDetailsView: View {
     let viewData: MovieDetailsViewData
@@ -32,17 +32,17 @@ struct MovieDetailsView: View {
                     }
                 }
 
-                ContentSection(title: "Details") {
+                ContentSection(title: String(localized: "Details", bundle: .module, comment: "section title")) {
                     Grid(verticalSpacing: .spacingSM) {
                         GridRow {
-                            Text("Release Date")
+                            Text("Release Date", bundle: .module, comment: "Release date of a movie")
                             Text(viewData.releaseDate)
                         }
                         .gridColumnAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                         GridRow {
-                            Text("Genres")
+                            Text("Genres", bundle: .module, comment: "List of genres of a movie")
                             Text(viewData.genres.joined(separator: ", "))
                         }
                         .gridColumnAlignment(.leading)
@@ -52,7 +52,7 @@ struct MovieDetailsView: View {
                 }
 
                 if !viewData.galleryItems.isEmpty {
-                    ContentSection(title: "Gallery") {
+                    ContentSection(title: String(localized: "Gallery", bundle: .module, comment: "section title")) {
                         ScrollView(.horizontal) {
                             HStack(spacing: .spacingM) {
                                 ForEach(Array(viewData.galleryItems.enumerated()), id: \.element.id) { index, item in
@@ -73,7 +73,7 @@ struct MovieDetailsView: View {
                 }
 
                 if !viewData.actors.isEmpty {
-                    ContentSection(title: "Cast & Crew") {
+                    ContentSection(title: String(localized: "Cast & Crew", bundle: .module, comment: "section title")) {
                         ScrollView(.horizontal) {
                             HStack(alignment: .top, spacing: .spacingSM) {
                                 ForEach(viewData.actors) { actor in
@@ -130,7 +130,7 @@ struct MovieDetailsView: View {
                     .lineLimit(3)
                     .contentShape(Rectangle())
                     .overlay(alignment: .bottomTrailing) {
-                        Text("MORE")
+                        Text("MORE", bundle: .module, comment: "Button to expand the movie description")
                             .padding(.leading, .spacingXL)
                             .padding(.trailing, .spacingXS)
                             .padding(.top, .spacingXXS)
@@ -177,4 +177,6 @@ struct MovieDetailsView: View {
     NavigationStack {
         MovieDetailsView(viewData: .previewValue())
     }
+    .environment(Router.previewRouter())
+    .environment(\.locale, .init(identifier: "es"))
 }

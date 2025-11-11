@@ -1,7 +1,7 @@
-import Foundation
 import Config
+import Foundation
 
-public struct DeepLink {
+public enum DeepLink {
     public static func destination(from url: URL) -> Destination? {
         guard url.scheme == Config.deepLinkScheme else { return nil }
 

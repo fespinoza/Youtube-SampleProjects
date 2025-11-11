@@ -1,5 +1,5 @@
-import SwiftUI
 import Navigation
+import SwiftUI
 
 struct ReleaseCalendarView: View {
     let months: [ReleaseMonthViewData]

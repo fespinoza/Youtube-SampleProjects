@@ -1,6 +1,6 @@
 import Foundation
 
-public struct HomeData: Decodable {
+public struct HomeData: Decodable, Hashable {
     public let featuredMovies: [MovieSummary]
     public let newMovies: [MovieSummary]
     public let topRatedMovies: [MovieSummary]

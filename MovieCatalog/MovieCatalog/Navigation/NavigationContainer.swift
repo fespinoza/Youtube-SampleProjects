@@ -1,6 +1,6 @@
-import SwiftUI
 import Config
 import Navigation
+import SwiftUI
 
 /// ``NavigationStack`` container that works with the ``Router``
 /// to resolve the routes based on the ``Router``'s state
@@ -63,7 +63,6 @@ private struct InnerContainer<Content: View>: View {
     @ViewBuilder func navigationView(for destination: SheetDestination, from router: Router) -> some View {
         NavigationContainer(parentRouter: router) { view(for: destination) }
     }
-
 
     @ViewBuilder func navigationView(for destination: FullScreenDestination, from router: Router) -> some View {
         NavigationContainer(parentRouter: router) { view(for: destination) }

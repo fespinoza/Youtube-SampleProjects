@@ -1,7 +1,7 @@
 import MovieComponents
-import SwiftUI
 import MovieModels
 import Navigation
+import SwiftUI
 
 struct GenreViewData: Identifiable, Equatable {
     let id: GenreID

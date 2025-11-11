@@ -3,7 +3,7 @@ import Tagged
 
 public typealias ActorID = Tagged<CastMember, Int>
 
-public struct ActorDetails: Decodable {
+public struct ActorDetails: Decodable, Hashable {
     public let id: ActorID
     public let name: String
     public let profilePath: String?
@@ -12,7 +12,7 @@ public struct ActorDetails: Decodable {
 }
 
 public extension ActorDetails {
-    struct MovieCredits: Decodable {
+    struct MovieCredits: Decodable, Hashable {
         public let cast: [MovieSummary]
     }
 

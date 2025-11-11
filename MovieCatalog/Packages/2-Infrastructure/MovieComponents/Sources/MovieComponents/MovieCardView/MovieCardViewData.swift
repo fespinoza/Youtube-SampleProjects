@@ -1,7 +1,7 @@
-import SwiftUI
 import MovieModels
-import Tagged
 import PreviewData
+import SwiftUI
+import Tagged
 
 public struct MovieCardViewData: Identifiable, Equatable {
     public let id: MovieID
@@ -29,7 +29,7 @@ public struct MovieCardViewData: Identifiable, Equatable {
 }
 
 public extension MovieCardViewData {
-    static let defaultImage: Image = Image.defaultMoviePoster
+    static let defaultImage: Image = .defaultMoviePoster
 
     static func basic(from summary: MovieSummary) -> Self {
         .init(
@@ -45,7 +45,13 @@ public extension MovieCardViewData {
             id: summary.id,
             title: summary.title,
             image: .remote(from: summary.posterURL, defaultImage: defaultImage),
-            style: (summary.releaseDate.flatMap { .upcoming(releaseDate: Utils.formattedUpcomingReleaseDate(from: $0)) }) ?? .basic
+            style: (
+                summary.releaseDate.flatMap {
+                    .upcoming(
+                        releaseDate: Utils.formattedUpcomingReleaseDate(from: $0)
+                    )
+                }
+            ) ?? .basic
         )
     }
 

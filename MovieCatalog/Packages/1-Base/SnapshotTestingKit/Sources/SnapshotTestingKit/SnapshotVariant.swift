@@ -1,5 +1,5 @@
-import SwiftUI
 import SnapshotTesting
+import SwiftUI
 import Testing
 
 /// Encapsulate how to take snapshots for SwiftUI views
@@ -67,7 +67,7 @@ public struct SnapshotVariant {
         case .fixedSize: "FixedSize-\(appearance.suffix)"
         }
 
-        var additions: String = ""
+        var additions = ""
         if dynamicTypeSize != Self.defaultDynamicTypeSize {
             additions += "-\(dynamicTypeSize)"
         }
@@ -156,7 +156,8 @@ public extension SnapshotVariant {
     }
 
     /// Minimal variants to test a screen in
-    /// - Parameter navigationTitle: (default `nil`) If provided, it will wrap the view in a `NavigationStack` and set the title
+    /// - Parameter navigationTitle: (default `nil`) If provided, it will wrap the view in a
+    ///                              `NavigationStack` and set the title
     /// - Returns: An array of snapshot variants to test with
     static func minimalVariants(navigationTitle: String? = nil) -> [SnapshotVariant] {
         let navigationBar: SnapshotVariant.NavigationBarWrapper? = if let navigationTitle {

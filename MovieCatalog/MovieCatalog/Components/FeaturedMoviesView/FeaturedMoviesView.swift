@@ -1,7 +1,7 @@
-import SwiftUI
+import MovieComponents
 import MovieModels
 import Navigation
-import MovieComponents
+import SwiftUI
 
 struct FeatureMovieViewData: Identifiable, Equatable {
     let id: MovieID
@@ -160,7 +160,11 @@ extension FeatureMovieViewData {
             image: image,
             genre: "Science Fiction",
             releaseYear: "2004",
-            description: "Joel Barish, heartbroken that his girlfriend underwent a procedure to erase him from her memory, decides to do the same. However, as he watches his memories of her fade away, he realises that he still loves her, and may be too late to correct his mistake."
+            description: """
+            Joel Barish, heartbroken that his girlfriend underwent a procedure to erase him from her memory, decides \
+            to do the same. However, as he watches his memories of her fade away, he realizes that he still loves her, \
+            and may be too late to correct his mistake.
+            """
         )
     }
 
@@ -173,7 +177,12 @@ extension FeatureMovieViewData {
             image: image,
             genre: "Action",
             releaseYear: "2024",
-            description: "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius is forced to enter the Colosseum after his home is conquered by the tyrannical Emperors who now lead Rome with an iron fist. With rage in his heart and the future of the Empire at stake, Lucius must look to his past to find strength and honor to return the glory of Rome to its people."
+            description: """
+            Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius is forced \
+            to enter the Colosseum after his home is conquered by the tyrannical Emperors who now lead Rome with an \
+            iron fist. With rage in his heart and the future of the Empire at stake, Lucius must look to his past \
+            to find strength and honor to return the glory of Rome to its people.
+            """
         )
     }
 }

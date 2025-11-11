@@ -8,7 +8,8 @@ let package = Package(
     products: [
         .library(
             name: "MovieDBNetworking",
-            targets: ["MovieDBNetworking"]),
+            targets: ["MovieDBNetworking"]
+        ),
     ],
     dependencies: [
         .package(path: "../1-Base/Config"),

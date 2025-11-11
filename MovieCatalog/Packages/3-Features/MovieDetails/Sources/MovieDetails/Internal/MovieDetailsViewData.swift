@@ -1,8 +1,8 @@
-import SwiftUI
-import MovieModels
 import MovieComponents
-import PreviewData
+import MovieModels
 import Navigation
+import PreviewData
+import SwiftUI
 
 struct MovieDetailsViewData: Identifiable, Equatable {
     let id: MovieID
@@ -24,7 +24,6 @@ struct MovieDetailsViewData: Identifiable, Equatable {
         (lhs.id, lhs.title) == (rhs.id, rhs.title)
     }
 
-
     struct ActorViewData: Identifiable, Equatable {
         let id: ActorID
         let name: String
@@ -41,7 +40,7 @@ extension MovieDetailsViewData {
             dto.credits.cast.map(ActorViewData.init(dto:))
         }
 
-        // np more thant 10 images
+        // no more than 10 images
         let backdrops = Array(dto.images.backdrops.prefix(10))
 
         self.init(
