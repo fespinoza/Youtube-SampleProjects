@@ -1,8 +1,8 @@
-import Testing
-import SwiftUI
-import SnapshotTestingKit
-import Navigation
 @testable import MovieCatalog
+import Navigation
+import SnapshotTestingKit
+import SwiftUI
+import Testing
 
 @MainActor
 @Suite("ActorDetails Snapshot Tests")

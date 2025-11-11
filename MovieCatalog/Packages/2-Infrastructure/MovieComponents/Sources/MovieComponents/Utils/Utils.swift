@@ -34,7 +34,7 @@ public enum Utils {
         let hours = minutes / 60
         let remainingMinutes = minutes % 60
 
-        return if hours > 0 && remainingMinutes > 0 {
+        return if hours > 0, remainingMinutes > 0 {
             "\(hours)h \(remainingMinutes)m"
         } else if hours > 0 {
             "\(hours)h"

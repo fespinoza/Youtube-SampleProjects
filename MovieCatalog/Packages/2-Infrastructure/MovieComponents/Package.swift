@@ -8,7 +8,8 @@ let package = Package(
     products: [
         .library(
             name: "MovieComponents",
-            targets: ["MovieComponents"]),
+            targets: ["MovieComponents"]
+        ),
     ],
     dependencies: [
         .package(path: "../01-Base/MovieModels"),

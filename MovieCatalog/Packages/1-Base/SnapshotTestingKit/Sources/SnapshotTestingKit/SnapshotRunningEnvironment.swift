@@ -1,6 +1,6 @@
 import Foundation
-import SwiftUI
 import SnapshotTesting
+import SwiftUI
 import Testing
 import XCTest
 
@@ -101,21 +101,21 @@ extension SnapshotRunningEnvironment {
         column: UInt
     ) {
         #if canImport(Testing)
-        if Test.current != nil {
-            Issue.record(
-                Comment(rawValue: message()),
-                sourceLocation: SourceLocation(
-                    fileID: fileID.description,
-                    filePath: filePath.description,
-                    line: Int(line),
-                    column: Int(column)
+            if Test.current != nil {
+                Issue.record(
+                    Comment(rawValue: message()),
+                    sourceLocation: SourceLocation(
+                        fileID: fileID.description,
+                        filePath: filePath.description,
+                        line: Int(line),
+                        column: Int(column)
+                    )
                 )
-            )
-        } else {
-            XCTFail(message(), file: filePath, line: line)
-        }
+            } else {
+                XCTFail(message(), file: filePath, line: line)
+            }
         #else
-        XCTFail(message(), file: filePath, line: line)
+            XCTFail(message(), file: filePath, line: line)
         #endif
     }
 }

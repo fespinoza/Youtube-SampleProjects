@@ -1,6 +1,6 @@
+import Config
 import Foundation
 import MovieModels
-import Config
 
 public struct MovieDBClient {
     public init() {}

@@ -1,6 +1,6 @@
-import SwiftUI
-import Navigation
 import MovieComponents
+import Navigation
+import SwiftUI
 
 public struct MovieSearchScreen: View {
     @StateObject var viewModel: MovieSearchScreenViewModel = .init()

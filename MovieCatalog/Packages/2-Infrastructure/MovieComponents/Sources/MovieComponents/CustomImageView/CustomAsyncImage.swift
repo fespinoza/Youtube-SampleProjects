@@ -1,6 +1,6 @@
+import Config
 import OSLog
 import SwiftUI
-import Config
 
 /** Custom implementation of the `AsyncImage` view from iOS 15
  We took inspiration from that implementation to make a custom one for us.

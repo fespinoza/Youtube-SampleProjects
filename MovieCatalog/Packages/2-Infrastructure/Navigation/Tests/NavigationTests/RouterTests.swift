@@ -1,11 +1,10 @@
-import Testing
 import Foundation
 import MovieModels
 @testable import Navigation
+import Testing
 
 @Suite("Router Tests")
 struct RouterTests {
-
     @Test("Creating a child router")
     func createingChildRouter() {
         // given

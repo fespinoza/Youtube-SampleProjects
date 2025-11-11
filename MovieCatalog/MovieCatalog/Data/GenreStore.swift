@@ -1,6 +1,6 @@
-import SwiftUI
-import MovieModels
 import MovieDBNetworking
+import MovieModels
+import SwiftUI
 
 @Observable
 class GenreStore {

@@ -1,8 +1,8 @@
-import Config
-import SwiftUI
 import Combine
+import Config
 import MovieComponents
 import OSLog
+import SwiftUI
 
 @MainActor
 class MovieSearchScreenViewModel: ObservableObject {

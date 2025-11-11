@@ -44,13 +44,13 @@ extension BasicLoadingState: Equatable where Value: Equatable {
         switch (lhs, rhs) {
         case (.idle, .idle),
              (.loading, .loading):
-            return true
+            true
         case let (.dataLoaded(lhsValue), .dataLoaded(rhsValue)):
-            return lhsValue == rhsValue
+            lhsValue == rhsValue
         case let (.error(lhsError), .error(rhsError)):
-            return (lhsError as NSError) == (rhsError as NSError)
+            (lhsError as NSError) == (rhsError as NSError)
         default:
-            return false
+            false
         }
     }
 }

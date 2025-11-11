@@ -1,6 +1,6 @@
-import SwiftUI
-import Navigation
 import MovieComponents
+import Navigation
+import SwiftUI
 
 @MainActor protocol SearchContentViewActions: AnyObject {
     func select(recentSearch: String)

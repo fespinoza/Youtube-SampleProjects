@@ -36,7 +36,7 @@ public struct SearchResultsContainer: Decodable {
         let logger = os.Logger(subsystem: "com.fespinozacast.youtube.MovieCatalog", category: "Models")
 
         let failableResults = try container.decode([FailableSearchResult].self, forKey: .results)
-        self.results = failableResults.compactMap({ failableResult in
+        self.results = failableResults.compactMap { failableResult in
             switch failableResult {
             case let .failed(error):
                 logger.error("\(error)")
@@ -44,16 +44,16 @@ public struct SearchResultsContainer: Decodable {
             case let .value(value):
                 return value
             }
-        })
+        }
     }
 
     enum FailableSearchResult: Decodable {
         case value(SearchResult)
         case failed(error: Error)
 
-        public init(from decoder: Decoder) throws {
+        init(from decoder: Decoder) throws {
             do {
-                let dto = try SearchResult.init(from: decoder)
+                let dto = try SearchResult(from: decoder)
                 self = .value(dto)
             } catch {
                 self = .failed(error: error)
@@ -80,9 +80,9 @@ public enum SearchResult: Decodable {
         let mediaType = try container.decode(String.self, forKey: .mediaType)
 
         if mediaType == "movie" {
-            self = .movie(try MovieSummary(from: decoder))
+            self = try .movie(MovieSummary(from: decoder))
         } else if mediaType == "person" {
-            self = .actor(try ActorSummary(from: decoder))
+            self = try .actor(ActorSummary(from: decoder))
         } else {
             throw CustomDecodingLogicError.unknownMediaType(mediaType)
         }

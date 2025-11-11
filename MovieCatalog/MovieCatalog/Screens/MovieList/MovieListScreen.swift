@@ -1,8 +1,8 @@
 import Foundation
+import MovieComponents
+import MovieModels
 import SwiftUI
 import Tagged
-import MovieModels
-import MovieComponents
 
 struct MovieListScreen: View {
     let listType: MovieListType
