@@ -6,3 +6,18 @@ nesting:
 trailing_comma:
   severity: warning
   mandatory_comma: true
+custom_rules:
+  check_localized_string_bundle:
+    excluded:
+      - "MovieCatalog/.*\\.swift"
+    name: "Localized string bundle"
+    regex: 'String\([^)]*localized:\s*(?:"{3}[\s\S]*?"{3}|"[^"]*")(?![^)]*bundle:\s*\.module)[^)]*\)'
+    message: "Remember to refer to the correct localization bundle with `bundle: .module`"
+    severity: warning
+  check_localized_string_bundle_for_text:
+    included:
+      - "Packages/.*\\.swift"
+    name: "Localized string bundle for Text()"
+    regex: '[^\w]Text\(\s*(?:"{3}[\s\S]*?"{3}|"[^"]*")(?![^)]*bundle:\s*\.module)[^)]*\)'
+    message: "Remember to refer to the correct localization bundle with `bundle: .module`"
+    severity: warning
