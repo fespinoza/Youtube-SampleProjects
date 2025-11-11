@@ -51,7 +51,7 @@ public struct ContentSection<Content: View>: View {
 #Preview {
     NavigationStack {
         ContentSection(title: "Hello") {
-            Text("World")
+            Text(verbatim: "World")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, .spacingM)
         }

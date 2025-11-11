@@ -91,7 +91,7 @@ struct SearchResultCell: View {
                 VStack(alignment: .leading) {
                     Text(movieViewData.title)
 
-                    Text("Movie - \(movieViewData.releaseYear)")
+                    Text("Movie - \(movieViewData.releaseYear)", bundle: .module, comment: "Movie release year")
                         .font(.caption)
                         .foregroundStyle(Color.secondary)
                 }
@@ -108,7 +108,7 @@ struct SearchResultCell: View {
 
                 VStack(alignment: .leading) {
                     Text(actorViewData.name)
-                    Text("Actor")
+                    Text("Actor", bundle: .module, comment: "Actor title")
                         .foregroundStyle(Color.secondary)
                         .font(.caption)
                 }
