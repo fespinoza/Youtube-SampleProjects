@@ -16,7 +16,7 @@ extension Backport {
         case onScrollDown
         case onScrollUp
         case never
-        
+
         /// Bridging back to the SwiftUI version
         @available(iOS 26.0, *)
         var systemVersion: SwiftUI.TabBarMinimizeBehavior {

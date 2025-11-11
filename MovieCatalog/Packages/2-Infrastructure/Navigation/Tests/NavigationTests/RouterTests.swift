@@ -78,4 +78,3 @@ struct RouterTests {
         #expect(home.navigationStackPath == [.actorDetails(id: actorID)])
     }
 }
-

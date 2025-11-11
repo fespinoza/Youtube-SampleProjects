@@ -119,7 +119,6 @@ struct SearchResultCell: View {
     }
 }
 
-
 private struct Demo: View {
     @State var content: SearchResultViewData
 
@@ -153,10 +152,10 @@ extension MovieResultViewData {
         image: ImageViewData = .image(Image(preview: .Movie.Backdrop.IronMan.small))
     ) -> Self {
         .init(
-            id: id,    
-            title: title,    
-            releaseYear: releaseYear,    
-            image: image   
+            id: id,
+            title: title,
+            releaseYear: releaseYear,
+            image: image
         )
     }
 }
@@ -168,9 +167,9 @@ extension ActorResultViewData {
         profileImage: ImageViewData = .image(Image(preview: .Actor.PedroPascal.medium))
     ) -> Self {
         .init(
-            id: id,    
-            name: name,    
-            profileImage: profileImage   
+            id: id,
+            name: name,
+            profileImage: profileImage
         )
     }
 }

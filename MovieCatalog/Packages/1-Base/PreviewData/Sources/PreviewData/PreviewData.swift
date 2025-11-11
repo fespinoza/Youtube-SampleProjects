@@ -38,19 +38,19 @@ public extension PreviewImage {
                 public static let medium: PreviewImage = "movie/eternalSunshine/poster/medium"
                 public static let small: PreviewImage = "movie/eternalSunshine/poster/small"
             }
-            
+
             public struct Gladiator {
                 public static let large: PreviewImage = "movie/gladiator/poster/large"
                 public static let medium: PreviewImage = "movie/gladiator/poster/medium"
                 public static let small: PreviewImage = "movie/gladiator/poster/small"
             }
-            
+
             public struct IronMan {
                 public static let large: PreviewImage = "movie/ironMan/poster/large"
                 public static let medium: PreviewImage = "movie/ironMan/poster/medium"
                 public static let small: PreviewImage = "movie/ironMan/poster/small"
             }
-            
+
             public struct KindaPregnant {
                 public static let large: PreviewImage = "movie/kindaPregnant/poster/large"
                 public static let medium: PreviewImage = "movie/kindaPregnant/poster/medium"

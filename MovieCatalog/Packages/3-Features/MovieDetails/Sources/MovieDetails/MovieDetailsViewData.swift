@@ -24,7 +24,6 @@ struct MovieDetailsViewData: Identifiable, Equatable {
         (lhs.id, lhs.title) == (rhs.id, rhs.title)
     }
 
-
     struct ActorViewData: Identifiable, Equatable {
         let id: ActorID
         let name: String
