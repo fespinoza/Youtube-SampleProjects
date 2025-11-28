@@ -7,6 +7,11 @@ import SwiftUI
     switch destination {
     case let .movieDetails(id):
         MovieDetailsScreen(movieID: id)
+            .toolbar {
+                ToolbarItem {
+                    NotifyReleaseButton(movieID: id)
+                }
+            }
 
     case let .actorDetails(id):
         ActorDetailsScreen(actorID: id)

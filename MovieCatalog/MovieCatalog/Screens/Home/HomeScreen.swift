@@ -23,7 +23,7 @@ struct HomeScreen: View {
     NavigationStack {
         HomeScreen()
     }
-    .environment(GenreStore.preview())
+    .previewEnvironment()
     .environment(\.movieDataClient.homeData) { _ in
         HomeViewData.previewValue()
     }

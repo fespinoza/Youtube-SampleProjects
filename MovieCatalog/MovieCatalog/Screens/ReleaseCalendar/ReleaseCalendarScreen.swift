@@ -21,6 +21,5 @@ struct ReleaseCalendarScreen: View {
     NavigationStack {
         ReleaseCalendarScreen()
     }
-    .environment(GenreStore.preview())
-    .environment(\.movieDataClient, .previewClient())
+    .previewEnvironment()
 }

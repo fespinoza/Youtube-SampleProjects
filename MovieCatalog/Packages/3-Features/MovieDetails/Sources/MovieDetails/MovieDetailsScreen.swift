@@ -24,7 +24,9 @@ public struct MovieDetailsScreen: View {
 }
 
 #Preview {
-    MovieDetailsScreen(movieID: .randomPreviewId())
-        .environment(\.movieDetailsDataSource, .previewClient())
-        .environment(Router.previewRouter())
+    NavigationStack {
+        MovieDetailsScreen(movieID: .randomPreviewId())
+    }
+    .environment(\.movieDetailsDataSource, .previewClient())
+    .environment(Router.previewRouter())
 }

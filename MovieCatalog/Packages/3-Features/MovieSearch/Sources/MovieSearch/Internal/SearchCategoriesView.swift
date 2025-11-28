@@ -43,8 +43,8 @@ struct SearchCategoriesView: View {
                     .tint(Color.white)
                 }
             }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
     }
 }
 
