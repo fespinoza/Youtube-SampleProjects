@@ -1,5 +1,6 @@
 import UIKit
 import OSLog
+import PushNotificationsDebug
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     let logger = Logger.forCategory("AppDelegate")
@@ -14,6 +15,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         logger.debug("Got token \(deviceToken.stringToken())")
+        APNSTokenStorage.storeToken(deviceToken)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: any Error) {

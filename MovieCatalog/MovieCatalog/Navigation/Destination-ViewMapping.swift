@@ -2,6 +2,7 @@ import MovieComponents
 import MovieDetails
 import Navigation
 import SwiftUI
+import PushNotificationsDebug
 
 @ViewBuilder func view(for destination: PushDestination) -> some View {
     switch destination {
@@ -13,6 +14,9 @@ import SwiftUI
 
     case let .movieList(listType):
         MovieListScreen(listType: listType)
+
+    case .pushNotificationsDebug:
+        PushNotificationsDebugView()
     }
 }
 

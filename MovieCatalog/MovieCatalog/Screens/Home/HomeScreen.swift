@@ -1,5 +1,6 @@
 import MovieComponents
 import SwiftUI
+import Navigation
 
 struct HomeScreen: View {
     @State var loadingState: BasicLoadingState<HomeViewData> = .idle
@@ -16,6 +17,13 @@ struct HomeScreen: View {
             fetchData: { try await homeData(genreStore) }
         )
         .navigationTitle("Movies")
+        .toolbar {
+            ToolbarItem {
+                NavigationButton(push: .pushNotificationsDebug) {
+                    Image(systemName: "bell")
+                }
+            }
+        }
     }
 }
 
@@ -23,7 +31,7 @@ struct HomeScreen: View {
     NavigationStack {
         HomeScreen()
     }
-    .environment(GenreStore.preview())
+    .previewEnvironment()
     .environment(\.movieDataClient.homeData) { _ in
         HomeViewData.previewValue()
     }
