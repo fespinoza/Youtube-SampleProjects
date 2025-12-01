@@ -12,6 +12,7 @@
 		9B3E8DCE2DAB154100D61DF7 /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = 9B3E8DCD2DAB154100D61DF7 /* Navigation */; };
 		9B42458F2DAB0DDD00A2C8C8 /* MovieModels in Frameworks */ = {isa = PBXBuildFile; productRef = 9B42458E2DAB0DDD00A2C8C8 /* MovieModels */; };
 		9B4245922DAB0FDD00A2C8C8 /* Config in Frameworks */ = {isa = PBXBuildFile; productRef = 9B4245912DAB0FDD00A2C8C8 /* Config */; };
+		9B527A562EDE21D000D24E30 /* PushNotificationsDebug in Frameworks */ = {isa = PBXBuildFile; productRef = 9B527A552EDE21D000D24E30 /* PushNotificationsDebug */; };
 		9B7E944A2D56A2E5002783BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B7E94492D56A2E1002783BA /* README.md */; };
 		9B7E945F2D56B19B002783BA /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 9B7E945E2D56B19B002783BA /* Tagged */; };
 		9BC66EE32DAE74B200DB8E2C /* MovieDetails in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC66EE22DAE74B200DB8E2C /* MovieDetails */; };
@@ -95,6 +96,7 @@
 				9B4245922DAB0FDD00A2C8C8 /* Config in Frameworks */,
 				9B3E8D4C2DAB133F00D61DF7 /* MovieDBNetworking in Frameworks */,
 				9B3E8DCE2DAB154100D61DF7 /* Navigation in Frameworks */,
+				9B527A562EDE21D000D24E30 /* PushNotificationsDebug in Frameworks */,
 				9B3845362DAB1BDE007C9F3F /* MovieComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +170,7 @@
 				9B3845352DAB1BDE007C9F3F /* MovieComponents */,
 				9BC66EE22DAE74B200DB8E2C /* MovieDetails */,
 				9BEAC0652DC21BE80011F8B2 /* MovieSearch */,
+				9B527A552EDE21D000D24E30 /* PushNotificationsDebug */,
 			);
 			productName = MovieCatalog;
 			productReference = 9B7E94382D56A2D9002783BA /* MovieCatalog.app */;
@@ -592,6 +595,10 @@
 		9B4245912DAB0FDD00A2C8C8 /* Config */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Config;
+		};
+		9B527A552EDE21D000D24E30 /* PushNotificationsDebug */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PushNotificationsDebug;
 		};
 		9B7E945E2D56B19B002783BA /* Tagged */ = {
 			isa = XCSwiftPackageProductDependency;
