@@ -23,12 +23,14 @@ public enum PushDestination: Hashable, CustomStringConvertible {
     case movieDetails(id: MovieID)
     case actorDetails(id: ActorID)
     case movieList(_ movieListType: MovieListType)
+    case pushNotificationsDebug
 
     public var description: String {
         switch self {
         case let .movieDetails(id): ".movieDetails(\(id))"
         case let .actorDetails(id): ".actorDetails(\(id))"
         case let .movieList(type): ".movieList(\(type))"
+        case .pushNotificationsDebug: ".pushNotificationsDebug"
         }
     }
 }
