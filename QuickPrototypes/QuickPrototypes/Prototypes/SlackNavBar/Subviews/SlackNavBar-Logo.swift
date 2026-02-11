@@ -11,7 +11,7 @@ extension SlackNavBar {
                         .fontWeight(.black)
                         .italic()
                 }
-                .frame(width: 30, height: 30)
+                .frame(size: 30)
         }
     }
 }
