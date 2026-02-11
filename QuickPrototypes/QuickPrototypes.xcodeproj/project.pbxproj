@@ -6,14 +6,36 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9B6A1AF22F3C849700E7B3F4 /* UsefulExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 9B6A1AF12F3C849700E7B3F4 /* UsefulExtensions */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9B6A18F62F3C82E900E7B3F4 /* QuickPrototypes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickPrototypes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9B6A1AEF2F3C847000E7B3F4 /* Exceptions for "Packages" folder in "QuickPrototypes" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UsefulExtensions,
+			);
+			target = 9B6A18F52F3C82E900E7B3F4 /* QuickPrototypes */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9B6A18F82F3C82E900E7B3F4 /* QuickPrototypes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = QuickPrototypes;
+			sourceTree = "<group>";
+		};
+		9B6A1AED2F3C845100E7B3F4 /* Packages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9B6A1AEF2F3C847000E7B3F4 /* Exceptions for "Packages" folder in "QuickPrototypes" target */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B6A1AF22F3C849700E7B3F4 /* UsefulExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +55,9 @@
 		9B6A18ED2F3C82E900E7B3F4 = {
 			isa = PBXGroup;
 			children = (
+				9B6A1AED2F3C845100E7B3F4 /* Packages */,
 				9B6A18F82F3C82E900E7B3F4 /* QuickPrototypes */,
+				9B6A1AF02F3C849700E7B3F4 /* Frameworks */,
 				9B6A18F72F3C82E900E7B3F4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +68,13 @@
 				9B6A18F62F3C82E900E7B3F4 /* QuickPrototypes.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9B6A1AF02F3C849700E7B3F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -62,9 +94,11 @@
 			);
 			fileSystemSynchronizedGroups = (
 				9B6A18F82F3C82E900E7B3F4 /* QuickPrototypes */,
+				9B6A1AED2F3C845100E7B3F4 /* Packages */,
 			);
 			name = QuickPrototypes;
 			packageProductDependencies = (
+				9B6A1AF12F3C849700E7B3F4 /* UsefulExtensions */,
 			);
 			productName = QuickPrototypes;
 			productReference = 9B6A18F62F3C82E900E7B3F4 /* QuickPrototypes.app */;
@@ -332,6 +366,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9B6A1AF12F3C849700E7B3F4 /* UsefulExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UsefulExtensions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9B6A18EE2F3C82E900E7B3F4 /* Project object */;
 }
