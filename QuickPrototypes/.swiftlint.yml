@@ -1,0 +1,8 @@
+disabled_rules:
+  - multiple_closures_with_trailing_closure
+  - todo
+nesting:
+  type_level: 4
+trailing_comma:
+  severity: warning
+  mandatory_comma: true

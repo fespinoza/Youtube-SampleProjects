@@ -7,12 +7,12 @@ let package = Package(
     products: [
         .library(
             name: "UsefulExtensions",
-            targets: ["UsefulExtensions"]
+            targets: ["UsefulExtensions"],
         ),
     ],
     targets: [
         .target(
-            name: "UsefulExtensions"
+            name: "UsefulExtensions",
         ),
-    ]
+    ],
 )

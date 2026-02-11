@@ -8,8 +8,8 @@ extension SlackNavBar {
                     title: "External Connections",
                     items: [
                         .lock("external-provider"),
-                        .lock("project-poc")
-                    ]
+                        .lock("project-poc"),
+                    ],
                 )
 
                 Divider()
@@ -20,8 +20,8 @@ extension SlackNavBar {
                         .channel("development-team"),
                         .channel("app-team"),
                         .channel("ios-team"),
-                        .lock("internal-app-team")
-                    ]
+                        .lock("internal-app-team"),
+                    ],
                 )
 
                 Divider()
@@ -33,7 +33,7 @@ extension SlackNavBar {
                         .channel("app-store-reviews"),
                         .channel("books"),
                         .channel("coffee-machine"),
-                    ]
+                    ],
                 )
 
                 Divider()
@@ -49,7 +49,7 @@ extension SlackNavBar {
                         .channel("alerts"),
                         .channel("new-releases"),
                         .channel("research"),
-                    ]
+                    ],
                 )
 
                 Divider()
@@ -64,7 +64,7 @@ extension SlackNavBar {
                         .person("Robert"),
                         .person("Paul"),
                         .person("Guy"),
-                    ]
+                    ],
                 )
             }
             .padding()
@@ -99,23 +99,25 @@ extension SlackNavBar {
             case lock(String)
             case person(String)
 
-            var id: String { title }
+            var id: String {
+                title
+            }
 
             var title: String {
                 switch self {
-                case .channel(let name), .lock(let name), .person(let name):
-                    return name
+                case let .channel(name), let .lock(name), let .person(name):
+                    name
                 }
             }
 
             var icon: String {
                 switch self {
                 case .channel:
-                    return "number"
+                    "number"
                 case .lock:
-                    return "lock"
+                    "lock"
                 case .person:
-                    return "person.circle"
+                    "person.circle"
                 }
             }
         }
