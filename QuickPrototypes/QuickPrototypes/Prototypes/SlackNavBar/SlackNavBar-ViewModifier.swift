@@ -1,13 +1,40 @@
 import SwiftUI
 
 extension SlackNavBar {
-    struct ZStackApproach: View {
+    struct DemoAsViewModifier: View {
         @State private var barBackgroundColor: Color = Color(red: 0, green: 0.24, blue: 0.28)
         @Environment(\.colorScheme) private var colorScheme
 
         private var contentBackgroundColor: Color {
             colorScheme == .dark ? Color(red: 0.11, green: 0.11, blue: 0.13) : .white
         }
+
+        var body: some View {
+            ScrollView(.vertical) {
+                FakeSlackContent()
+                    .background(contentBackgroundColor)
+            }
+            .toolbar { toolbarContent }
+            .slackNavBar(
+                title: "Hello",
+                navigationBarColor: barBackgroundColor,
+                contentBackgroundColor: contentBackgroundColor
+            )
+        }
+
+        @ToolbarContentBuilder var toolbarContent: some ToolbarContent {
+            ToolbarItem(placement: .topBarLeading) { Logo() }
+
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                TrailingContent()
+            }
+        }
+    }
+
+    struct NavBarEffectViewModifier: ViewModifier {
+        let navigationTitle: String
+        let navigationBarColor: Color
+        let contentBackgroundColor: Color
 
         /// Tracks the offset Y for the scroll view
         @State private var offsetY: CGFloat = 0
@@ -28,11 +55,11 @@ extension SlackNavBar {
             min(1.0, max(0.0, 1.0 - (offsetY - initialOffsetY) / 9.0))
         }
 
-        var body: some View {
+        func body(content: Content) -> some View {
             ZStack {
                 VStack(spacing: 0) {
                     // color shown in the navigation bar
-                    barBackgroundColor
+                    navigationBarColor
                         .frame(height: customBarBackgroundHeight)
                         // this is how the content scrolls away, without
                         // being part of the scroll view
@@ -47,10 +74,7 @@ extension SlackNavBar {
                         .frame(maxWidth: .infinity)
                 }
 
-                ScrollView(.vertical) {
-                    FakeSlackContent()
-                        .background(contentBackgroundColor)
-                }
+                content
                 // we track the offset of the scroll view
                 .onScrollGeometryChange(
                     for: CGFloat.self,
@@ -81,23 +105,20 @@ extension SlackNavBar {
                 }
             )
             .toolbarTitleDisplayMode(.inline)
-            .toolbar { toolbarContent }
-        }
+            .toolbar {
+                ToolbarItem() {
+                    TitleContent(text: navigationTitle)
+                        .opacity(titleOpacity)
+                }
+                .sharedBackgroundVisibility(.hidden)
 
-        @ToolbarContentBuilder var toolbarContent: some ToolbarContent {
-            ToolbarItem(placement: .topBarLeading) { Logo() }
+                ToolbarSpacer(.fixed)
 
-            ToolbarItem() {
-                TitleContent(text: "Hello")
-                    .opacity(titleOpacity)
+                // This is very hacky, but it's to keep the modifier ⭐
+                ToolbarItem(placement: .principal) { Text("") }
             }
-            .sharedBackgroundVisibility(.hidden)
-
-            ToolbarSpacer(.fixed)
-
-            ToolbarItemGroup(placement: .topBarTrailing) {
-                TrailingContent()
-            }
+            // ⭐, for back buttons of other screens
+            .navigationTitle(navigationTitle)
         }
 
         var debugValues: some View {
@@ -110,8 +131,20 @@ extension SlackNavBar {
     }
 }
 
+private extension View {
+    func slackNavBar(title: String, navigationBarColor: Color, contentBackgroundColor: Color) -> some View {
+        modifier(
+            SlackNavBar.NavBarEffectViewModifier(
+                navigationTitle: title,
+                navigationBarColor: navigationBarColor,
+                contentBackgroundColor: contentBackgroundColor
+            )
+        )
+    }
+}
+
 #Preview {
     NavigationStack {
-        SlackNavBar.ZStackApproach()
+        SlackNavBar.DemoAsViewModifier()
     }
 }

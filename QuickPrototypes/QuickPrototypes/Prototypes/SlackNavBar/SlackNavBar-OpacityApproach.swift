@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension SlackNavBar {
-    struct ZStackApproach: View {
+    struct OpacityApproach: View {
         @State private var barBackgroundColor: Color = Color(red: 0, green: 0.24, blue: 0.28)
         @Environment(\.colorScheme) private var colorScheme
 
@@ -17,10 +17,10 @@ extension SlackNavBar {
 
         let customBarBackgroundHeight: CGFloat = 300
 
-        /// Dynamic offset of the navigation bar background, which will change
+        /// Dynamic opacity of the navigation bar background, which will change
         /// as scroll view offset changes
-        var barOffset: CGFloat {
-            -(offsetY + customBarBackgroundHeight)
+        var barBackgroundOpacity: Double {
+            min(1, max(0, offsetY / initialOffsetY))
         }
 
         /// Dynamic opacity of the title for the desired effect
@@ -29,45 +29,31 @@ extension SlackNavBar {
         }
 
         var body: some View {
-            ZStack {
-                VStack(spacing: 0) {
-                    // color shown in the navigation bar
-                    barBackgroundColor
-                        .frame(height: customBarBackgroundHeight)
-                        // this is how the content scrolls away, without
-                        // being part of the scroll view
-                        .offset(y: barOffset)
-                        .ignoresSafeArea(.container)
-
-                    // It's important that this color is clear
-                    // to avoid weird color effects due to the bar
-                    // background scrolling away, then it shows through
-                    // the actual view background ⭐
-                    Color.clear
-                        .frame(maxWidth: .infinity)
-                }
-
-                ScrollView(.vertical) {
-                    FakeSlackContent()
-                        .background(contentBackgroundColor)
-                }
-                // we track the offset of the scroll view
-                .onScrollGeometryChange(
-                    for: CGFloat.self,
-                    of: { $0.contentOffset.y },
-                    action: { _, newValue in
-                        offsetY = newValue
-                        // for this effect, the initial offset will never be 0
-                        // then I use it as a placeholder value to avoid an optional
-                        // on appear, this closure will be called and we record that
-                        // initial value that won't be 0
-                        if initialOffsetY == 0 {
-                            initialOffsetY = newValue
-                        }
-                    }
-                )
+            ScrollView(.vertical) {
+                FakeSlackContent()
+                    .background(contentBackgroundColor)
             }
-            // view background ⭐
+            // we track the offset of the scroll view
+            .onScrollGeometryChange(
+                for: CGFloat.self,
+                of: { $0.contentOffset.y },
+                action: { _, newValue in
+                    offsetY = newValue
+                    // for this effect, the initial offset will never be 0
+                    // then I use it as a placeholder value to avoid an optional
+                    // on appear, this closure will be called and we record that
+                    // initial value that won't be 0
+                    if initialOffsetY == 0 {
+                        initialOffsetY = newValue
+                    }
+                }
+            )
+            // ⭐ here the magic happens, we make sure the background color
+            // is only visible when the navigation bar is visible
+            // otherwise this will "tint" the effect when the nav bar goes away
+            .background(barBackgroundColor.opacity(barBackgroundOpacity))
+            // since 👆 will eventually be transparent, we need to have this
+            // background to ensure a smooth transition
             .background(contentBackgroundColor)
             .overlay { debugValues }
             // to ensure the effect works when the view changes orientations
@@ -101,7 +87,7 @@ extension SlackNavBar {
         }
 
         var debugValues: some View {
-            Text("\(offsetY)\n\(barOffset)\n\(initialOffsetY)")
+            Text("\(offsetY)\n\(barBackgroundOpacity)\n\(initialOffsetY)")
                 .monospacedDigit()
                 .padding()
                 .background(Color.red)
@@ -112,6 +98,7 @@ extension SlackNavBar {
 
 #Preview {
     NavigationStack {
-        SlackNavBar.ZStackApproach()
+        SlackNavBar.OpacityApproach()
     }
 }
+
