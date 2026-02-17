@@ -2,7 +2,7 @@ import SwiftUI
 
 extension SlackNavBar {
     struct DemoAsViewModifier: View {
-        @State private var barBackgroundColor: Color = Color(red: 0, green: 0.24, blue: 0.28)
+        @State private var barBackgroundColor: Color = .init(red: 0, green: 0.24, blue: 0.28)
         @Environment(\.colorScheme) private var colorScheme
 
         private var contentBackgroundColor: Color {
@@ -18,7 +18,7 @@ extension SlackNavBar {
             .slackNavBar(
                 title: "Hello",
                 navigationBarColor: barBackgroundColor,
-                contentBackgroundColor: contentBackgroundColor
+                contentBackgroundColor: contentBackgroundColor,
             )
         }
 
@@ -75,21 +75,21 @@ extension SlackNavBar {
                 }
 
                 content
-                // we track the offset of the scroll view
-                .onScrollGeometryChange(
-                    for: CGFloat.self,
-                    of: { $0.contentOffset.y },
-                    action: { _, newValue in
-                        offsetY = newValue
-                        // for this effect, the initial offset will never be 0
-                        // then I use it as a placeholder value to avoid an optional
-                        // on appear, this closure will be called and we record that
-                        // initial value that won't be 0
-                        if initialOffsetY == 0 {
-                            initialOffsetY = newValue
-                        }
-                    }
-                )
+                    // we track the offset of the scroll view
+                    .onScrollGeometryChange(
+                        for: CGFloat.self,
+                        of: { $0.contentOffset.y },
+                        action: { _, newValue in
+                            offsetY = newValue
+                            // for this effect, the initial offset will never be 0
+                            // then I use it as a placeholder value to avoid an optional
+                            // on appear, this closure will be called and we record that
+                            // initial value that won't be 0
+                            if initialOffsetY == 0 {
+                                initialOffsetY = newValue
+                            }
+                        },
+                    )
             }
             // view background ⭐
             .background(contentBackgroundColor)
@@ -102,11 +102,11 @@ extension SlackNavBar {
                     if oldValue != newValue {
                         initialOffsetY = 0
                     }
-                }
+                },
             )
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem() {
+                ToolbarItem {
                     TitleContent(text: navigationTitle)
                         .opacity(titleOpacity)
                 }
@@ -137,8 +137,8 @@ private extension View {
             SlackNavBar.NavBarEffectViewModifier(
                 navigationTitle: title,
                 navigationBarColor: navigationBarColor,
-                contentBackgroundColor: contentBackgroundColor
-            )
+                contentBackgroundColor: contentBackgroundColor,
+            ),
         )
     }
 }

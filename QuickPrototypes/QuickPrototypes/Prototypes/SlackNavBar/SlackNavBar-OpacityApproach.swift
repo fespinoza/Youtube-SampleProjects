@@ -2,7 +2,7 @@ import SwiftUI
 
 extension SlackNavBar {
     struct OpacityApproach: View {
-        @State private var barBackgroundColor: Color = Color(red: 0, green: 0.24, blue: 0.28)
+        @State private var barBackgroundColor: Color = .init(red: 0, green: 0.24, blue: 0.28)
         @Environment(\.colorScheme) private var colorScheme
 
         private var contentBackgroundColor: Color {
@@ -46,7 +46,7 @@ extension SlackNavBar {
                     if initialOffsetY == 0 {
                         initialOffsetY = newValue
                     }
-                }
+                },
             )
             // ⭐ here the magic happens, we make sure the background color
             // is only visible when the navigation bar is visible
@@ -64,7 +64,7 @@ extension SlackNavBar {
                     if oldValue != newValue {
                         initialOffsetY = 0
                     }
-                }
+                },
             )
             .toolbarTitleDisplayMode(.inline)
             .toolbar { toolbarContent }
@@ -73,7 +73,7 @@ extension SlackNavBar {
         @ToolbarContentBuilder var toolbarContent: some ToolbarContent {
             ToolbarItem(placement: .topBarLeading) { Logo() }
 
-            ToolbarItem() {
+            ToolbarItem {
                 TitleContent(text: "Hello")
                     .opacity(titleOpacity)
             }
@@ -101,4 +101,3 @@ extension SlackNavBar {
         SlackNavBar.OpacityApproach()
     }
 }
-

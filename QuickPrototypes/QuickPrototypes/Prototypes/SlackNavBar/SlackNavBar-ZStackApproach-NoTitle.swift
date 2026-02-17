@@ -4,7 +4,7 @@ import SwiftUI
 
 extension SlackNavBar {
     struct ZStackApproach_NoTitle: View {
-        @State private var barBackgroundColor: Color = Color(red: 0, green: 0.24, blue: 0.28)
+        @State private var barBackgroundColor: Color = .init(red: 0, green: 0.24, blue: 0.28)
         @Environment(\.colorScheme) private var colorScheme
 
         private var contentBackgroundColor: Color {
@@ -51,7 +51,7 @@ extension SlackNavBar {
                     of: { $0.contentOffset.y },
                     action: { _, newValue in
                         offsetY = newValue
-                    }
+                    },
                 )
             }
             // view background ⭐
